@@ -158,6 +158,23 @@ table.dok-tabel td:first-child{width:34%;color:var(--abu);font-weight:600;backgr
 .dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
 .dok-petunjuk{text-align:center;color:var(--abu);font-size:13.5px;margin-top:14px;line-height:1.6}
 @media(max-width:640px){.dok-kertas{padding:26px 20px}.dok-nama{font-size:18.5px}.dok-logo{width:48px;height:48px;font-size:24px;border-radius:11px}table.dok-tabel td:first-child{width:40%}}
+/* ===== Area Panitia PPDB ===== */
+.pan-box{max-width:920px;margin:0 auto;border:1px solid var(--garis2);border-radius:20px;background:var(--panel);padding:32px 30px;box-shadow:0 16px 40px var(--bayang);text-align:left}
+.pan-box h3{font-size:19px;margin-bottom:6px}
+.pan-box p{font-size:14px;color:var(--abu);line-height:1.65}
+.pan-login{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.pan-login input{flex:1;min-width:190px;background:var(--inputbg);border:1px solid var(--garis2);border-radius:12px;padding:12px 14px;color:var(--teks);font-family:inherit;font-size:15px}
+.pan-login input:focus{outline:none;border-color:var(--c1)}
+table.pan-tabel{width:100%;border-collapse:collapse;margin-top:18px;font-size:13.5px}
+table.pan-tabel th,table.pan-tabel td{border:1px solid var(--garis2);padding:9px 11px;text-align:left;vertical-align:top}
+table.pan-tabel th{background:var(--inputbg);font-size:12.5px;letter-spacing:.4px}
+.pan-status{display:inline-block;padding:3px 11px;border-radius:999px;font-size:12px;font-weight:700;background:#FEF3C7;color:#92400E;white-space:nowrap}
+.pan-status.ver{background:#DBEAFE;color:#1D4ED8}
+.pan-status.ter{background:#DCFCE7;color:#15803D}
+.pan-mini{padding:8px 15px!important;font-size:13px!important}
+.pan-aksi-row{display:flex;gap:10px;flex-wrap:wrap;margin:4px 0 8px}
+.pan-rekap-kop{display:none}
+@media(max-width:640px){table.pan-tabel{font-size:12px}.pan-box{padding:24px 18px}}
 /* ===== Cetak: hanya dokumen bukti pendaftaran ===== */
 @media print{
 @page{margin:14mm}
@@ -168,6 +185,13 @@ body{background:#fff}
 .dokumen{margin:0}
 .dok-kertas{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
 *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+/* mode cetak rekap panitia: hanya tabel rekap yang tercetak */
+body.mode-rekap header,body.mode-rekap .hero,body.mode-rekap footer,body.mode-rekap .wa-float,body.mode-rekap .stickybar{display:none!important}
+body.mode-rekap section:not(#panitia-sec){display:none!important}
+body.mode-rekap #panitia-sec{display:block!important;padding:0!important}
+body.mode-rekap .pan-box{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
+body.mode-rekap .pan-no-print{display:none!important}
+body.mode-rekap .pan-rekap-kop{display:block;text-align:center;border-bottom:3px double var(--teks);padding-bottom:12px;margin-bottom:16px}
 }
 </style>
 
@@ -370,9 +394,39 @@ body{background:#fff}
 </div>
 </div>
 </section>
+<section id="panitia-sec" style="padding:10px 0 74px">
+<div class="wrap">
+<div class="pan-box">
+<div class="pan-rekap-kop">
+<div style="font-size:21px;font-weight:800">SD CENDEKIA NUSANTARA</div>
+<div style="font-size:12.5px;font-weight:700;letter-spacing:2.5px">SEKOLAH DASAR ISLAM TERPADU</div>
+<div style="font-size:16.5px;font-weight:800;margin-top:12px">REKAP PENDAFTAR PPDB — TAHUN AJARAN 2026/2027</div>
+<div style="font-size:12.5px" id="panRekapTgl">—</div>
+</div>
+<div class="pan-no-print">
+<h3>🔐 Area Panitia PPDB</h3>
+<p>Ruang kerja panitia (demo): setiap pendaftaran dari formulir PPDB di halaman ini <b>tersimpan otomatis</b> di perangkat ini. Panitia dapat memantau daftar pendaftar, mengubah status verifikasi, dan mencetak rekap. Masukkan PIN panitia untuk membuka. <b>PIN demo: 1234</b></p>
+<div class="pan-login" id="panLogin">
+<input type="password" id="panPin" inputmode="numeric" placeholder="Masukkan PIN panitia (demo: 1234)">
+<button class="btn btn-c1 pan-mini" type="button" id="btnPanMasuk">Masuk Area Panitia</button>
+</div>
+<p id="panSalah" style="color:#DC2626;font-size:13.5px;margin-top:10px" hidden>PIN salah — silakan coba lagi. (Petunjuk demo: PIN-nya 1234.)</p>
+</div>
+<div id="panKonten" hidden>
+<div class="pan-aksi-row pan-no-print">
+<button class="btn btn-c1 pan-mini" type="button" id="btnCetakRekap">🖨 Cetak Rekap</button>
+<button class="btn btn-ghost pan-mini" type="button" id="btnPanKeluar">Kunci Area Panitia</button>
+</div>
+<div id="panTabelWadah"></div>
+<p id="panRingkasan" style="margin-top:14px;font-size:13.5px;color:var(--abu)"></p>
+</div>
+</div>
+</div>
+</section>
 <footer><div class="wrap">
 <div class="nama">SD Cendekia Nusantara</div>
 <p>Jl. Pendidikan No. 12, Sukoharjo, Jawa Tengah · Senin–Jumat 07.00–15.30 WIB<br>Panitia PPDB siap melayani via WhatsApp pada jam kerja.</p>
+<p style="margin-top:12px;font-size:13px">Khusus panitia: <a href="#panitia-sec" style="color:var(--c1);font-weight:700">🔐 Area Panitia PPDB (Demo)</a></p>
 <p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
 </div></footer>
 <a class="wa-float" href="#" data-wa="Halo SD Cendekia Nusantara, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
@@ -429,6 +483,11 @@ if (formPPDB) {
       "No. WA orang tua: " + val("fWA")];
     if (cat) baris.push("Catatan: " + cat);
     document.getElementById("btnKirimWA").setAttribute("href", waLink(baris.join("\n")));
+    try{
+      var arsip = panBaca();
+      arsip.push({nomor:nomor, nama:val("fNamaAnak"), jenjang:val("fJenjang"), tanggal:hariIni, status:"Baru", ortu:val("fNamaOrtu"), wa:val("fWA")});
+      panSimpan(arsip);
+    }catch(err){}
     var dok = document.getElementById("dokumen");
     dok.hidden = false; dok.classList.add("aktif");
     dok.scrollIntoView({behavior:"smooth", block:"start"});
@@ -439,6 +498,68 @@ if (formPPDB) {
     var dok = document.getElementById("dokumen");
     dok.hidden = true; dok.classList.remove("aktif");
     formPPDB.scrollIntoView({behavior:"smooth", block:"center"});
+  });
+}
+/* ===== Area Panitia PPDB — data tersimpan di localStorage ===== */
+var PAN_KEY = "bw_ppdb01_pendaftar";
+function panBaca(){ try{ return JSON.parse(localStorage.getItem(PAN_KEY) || "[]"); }catch(e){ return []; } }
+function panSimpan(a){ try{ localStorage.setItem(PAN_KEY, JSON.stringify(a)); }catch(e){} }
+function panEsc(s){ return String(s == null ? "" : s).replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;").replace(/"/g,"&quot;"); }
+function panRender(){
+  var data = panBaca();
+  var wadah = document.getElementById("panTabelWadah");
+  var ring = document.getElementById("panRingkasan");
+  if(!wadah) return;
+  document.getElementById("panRekapTgl").textContent = "Dicetak pada " + fmtTgl(new Date());
+  if(!data.length){
+    wadah.innerHTML = "<p style='color:var(--abu);font-size:14px;margin-top:14px'>Belum ada pendaftaran tersimpan di perangkat ini. Silakan uji dengan mengisi formulir PPDB di atas — data akan muncul di sini.</p>";
+    ring.textContent = "";
+    return;
+  }
+  var cB = 0, cV = 0, cT = 0;
+  var h = "<div style='overflow-x:auto'><table class='pan-tabel'><tr><th>No. Pendaftaran</th><th>Nama Anak</th><th>Jenjang</th><th>Tanggal Daftar</th><th>Status</th><th class='pan-no-print'>Aksi</th></tr>";
+  data.forEach(function(r, i){
+    if(r.status === "Diterima") cT++; else if(r.status === "Terverifikasi") cV++; else cB++;
+    var cls = r.status === "Diterima" ? "ter" : (r.status === "Terverifikasi" ? "ver" : "");
+    h += "<tr><td>" + panEsc(r.nomor) + "</td><td>" + panEsc(r.nama) + "</td><td>" + panEsc(r.jenjang) + "</td><td>" + panEsc(r.tanggal) + "</td><td><span class='pan-status " + cls + "'>" + panEsc(r.status) + "</span></td><td class='pan-no-print'>" + (r.status !== "Diterima" ? "<button type='button' class='btn btn-c1 pan-mini' data-pan-naik='" + i + "'>Ubah Status</button>" : "—") + "</td></tr>";
+  });
+  h += "</table></div>";
+  wadah.innerHTML = h;
+  ring.textContent = "Total pendaftar: " + data.length + " · Baru: " + cB + " · Terverifikasi: " + cV + " · Diterima: " + cT + " · Data tersimpan lokal di perangkat ini (demo).";
+  wadah.querySelectorAll("[data-pan-naik]").forEach(function(b){
+    b.addEventListener("click", function(){
+      var d = panBaca();
+      var idx = parseInt(b.getAttribute("data-pan-naik"), 10);
+      if(d[idx]){ d[idx].status = d[idx].status === "Baru" ? "Terverifikasi" : "Diterima"; panSimpan(d); panRender(); }
+    });
+  });
+}
+var btnPanMasuk = document.getElementById("btnPanMasuk");
+if(btnPanMasuk){
+  btnPanMasuk.addEventListener("click", function(){
+    var pin = (document.getElementById("panPin").value || "").trim();
+    if(pin === "1234"){
+      document.getElementById("panSalah").hidden = true;
+      document.getElementById("panLogin").style.display = "none";
+      document.getElementById("panKonten").hidden = false;
+      panRender();
+    }else{
+      document.getElementById("panSalah").hidden = false;
+    }
+  });
+  document.getElementById("panPin").addEventListener("keydown", function(e){ if(e.key === "Enter"){ e.preventDefault(); btnPanMasuk.click(); } });
+  document.getElementById("btnPanKeluar").addEventListener("click", function(){
+    document.getElementById("panKonten").hidden = true;
+    document.getElementById("panLogin").style.display = "";
+    document.getElementById("panPin").value = "";
+  });
+  document.getElementById("btnCetakRekap").addEventListener("click", function(){
+    panRender();
+    document.body.classList.add("mode-rekap");
+    setTimeout(function(){
+      window.print();
+      setTimeout(function(){ document.body.classList.remove("mode-rekap"); }, 500);
+    }, 80);
   });
 }
 var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});

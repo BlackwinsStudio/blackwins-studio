@@ -139,6 +139,30 @@ footer .kredit b{color:var(--c1)}
 .tile .tshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,22,.08) 28%,rgba(10,14,22,.82))}
 .tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 </style>
+
+<style>
+/* ===== SISTEM PERMINTAAN INTERVIEW ===== */
+.dok-wrap{max-width:700px;margin:38px auto 0;text-align:left}
+.dokumen{background:#fff;border:1px solid var(--garis2);border-radius:18px;padding:34px 36px;color:#1C2330;box-shadow:0 20px 46px var(--bayang)}
+.kop-cv{display:flex;gap:16px;align-items:center;border-bottom:3px double #1E3A5F;padding-bottom:16px;margin-bottom:20px}
+.kop-ava{width:58px;height:58px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:#fff;flex:none}
+.kop-nama{font-size:20px;font-weight:800;color:var(--c1)}
+.kop-sub{font-size:12.5px;color:#626B7A;line-height:1.5}
+.dok-judul{text-align:center;font-size:18px;letter-spacing:1.2px;margin-bottom:4px}
+.dok-kode{text-align:center;font-size:13px;color:#626B7A;margin-bottom:18px}
+.dok-tabel{width:100%;border-collapse:collapse;font-size:14.5px}
+.dok-tabel td{padding:8px 10px;border-bottom:1px solid #EDEEEA;vertical-align:top}
+.dok-tabel td:first-child{width:185px;color:#626B7A;font-weight:600}
+.dok-status{margin-top:20px;background:#F1F1ED;border:1px solid var(--garis);border-radius:12px;padding:14px 16px;font-size:13.5px;line-height:1.65}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.dok-info{text-align:center;font-size:12.5px;color:var(--abu);margin-top:14px}
+@media print{
+body *{visibility:hidden}
+.dokumen,.dokumen *{visibility:visible}
+.dokumen{position:absolute;top:0;left:0;width:100%;box-shadow:none;border:none;border-radius:0}
+.no-print{display:none !important}
+}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -256,6 +280,52 @@ footer .kredit b{color:var(--c1)}
 <a class="btn btn-wa" href="#" data-wa="Halo Pak Dimas Prasetyo, saya [nama] dari [perusahaan]. Saya ingin berdiskusi tentang: ">Chat WhatsApp</a>
 <a class="btn btn-ghost" href="#profil">📄 Unduh CV (PDF) — contoh tombol</a>
 </div>
+<form class="formbox reveal" id="formReq" style="text-align:left;margin-top:44px">
+<h3 style="font-size:20px">Formulir Permintaan Interview / Penawaran</h3>
+<p style="font-size:13.5px;color:var(--abu);margin-top:6px">Tim HR / perekrut? Isi formulir ini — sistem langsung menerbitkan <b>Ringkasan Permintaan Interview</b> bernomor REQ untuk arsipmu, dan kamu bisa meneruskannya ke WhatsApp Dimas dalam sekali klik.</p>
+<label>Nama Perekrut / PIC</label>
+<input type="text" id="cvNama" placeholder="cth: Sarah Wijaya — HRD" required>
+<label>Perusahaan / Instansi</label>
+<input type="text" id="cvPerusahaan" placeholder="cth: PT Kuliner Nusantara" required>
+<label>Posisi yang Ditawarkan</label>
+<input type="text" id="cvPosisi" placeholder="cth: Manajer Operasional Area" required>
+<label>Email Kantor</label>
+<input type="email" id="cvEmail" placeholder="cth: hrd@perusahaan.co.id" required>
+<label>Nomor WhatsApp</label>
+<input type="tel" id="cvWA" placeholder="cth: 0812xxxxxxx" required>
+<label>Pesan / Ringkasan Penawaran</label>
+<textarea rows="4" id="cvPesan" placeholder="cth: Kami membuka posisi Manajer Operasional untuk 3 outlet baru di Solo Raya. Kisaran kompensasi dan skema kerja dapat dibicarakan pada sesi interview. Kami berharap dapat berdiskusi minggu ini." required></textarea>
+<button class="btn btn-c1" type="submit">📨 Terbitkan Ringkasan Permintaan</button>
+</form>
+<div class="dok-wrap" id="hasilReq" style="display:none">
+<div class="dokumen" id="dokReq">
+<div class="kop-cv">
+<div class="kop-ava">DP</div>
+<div>
+<div class="kop-nama">DIMAS PRASETYO — CV ONLINE</div>
+<div class="kop-sub">Konsultan Operasional &amp; Manajer Proyek · Sukoharjo, Jawa Tengah</div>
+<div class="kop-sub">Dokumen ini diterbitkan otomatis oleh sistem dari formulir permintaan interview.</div>
+</div>
+</div>
+<h3 class="dok-judul">RINGKASAN PERMINTAAN INTERVIEW</h3>
+<p class="dok-kode">Nomor Permintaan: <b id="rNomor">—</b> · Tanggal: <span id="rTanggal">—</span></p>
+<table class="dok-tabel">
+<tr><td>Nama Perekrut</td><td><b id="rNama">—</b></td></tr>
+<tr><td>Perusahaan</td><td id="rPerusahaan">—</td></tr>
+<tr><td>Posisi Ditawarkan</td><td id="rPosisi">—</td></tr>
+<tr><td>Email</td><td id="rEmail">—</td></tr>
+<tr><td>No. WhatsApp</td><td id="rWA">—</td></tr>
+<tr><td>Pesan / Penawaran</td><td id="rPesan">—</td></tr>
+</table>
+<div class="dok-status"><b>Status: Terkirim ke sistem.</b> Simpan dokumen ini sebagai bukti permintaanmu. Agar diproses lebih cepat, klik tombol <b>Kirim ke WA Dimas</b> di bawah — Dimas menindaklanjuti maksimal 1×24 jam pada hari kerja melalui WhatsApp/e-mail yang tercantum.</div>
+</div>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" onclick="window.print()">⬇️ Unduh Ringkasan (PDF)</button>
+<a class="btn btn-wa" id="waReq" href="#" target="_blank">Kirim ke WA Dimas</a>
+<button type="button" class="btn btn-ghost" id="btnReqLagi">Kirim Permintaan Lain</button>
+</div>
+<p class="dok-info no-print">Nomor REQ terbit otomatis dan unik untuk setiap permintaan yang masuk melalui halaman ini.</p>
+</div>
 </div>
 </section>
 <footer><div class="wrap">
@@ -287,6 +357,49 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
+});
+</script>
+<script>
+// ===== SISTEM PERMINTAAN INTERVIEW =====
+function cvSimpan(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+function cvAmbil(k, bawaan){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : bawaan; } catch(e){ return bawaan; } }
+document.getElementById("formReq").addEventListener("submit", function(e){
+  e.preventDefault();
+  var d = {
+    nama: document.getElementById("cvNama").value.trim(),
+    perusahaan: document.getElementById("cvPerusahaan").value.trim(),
+    posisi: document.getElementById("cvPosisi").value.trim(),
+    email: document.getElementById("cvEmail").value.trim(),
+    wa: document.getElementById("cvWA").value.trim(),
+    pesan: document.getElementById("cvPesan").value.trim()
+  };
+  var arsip = cvAmbil("cv_permintaan", []);
+  var sekarang = new Date();
+  var nomor = "REQ-" + sekarang.getFullYear() + "-" + String(1001 + arsip.length);
+  var tanggal = sekarang.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  arsip.push({ nomor: nomor, nama: d.nama, perusahaan: d.perusahaan, posisi: d.posisi, email: d.email, wa: d.wa, dibuat: sekarang.toISOString() });
+  cvSimpan("cv_permintaan", arsip);
+  document.getElementById("rNomor").textContent = nomor;
+  document.getElementById("rTanggal").textContent = tanggal;
+  document.getElementById("rNama").textContent = d.nama;
+  document.getElementById("rPerusahaan").textContent = d.perusahaan;
+  document.getElementById("rPosisi").textContent = d.posisi;
+  document.getElementById("rEmail").textContent = d.email;
+  document.getElementById("rWA").textContent = d.wa;
+  document.getElementById("rPesan").textContent = d.pesan;
+  var pesan = ["Halo Pak Dimas Prasetyo, saya mengajukan permintaan interview/penawaran melalui CV online Anda.",
+    "Nomor Permintaan: " + nomor, "Nama: " + d.nama, "Perusahaan: " + d.perusahaan,
+    "Posisi: " + d.posisi, "Email: " + d.email, "Pesan: " + d.pesan,
+    "Mohon info jadwal diskusi yang berkenan. Terima kasih."].join("\n");
+  document.getElementById("waReq").setAttribute("href", waLink(pesan));
+  var hasil = document.getElementById("hasilReq");
+  hasil.style.display = "block";
+  hasil.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+document.getElementById("btnReqLagi").addEventListener("click", function(){
+  document.getElementById("hasilReq").style.display = "none";
+  document.getElementById("formReq").reset();
+  document.getElementById("formReq").scrollIntoView({ behavior: "smooth" });
 });
 </script>
 </body>

@@ -135,6 +135,32 @@ footer .kredit b{color:var(--c1)}
 .reveal.tampil{opacity:1;transform:none}
 </style>
 
+
+<style>
+/* ===== SISTEM BOOKING & NOMOR ANTRIAN ===== */
+.dok-wrap{max-width:700px;margin:38px auto 0}
+.dokumen{background:#fff;border:1px solid var(--garis2);border-radius:18px;padding:34px 36px;color:#20303A;box-shadow:0 20px 46px var(--bayang);text-align:left}
+.kop-klinik{display:flex;gap:16px;align-items:center;border-bottom:3px double #0E7C86;padding-bottom:16px;margin-bottom:20px}
+.kop-logo{width:58px;height:58px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:30px;flex:none}
+.kop-nama{font-size:21px;font-weight:800;letter-spacing:.5px;color:var(--c1)}
+.kop-sub{font-size:12.5px;color:#5F7A7E;line-height:1.5}
+.dok-judul{text-align:center;font-size:19px;letter-spacing:1.5px;margin-bottom:4px}
+.dok-kode{text-align:center;font-size:13px;color:#5F7A7E;margin-bottom:20px}
+.antrian-label{text-align:center;font-size:12.5px;font-weight:700;letter-spacing:3px;color:#5F7A7E}
+.no-antrian{text-align:center;font-size:68px;font-weight:800;line-height:1.15;color:var(--c1);letter-spacing:2px}
+.dok-tabel{width:100%;border-collapse:collapse;margin-top:18px;font-size:14.5px}
+.dok-tabel td{padding:8px 10px;border-bottom:1px solid #E3EFEE;vertical-align:top}
+.dok-tabel td:first-child{width:170px;color:#5F7A7E;font-weight:600}
+.dok-catatan{margin-top:20px;background:#F0F8F7;border:1px solid var(--garis);border-radius:12px;padding:14px 16px;font-size:13px;line-height:1.65}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.dok-info{text-align:center;font-size:12.5px;color:var(--abu);margin-top:14px}
+@media print{
+body *{visibility:hidden}
+.dokumen,.dokumen *{visibility:visible}
+.dokumen{position:absolute;top:0;left:0;width:100%;box-shadow:none;border:none;border-radius:0}
+.no-print{display:none !important}
+}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -215,20 +241,62 @@ footer .kredit b{color:var(--c1)}
 <div class="kicker reveal">Booking Janji</div>
 <h2 class="judul reveal">Isi Data Singkat, <span class="grad-text">Admin Konfirmasi Jadwalmu</span></h2>
 <p class="sub reveal">Booking H-1 sangat dianjurkan. Untuk keadaan darurat, datang langsung — pasien gawat selalu kami dahulukan.</p>
-<form class="formbox reveal" data-wa-form="Halo Admin Klinik Sehat Sentosa, saya ingin booking janji periksa.">
-<h3 style="font-size:20px">Formulir Booking</h3>
+<form class="formbox reveal" id="formBooking">
+<h3 style="font-size:20px">Formulir Booking Janji</h3>
+<p style="font-size:13.5px;color:var(--abu);margin-top:6px">Isi data di bawah ini — sistem langsung menerbitkan <b>Kartu Booking &amp; Nomor Antrian</b> untukmu. Unduh atau foto kartunya, lalu tunjukkan saat tiba di klinik.</p>
 <label>Nama Pasien</label>
-<input type="text" placeholder="cth: Budi Santoso" data-label="Nama pasien" required>
+<input type="text" id="bkNama" placeholder="cth: Budi Santoso" required>
 <label>Poli / Layanan Tujuan</label>
-<select data-label="Poli tujuan"><option>Poli Umum</option><option>Poli Gigi</option><option>KIA & Imunisasi</option><option>Laboratorium</option><option>Khitan</option></select>
-<label>Tanggal &amp; Jam yang Diinginkan</label>
-<input type="text" placeholder="cth: Kamis, 13 Nov — sekitar pukul 16.00" data-label="Waktu diinginkan" required>
+<select id="bkPoli">
+<option value="UM">Poli Umum</option>
+<option value="GG">Poli Gigi</option>
+<option value="KIA">KIA &amp; Imunisasi</option>
+</select>
+<label>Dokter / Petugas</label>
+<select id="bkDokter"></select>
+<p id="bkInfoDokter" style="font-size:12.5px;color:var(--abu);margin-top:7px"></p>
+<label>Tanggal Kunjungan</label>
+<input type="date" id="bkTanggal" required>
+<label>Sesi Praktik</label>
+<select id="bkSesi"></select>
 <label>Keluhan Singkat (opsional)</label>
-<textarea rows="3" placeholder="cth: Gigi geraham kanan nyeri sejak 2 hari lalu" data-label="Keluhan"></textarea>
+<textarea rows="3" id="bkKeluhan" placeholder="cth: Gigi geraham kanan nyeri sejak 2 hari lalu"></textarea>
 <label>Nomor WhatsApp Aktif</label>
-<input type="tel" placeholder="cth: 0812xxxxxxx" data-label="No. WA" required>
-<button class="btn btn-wa" type="submit">Kirim Booking via WhatsApp</button>
+<input type="tel" id="bkWA" placeholder="cth: 0812xxxxxxx" required>
+<button class="btn btn-c1" type="submit">🎫 Terbitkan Kartu Booking &amp; Nomor Antrian</button>
 </form>
+<div class="dok-wrap" id="hasilBooking" style="display:none">
+<div class="dokumen" id="dokBooking">
+<div class="kop-klinik">
+<div class="kop-logo">🏥</div>
+<div>
+<div class="kop-nama">KLINIK SEHAT SENTOSA</div>
+<div class="kop-sub">Klinik Pratama · Poli Umum · Poli Gigi · KIA &amp; Imunisasi · Laboratorium Mini</div>
+<div class="kop-sub">Jl. Kesehatan No. 21, Sukoharjo, Jawa Tengah · Buka Setiap Hari 07.00–21.00 WIB · Melayani BPJS &amp; Umum</div>
+</div>
+</div>
+<h3 class="dok-judul">KARTU BOOKING &amp; NOMOR ANTRIAN</h3>
+<p class="dok-kode">Kode Booking: <b id="dKode">—</b> · Diterbitkan: <span id="dTerbit">—</span></p>
+<div class="antrian-label">NOMOR ANTRIAN KAMU</div>
+<div class="no-antrian" id="dAntrian">—</div>
+<table class="dok-tabel">
+<tr><td>Nama Pasien</td><td><b id="dNama">—</b></td></tr>
+<tr><td>Poli Tujuan</td><td id="dPoli">—</td></tr>
+<tr><td>Dokter / Petugas</td><td id="dDokter">—</td></tr>
+<tr><td>Hari, Tanggal</td><td id="dTanggal">—</td></tr>
+<tr><td>Sesi Praktik</td><td id="dSesi">—</td></tr>
+<tr><td>Keluhan</td><td id="dKeluhan">—</td></tr>
+<tr><td>No. WhatsApp</td><td id="dWA">—</td></tr>
+</table>
+<div class="dok-catatan"><b>Catatan:</b> Datanglah 15 menit sebelum sesi dimulai dan tunjukkan kartu ini (atau tangkapan layarnya) di meja pendaftaran. Bawa KTP dan kartu BPJS bila peserta. Bila dokter berhalangan, admin akan mengonfirmasi ulang jadwalmu lewat WhatsApp.</div>
+</div>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" onclick="window.print()">⬇️ Unduh Kartu (PDF)</button>
+<a class="btn btn-wa" id="waBooking" href="#" target="_blank">Kirim ke WA Klinik</a>
+<button type="button" class="btn btn-ghost" id="btnBookingLagi">Booking Lagi</button>
+</div>
+<p class="dok-info no-print">Nomor antrian diterbitkan otomatis oleh sistem untuk poli &amp; tanggal kunjungan yang kamu pilih. Klik <b>Kirim ke WA Klinik</b> agar admin mengunci jadwalmu.</p>
+</div>
 </div>
 </section>
 
@@ -305,6 +373,98 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
+});
+</script>
+<script>
+// ===== SISTEM BOOKING & NOMOR ANTRIAN KLINIK =====
+var DOKTER_KLINIK = {
+  UM: { nama: "Poli Umum", dokter: [
+    { nama: "dr. Maya Kusuma", hari: "Senin – Jumat", jam: "07.00 – 14.00", sesi: ["Sesi 1 · 07.00 – 10.00", "Sesi 2 · 10.00 – 14.00"] },
+    { nama: "dr. Fajar Nugroho", hari: "Senin – Sabtu", jam: "14.00 – 21.00", sesi: ["Sesi 1 · 14.00 – 17.00", "Sesi 2 · 17.00 – 21.00"] }
+  ]},
+  GG: { nama: "Poli Gigi", dokter: [
+    { nama: "drg. Larasati Putri", hari: "Selasa, Kamis, Sabtu", jam: "09.00 – 15.00", sesi: ["Sesi 1 · 09.00 – 12.00", "Sesi 2 · 12.00 – 15.00"] },
+    { nama: "drg. Bimo Aditama", hari: "Senin, Rabu, Jumat", jam: "16.00 – 21.00", sesi: ["Sesi 1 · 16.00 – 18.30", "Sesi 2 · 18.30 – 21.00"] }
+  ]},
+  KIA: { nama: "KIA & Imunisasi", dokter: [
+    { nama: "Bd. Sari Wulandari", hari: "Setiap Hari", jam: "08.00 – 16.00", sesi: ["Sesi 1 · 08.00 – 12.00", "Sesi 2 · 12.00 – 16.00"] }
+  ]}
+};
+function bkSimpan(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+function bkAmbil(k, bawaan){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : bawaan; } catch(e){ return bawaan; } }
+function bkData(){ return bkAmbil("klinik_booking_v1", { total: 0, antrian: {} }); }
+function pad3(n){ return String(n).padStart(3, "0"); }
+function tglIndo(iso){
+  if (!iso) return "—";
+  var d = new Date(iso + "T00:00:00");
+  return d.toLocaleDateString("id-ID", { weekday: "long", day: "numeric", month: "long", year: "numeric" });
+}
+var selPoli = document.getElementById("bkPoli"),
+    selDokter = document.getElementById("bkDokter"),
+    selSesi = document.getElementById("bkSesi"),
+    infoDokter = document.getElementById("bkInfoDokter"),
+    tglBooking = document.getElementById("bkTanggal");
+tglBooking.min = new Date().toISOString().split("T")[0];
+function isiDokter(){
+  var daftar = DOKTER_KLINIK[selPoli.value].dokter;
+  selDokter.innerHTML = daftar.map(function(d, i){ return '<option value="' + i + '">' + d.nama + "</option>"; }).join("");
+  isiSesi();
+}
+function isiSesi(){
+  var d = DOKTER_KLINIK[selPoli.value].dokter[Number(selDokter.value || 0)];
+  infoDokter.textContent = "Praktik: " + d.hari + " · Pukul " + d.jam + " WIB";
+  selSesi.innerHTML = d.sesi.map(function(x){ return "<option>" + x + "</option>"; }).join("");
+}
+selPoli.addEventListener("change", isiDokter);
+selDokter.addEventListener("change", isiSesi);
+isiDokter();
+document.getElementById("formBooking").addEventListener("submit", function(e){
+  e.preventDefault();
+  var prefix = selPoli.value;
+  var poliNama = DOKTER_KLINIK[prefix].nama;
+  var dokter = DOKTER_KLINIK[prefix].dokter[Number(selDokter.value || 0)];
+  var tanggal = tglBooking.value;
+  var data = bkData();
+  var kunci = prefix + "|" + tanggal;
+  var nomor = (data.antrian[kunci] || 0) + 1;
+  data.antrian[kunci] = nomor;
+  data.total += 1;
+  var noAntrian = prefix + "-" + pad3(nomor);
+  var kode = "KSS-" + String(1000 + data.total);
+  var booking = {
+    kode: kode, antrian: noAntrian, nama: document.getElementById("bkNama").value.trim(),
+    poli: poliNama, dokter: dokter.nama, tanggal: tanggal, sesi: selSesi.value,
+    keluhan: document.getElementById("bkKeluhan").value.trim(),
+    wa: document.getElementById("bkWA").value.trim(), dibuat: new Date().toISOString()
+  };
+  var arsip = bkAmbil("klinik_booking_arsip", []); arsip.push(booking); bkSimpan("klinik_booking_arsip", arsip);
+  bkSimpan("klinik_booking_v1", data);
+  document.getElementById("dKode").textContent = kode;
+  document.getElementById("dTerbit").textContent = new Date().toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  document.getElementById("dAntrian").textContent = noAntrian;
+  document.getElementById("dNama").textContent = booking.nama;
+  document.getElementById("dPoli").textContent = poliNama;
+  document.getElementById("dDokter").textContent = dokter.nama + " (" + dokter.hari + ", " + dokter.jam + " WIB)";
+  document.getElementById("dTanggal").textContent = tglIndo(tanggal);
+  document.getElementById("dSesi").textContent = selSesi.value;
+  document.getElementById("dKeluhan").textContent = booking.keluhan || "—";
+  document.getElementById("dWA").textContent = booking.wa;
+  var pesan = ["Halo Admin Klinik Sehat Sentosa, saya sudah booking online dan mendapat nomor antrian.",
+    "Nomor Antrian: " + noAntrian, "Kode Booking: " + kode,
+    "Nama Pasien: " + booking.nama, "Poli: " + poliNama, "Dokter: " + dokter.nama,
+    "Tanggal: " + tglIndo(tanggal), "Sesi: " + selSesi.value,
+    "Keluhan: " + (booking.keluhan || "-"),
+    "Mohon konfirmasi jadwal saya. Terima kasih."].join("\n");
+  document.getElementById("waBooking").setAttribute("href", waLink(pesan));
+  var hasil = document.getElementById("hasilBooking");
+  hasil.style.display = "block";
+  hasil.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+document.getElementById("btnBookingLagi").addEventListener("click", function(){
+  document.getElementById("hasilBooking").style.display = "none";
+  document.getElementById("formBooking").reset();
+  isiDokter();
+  document.getElementById("formBooking").scrollIntoView({ behavior: "smooth" });
 });
 </script>
 </body>

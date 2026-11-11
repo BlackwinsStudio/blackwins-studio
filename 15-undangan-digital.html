@@ -162,6 +162,29 @@ html.terkunci,body.terkunci{overflow:hidden;height:100%}
 .tile .tshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,22,.08) 28%,rgba(10,14,22,.82))}
 .tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 </style>
+
+<style>
+/* ===== SISTEM RSVP & BUKU TAMU ===== */
+.bt-list{display:grid;gap:14px;max-width:760px;margin:0 auto}
+.bt-item{background:var(--panel);border:1px solid var(--garis);border-radius:18px;padding:20px 22px;text-align:left;box-shadow:0 8px 24px rgba(183,110,121,.08)}
+.bt-head{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.bt-ava{width:44px;height:44px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;flex:none}
+.bt-nama{font-weight:700;font-size:15.5px}
+.bt-waktu{font-size:12px;color:var(--abu)}
+.bt-badge{margin-left:auto;font-size:11.5px;font-weight:700;padding:5px 12px;border-radius:999px;letter-spacing:.3px}
+.bt-badge.hadir{background:#E3F6E9;color:#157347}
+.bt-badge.ragu{background:#FFF3D6;color:#9A6B00}
+.bt-badge.tidak{background:#F3E4E1;color:#9A4A44}
+.bt-ucapan{margin-top:12px;font-size:14.5px;line-height:1.7;font-style:italic}
+.konfirmasi{max-width:680px;margin:38px auto 0;background:var(--panel);border:1.5px solid var(--garis2);border-radius:24px;padding:34px 32px;box-shadow:0 20px 46px var(--bayang);text-align:center}
+.konfirmasi .kf-ikon{font-size:46px}
+.konfirmasi h3{font-size:24px;margin:8px 0 6px}
+.konfirmasi p{color:var(--abu);font-size:14.5px;line-height:1.65}
+.kf-tabel{width:100%;border-collapse:collapse;margin:20px 0 6px;font-size:14.5px;text-align:left}
+.kf-tabel td{padding:8px 10px;border-bottom:1px solid var(--garis);vertical-align:top}
+.kf-tabel td:first-child{width:150px;color:var(--abu);font-weight:600}
+.kf-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:20px}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -255,19 +278,42 @@ html.terkunci,body.terkunci{overflow:hidden;height:100%}
 <div class="wrap">
 <div class="kicker reveal">RSVP</div>
 <h2 class="judul serif reveal">Konfirmasi <span class="grad-text">Kehadiran</span></h2>
-<p class="sub reveal">Agar kami dapat menyiapkan tempat &amp; hidangan sebaik-baiknya, mohon konfirmasi kehadiranmu lewat formulir ini — pesannya langsung terkirim ke WhatsApp panitia.</p>
-<form class="formbox reveal" data-wa-form="Konfirmasi kehadiran (RSVP) Pernikahan Rizky & Putri — Sabtu, 14 Agustus 2027.">
+<p class="sub reveal">Agar kami dapat menyiapkan tempat &amp; hidangan sebaik-baiknya, mohon konfirmasi kehadiranmu lewat formulir ini — konfirmasimu langsung tercatat di buku tamu digital kami, dan bisa diteruskan ke WhatsApp panitia.</p>
+<form class="formbox reveal" id="formRsvp">
 <h3 style="font-size:20px" class="serif">Formulir RSVP &amp; Doa Restu</h3>
 <label>Nama Kamu</label>
-<input type="text" placeholder="cth: Keluarga Besar Hartono" data-label="Nama" required>
+<input type="text" id="rvNama" placeholder="cth: Keluarga Besar Hartono" required>
 <label>Konfirmasi Kehadiran</label>
-<select data-label="Kehadiran"><option>Hadir, insya Allah</option><option>Masih ragu / tentative</option><option>Maaf, belum bisa hadir</option></select>
+<select id="rvHadir"><option>Hadir, insya Allah</option><option>Masih ragu / tentative</option><option>Maaf, belum bisa hadir</option></select>
 <label>Jumlah Tamu (termasuk kamu)</label>
-<select data-label="Jumlah tamu"><option>1 orang</option><option>2 orang</option><option>3 orang</option><option>4 orang</option><option>Lebih dari 4 orang</option></select>
+<select id="rvJumlah"><option>1 orang</option><option>2 orang</option><option>3 orang</option><option>4 orang</option><option>Lebih dari 4 orang</option></select>
 <label>Ucapan &amp; Doa untuk Mempelai</label>
-<textarea rows="3" placeholder="cth: Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair…" data-label="Ucapan & doa"></textarea>
-<button class="btn btn-wa" type="submit">Kirim RSVP via WhatsApp</button>
+<textarea rows="3" id="rvUcapan" placeholder="cth: Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair…"></textarea>
+<button class="btn btn-c1" type="submit">💌 Kirim RSVP &amp; Ucapan</button>
 </form>
+<div class="konfirmasi" id="hasilRsvp" style="display:none">
+<div class="kf-ikon">💌</div>
+<h3 class="serif">Terima Kasih, <span id="kNama">Tamu Undangan</span>!</h3>
+<p>Konfirmasi kehadiranmu sudah <b>tercatat di buku tamu digital</b> kami dan ucapanmu sudah tampil di bawah. Simpan halaman ini sebagai bukti RSVP-mu.</p>
+<table class="kf-tabel">
+<tr><td>Status Kehadiran</td><td><b id="kHadir">—</b></td></tr>
+<tr><td>Jumlah Tamu</td><td id="kJumlah">—</td></tr>
+<tr><td>Ucapan Kamu</td><td id="kUcapan" style="font-style:italic">—</td></tr>
+</table>
+<div class="kf-aksi">
+<a class="btn btn-wa" id="waRsvp" href="#" target="_blank">Teruskan ke WA Panitia</a>
+<button type="button" class="btn btn-ghost" id="btnRsvpLagi">Tulis RSVP Lain</button>
+</div>
+</div>
+</div>
+</section>
+
+<section id="bukutamu" style="padding-top:6px">
+<div class="wrap">
+<div class="kicker reveal">Buku Tamu</div>
+<h2 class="judul serif reveal">Ucapan &amp; <span class="grad-text">Doa Restu</span></h2>
+<p class="sub reveal" id="btRingkasan">Kumpulan ucapan dari para tamu undangan untuk kedua mempelai.</p>
+<div class="bt-list" id="daftarUcapan"></div>
 </div>
 </section>
 
@@ -359,6 +405,80 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
 });
+</script>
+<script>
+// ===== SISTEM RSVP & BUKU TAMU =====
+function rvSimpan(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+function rvAmbil(k, bawaan){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : bawaan; } catch(e){ return bawaan; } }
+function rvEsc(t){ return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+var UCAPAN_BAWAAN = [
+  { nama: "Keluarga Besar Wijaya", hadir: "Hadir, insya Allah", jumlah: "4 orang", ucapan: "Barakallahu lakuma wa baraka 'alaikuma wa jama'a bainakuma fii khair. Selamat menempuh hidup baru, Nak Rizky & Nak Putri!", waktu: "2026-11-02T09:12:00" },
+  { nama: "Sahabat Kampus — UNS 2017", hadir: "Hadir, insya Allah", jumlah: "2 orang", ucapan: "Akhirnya! Dari kedai kopi tahun 2022 sampai ke pelaminan. Turut bahagia untuk kalian berdua — sampai jumpa di hari H!", waktu: "2026-11-05T18:40:00" },
+  { nama: "Bu Lastri & Keluarga", hadir: "Hadir, insya Allah", jumlah: "3 orang", ucapan: "Selamat ya, semoga menjadi keluarga yang sakinah, mawaddah, warahmah, dan dikaruniai keturunan yang saleh dan salehah.", waktu: "2026-11-08T07:25:00" },
+  { nama: "Rekan Kerja Putri — Jakarta", hadir: "Maaf, belum bisa hadir", jumlah: "1 orang", ucapan: "Mohon maaf belum bisa hadir langsung, doa terbaik untuk kedua mempelai dari jauh. Semoga lancar sampai hari H!", waktu: "2026-11-09T21:03:00" }
+];
+function rvInisial(nama){
+  var kata = String(nama).replace(/[^a-zA-ZÀ-ÿ ]/g, "").trim().split(/\s+/).filter(Boolean);
+  if (!kata.length) return "?";
+  return (kata[0][0] + (kata[1] ? kata[1][0] : "")).toUpperCase();
+}
+function rvKelasBadge(hadir){
+  if (hadir.indexOf("Hadir") === 0) return "hadir";
+  if (hadir.toLowerCase().indexOf("ragu") >= 0) return "ragu";
+  return "tidak";
+}
+function rvTamu(jumlah){
+  if (jumlah.indexOf("Lebih") === 0) return 5;
+  var n = parseInt(jumlah, 10);
+  return isNaN(n) ? 1 : n;
+}
+function rvRender(){
+  var punya = rvAmbil("rsvp_rizkyputri", []);
+  var semua = punya.concat(UCAPAN_BAWAAN);
+  var wadah = document.getElementById("daftarUcapan");
+  wadah.innerHTML = semua.map(function(u){
+    var tgl = new Date(u.waktu).toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+    var badge = rvKelasBadge(u.hadir) === "hadir" ? "✓ " + rvEsc(u.hadir) + " · " + rvEsc(u.jumlah) : rvEsc(u.hadir);
+    return '<div class="bt-item"><div class="bt-head"><div class="bt-ava">' + rvEsc(rvInisial(u.nama)) + '</div>' +
+      '<div><div class="bt-nama">' + rvEsc(u.nama) + '</div><div class="bt-waktu">' + tgl + '</div></div>' +
+      '<span class="bt-badge ' + rvKelasBadge(u.hadir) + '">' + badge + '</span></div>' +
+      '<p class="bt-ucapan">“' + rvEsc(u.ucapan || "—") + '”</p></div>';
+  }).join("");
+  var hadir = semua.filter(function(u){ return rvKelasBadge(u.hadir) === "hadir"; });
+  var totalTamu = hadir.reduce(function(a, u){ return a + rvTamu(u.jumlah); }, 0);
+  document.getElementById("btRingkasan").textContent = "Sudah ada " + semua.length + " ucapan masuk · " + hadir.length + " tamu/keluarga konfirmasi hadir (total " + totalTamu + " orang). Tulis ucapanmu lewat formulir RSVP di atas.";
+}
+document.getElementById("formRsvp").addEventListener("submit", function(e){
+  e.preventDefault();
+  var u = {
+    nama: document.getElementById("rvNama").value.trim(),
+    hadir: document.getElementById("rvHadir").value,
+    jumlah: document.getElementById("rvJumlah").value,
+    ucapan: document.getElementById("rvUcapan").value.trim(),
+    waktu: new Date().toISOString()
+  };
+  var arsip = rvAmbil("rsvp_rizkyputri", []);
+  arsip.unshift(u);
+  rvSimpan("rsvp_rizkyputri", arsip);
+  rvRender();
+  document.getElementById("kNama").textContent = u.nama;
+  document.getElementById("kHadir").textContent = u.hadir;
+  document.getElementById("kJumlah").textContent = u.jumlah;
+  document.getElementById("kUcapan").textContent = u.ucapan ? "“" + u.ucapan + "”" : "—";
+  var pesan = ["Konfirmasi kehadiran (RSVP) Pernikahan Rizky & Putri — Sabtu, 14 Agustus 2027.",
+    "Nama: " + u.nama, "Kehadiran: " + u.hadir, "Jumlah tamu: " + u.jumlah,
+    "Ucapan & doa: " + (u.ucapan || "-")].join("\n");
+  document.getElementById("waRsvp").setAttribute("href", waLink(pesan));
+  var hasil = document.getElementById("hasilRsvp");
+  hasil.style.display = "block";
+  hasil.scrollIntoView({ behavior: "smooth", block: "center" });
+});
+document.getElementById("btnRsvpLagi").addEventListener("click", function(){
+  document.getElementById("hasilRsvp").style.display = "none";
+  document.getElementById("formRsvp").reset();
+  document.getElementById("formRsvp").scrollIntoView({ behavior: "smooth" });
+});
+rvRender();
 </script>
 </body>
 </html>

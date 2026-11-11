@@ -133,6 +133,74 @@ footer .kredit b{color:var(--c1)}
 @media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.tampil{opacity:1;transform:none}
+/* ===== Sistem Pemesanan: Keranjang + Checkout ===== */
+#cartbar{position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--headerbg);backdrop-filter:blur(14px);border-top:1.5px solid var(--garis2);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -10px 30px rgba(0,0,0,.3)}
+#cartbar.muncul{transform:none}
+#cartbar .cinfo{font-size:15px}
+#cartbar .ctot{margin-left:12px;color:var(--abu)}
+#cartbar .ctot b{color:var(--c1)}
+#cartbar .cbtn{display:flex;gap:9px}
+#cartbar .btn{padding:11px 20px;font-size:14px;white-space:nowrap}
+#cartmodal{position:fixed;inset:0;z-index:80;background:rgba(12,5,2,.62);display:none;align-items:flex-end;justify-content:center}
+#cartmodal.buka{display:flex}
+#cartmodal .cpanel{background:var(--panel);width:100%;max-width:600px;max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:26px 24px 30px}
+@media(min-width:700px){#cartmodal{align-items:center;padding:22px}#cartmodal .cpanel{border-radius:24px}}
+#ctutup{background:var(--inputbg);border:1px solid var(--garis2);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;color:var(--teks);flex:none}
+.citem{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--garis)}
+.citem .cmeta{flex:1;min-width:0}
+.citem .cmeta b{display:block;font-size:14.5px}
+.citem .cmeta span{font-size:12.5px;color:var(--abu)}
+.citem .clvl{display:inline-block;background:var(--grad);color:#fff;border-radius:999px;padding:1px 9px;font-size:11px;font-weight:700;margin-left:5px;vertical-align:2px}
+.citem .cqty{display:flex;align-items:center;gap:9px}
+.citem .cqty button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--garis2);background:var(--panel);font-size:16px;font-weight:700;cursor:pointer;color:var(--c1);line-height:1}
+.citem .csub{font-weight:800;font-size:14.5px;min-width:82px;text-align:right}
+#cartmodal label{display:block;font-size:13.5px;font-weight:600;margin:15px 0 7px;color:var(--abu)}
+#cartmodal input[type=text],#cartmodal textarea{width:100%;background:var(--inputbg);border:1px solid var(--garis2);border-radius:12px;padding:12px 14px;color:var(--teks);font-family:inherit;font-size:15px}
+#cartmodal input:focus,#cartmodal textarea:focus{outline:none;border-color:var(--c1)}
+.radio-row{display:flex;gap:10px;flex-wrap:wrap}
+.radio-card{flex:1;min-width:180px;border:1.5px solid var(--garis2);border-radius:14px;padding:12px 15px;display:flex!important;align-items:center;gap:9px;margin:0!important;cursor:pointer;font-size:14.5px;font-weight:600;color:var(--teks)!important}
+.radio-card span{margin-left:auto;font-size:12.5px;color:var(--abu);font-weight:600;text-align:right}
+.radio-card input{accent-color:var(--c1);width:17px;height:17px;flex:none}
+.crow{display:flex;justify-content:space-between;font-size:15px;padding-top:11px;color:var(--abu)}
+.crow b{color:var(--teks)}
+.crow.total{font-size:17px;border-top:1px dashed var(--garis2);margin-top:9px;padding-top:14px;color:var(--teks)}
+.crow.total b{color:var(--c1);font-size:20px}
+.cnote{font-size:12.5px;color:var(--abu);margin-top:13px;line-height:1.6}
+/* ===== Dokumen Nota Pesanan ===== */
+.dok-kertas{background:#fff;color:#2B2118;border-radius:14px;padding:38px 42px;box-shadow:0 20px 50px rgba(0,0,0,.35);max-width:820px;margin:0 auto;text-align:left}
+.dok-kop{display:flex;align-items:center;gap:16px;border-bottom:3px double #2B2118;padding-bottom:15px}
+.dok-logo{width:62px;height:62px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:31px;flex:none}
+.dok-kop-tengah{flex:1;text-align:center}
+.dok-nama{font-size:23px;font-weight:800;letter-spacing:.4px;line-height:1.2}
+.dok-subnama{font-size:12.5px;font-weight:700;letter-spacing:2.2px;color:var(--c1)}
+.dok-alamat{font-size:12.5px;color:#8A7360;margin-top:3px}
+.dok-judul{text-align:center;font-weight:800;font-size:19px;letter-spacing:.4px;margin:22px 0 4px;text-decoration:underline;text-underline-offset:5px}
+.dok-subjudul{text-align:center;color:#8A7360;font-size:13.5px;margin-bottom:20px}
+.dok-meta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+.dok-meta>div{flex:1;min-width:180px;border:1px solid #EDE3D3;border-radius:10px;padding:10px 15px;background:#FFF9F0}
+.dok-meta span{display:block;font-size:11px;color:#8A7360;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.dok-meta b{font-size:16px}
+table.dok-tabel{width:100%;border-collapse:collapse;margin-bottom:18px}
+table.dok-tabel td{border:1px solid #E3D5C0;padding:9px 14px;font-size:14.5px;vertical-align:top;line-height:1.55}
+table.dok-tabel td:first-child{width:30%;color:#8A7360;font-weight:600;background:#FFF9F0}
+table.dok-items{width:100%;border-collapse:collapse}
+table.dok-items th{background:var(--c1);color:#fff;text-align:left;padding:10px 14px;font-size:13.5px;letter-spacing:.4px}
+table.dok-items td{border-bottom:1px solid #EDE3D3;padding:10px 14px;font-size:14.5px;vertical-align:top}
+table.dok-items tfoot td{border-bottom:none;border-top:2px solid #2B2118;font-weight:700}
+table.dok-items tfoot .grand td{font-size:17px;color:var(--c1);border-top:3px double #2B2118}
+.dok-catatan{font-size:13px;color:#8A7360;line-height:1.7;margin-top:18px}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+@media(max-width:640px){.dok-kertas{padding:26px 20px}.dok-nama{font-size:18px}.dok-logo{width:48px;height:48px;font-size:24px;border-radius:11px}}
+/* ===== Cetak: hanya dokumen nota ===== */
+@media print{
+@page{margin:12mm}
+body{background:#fff!important}
+body>*{display:none!important}
+body>section#nota{display:block!important;padding:0!important}
+.dok-kertas{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
+.no-print{display:none!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 
 </head>
@@ -168,14 +236,14 @@ footer .kredit b{color:var(--c1)}
 <div class="wrap">
 <div class="kicker reveal">Menu Andalan</div>
 <h2 class="judul reveal">Pilih Jagoanmu, <span class="grad-text">Klik Langsung Pesan</span></h2>
-<p class="sub reveal">Semua menu bisa diatur level pedasnya 1–10. Klik tombol pesan — pesananmu langsung masuk ke WhatsApp kami, tinggal sebutkan jumlah dan alamat.</p>
+<p class="sub reveal">Semua menu geprek bisa diatur level pedasnya 1–10. Tambahkan menu ke keranjang, atur jumlahnya, lalu checkout — nota pesananmu terbit otomatis dan bisa dikirim ke WhatsApp kami.</p>
 <div class="grid">
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍗</div><h3>Geprek Sambal Bakar Original</h3><p>Ayam crispy + nasi hangat + sambal bakar signature + lalapan segar dan timun.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp15.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Geprek Sambal Bakar Original (Rp15.000).">Pesan Ini</a></div></div>
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🧀</div><h3>Geprek Mozzarella Leleh</h3><p>Geprek original ditutup lelehan mozzarella tebal — pedas gurih creamy jadi satu.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp22.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Geprek Mozzarella Leleh (Rp22.000).">Pesan Ini</a></div></div>
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍳</div><h3>Geprek Telur Asin</h3><p>Saus telur asin gurih di atas ayam geprek, taburan daun kari goreng. Favorit anak kantor.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp20.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Geprek Telur Asin (Rp20.000).">Pesan Ini</a></div></div>
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🐔</div><h3>Ayam Bakar Madu Utuh</h3><p>Ayam utuh dibakar olesan madu — untuk makan bareng keluarga 3–4 orang. Pesan H-2 jam.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp68.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Ayam Bakar Madu Utuh (Rp68.000).">Pesan Ini</a></div></div>
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍜</div><h3>Mie Geprek Nyemek</h3><p>Mie goreng nyemek pedas dengan topping ayam geprek suwir dan telur mata sapi.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp17.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Mie Geprek Nyemek (Rp17.000).">Pesan Ini</a></div></div>
-<div class="kartu reveal"><div class="ikon" style="font-size:30px">🥤</div><h3>Paket Segar Komplit</h3><p>Geprek original + es teh jumbo + kerupuk + buah potong. Kenyang, segar, hemat.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp19.000</span><a class="btn btn-wa" style="padding:9px 18px;font-size:13.5px" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau pesan Paket Segar Komplit (Rp19.000).">Pesan Ini</a></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍗</div><h3>Geprek Sambal Bakar Original</h3><p>Ayam crispy + nasi hangat + sambal bakar signature + lalapan segar dan timun.</p><div style="display:flex;align-items:center;gap:9px;margin-bottom:13px"><label style="font-size:13px;font-weight:600;color:var(--abu)">🌶️ Level pedas:</label><select class="levelpedas" style="background:var(--inputbg);border:1px solid var(--garis2);border-radius:9px;color:var(--teks);padding:6px 10px;font-family:inherit;font-size:14px"><option value="1">1 — Santai</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5 — Sedang</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10 — Neraka</option></select></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp15.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Geprek Sambal Bakar Original" data-harga="15000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🧀</div><h3>Geprek Mozzarella Leleh</h3><p>Geprek original ditutup lelehan mozzarella tebal — pedas gurih creamy jadi satu.</p><div style="display:flex;align-items:center;gap:9px;margin-bottom:13px"><label style="font-size:13px;font-weight:600;color:var(--abu)">🌶️ Level pedas:</label><select class="levelpedas" style="background:var(--inputbg);border:1px solid var(--garis2);border-radius:9px;color:var(--teks);padding:6px 10px;font-family:inherit;font-size:14px"><option value="1">1 — Santai</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5 — Sedang</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10 — Neraka</option></select></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp22.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Geprek Mozzarella Leleh" data-harga="22000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍳</div><h3>Geprek Telur Asin</h3><p>Saus telur asin gurih di atas ayam geprek, taburan daun kari goreng. Favorit anak kantor.</p><div style="display:flex;align-items:center;gap:9px;margin-bottom:13px"><label style="font-size:13px;font-weight:600;color:var(--abu)">🌶️ Level pedas:</label><select class="levelpedas" style="background:var(--inputbg);border:1px solid var(--garis2);border-radius:9px;color:var(--teks);padding:6px 10px;font-family:inherit;font-size:14px"><option value="1">1 — Santai</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5 — Sedang</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10 — Neraka</option></select></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp20.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Geprek Telur Asin" data-harga="20000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🐔</div><h3>Ayam Bakar Madu Utuh</h3><p>Ayam utuh dibakar olesan madu — untuk makan bareng keluarga 3–4 orang. Pesan H-2 jam.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp68.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Ayam Bakar Madu Utuh" data-harga="68000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🍜</div><h3>Mie Geprek Nyemek</h3><p>Mie goreng nyemek pedas dengan topping ayam geprek suwir dan telur mata sapi.</p><div style="display:flex;align-items:center;gap:9px;margin-bottom:13px"><label style="font-size:13px;font-weight:600;color:var(--abu)">🌶️ Level pedas:</label><select class="levelpedas" style="background:var(--inputbg);border:1px solid var(--garis2);border-radius:9px;color:var(--teks);padding:6px 10px;font-family:inherit;font-size:14px"><option value="1">1 — Santai</option><option value="2">2</option><option value="3">3</option><option value="4">4</option><option value="5" selected>5 — Sedang</option><option value="6">6</option><option value="7">7</option><option value="8">8</option><option value="9">9</option><option value="10">10 — Neraka</option></select></div><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp17.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Mie Geprek Nyemek" data-harga="17000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
+<div class="kartu reveal"><div class="ikon" style="font-size:30px">🥤</div><h3>Paket Segar Komplit</h3><p>Geprek original + es teh jumbo + kerupuk + buah potong. Kenyang, segar, hemat.</p><div style="display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap"><span class="harga" style="margin-top:0">Rp19.000</span><button type="button" class="btn btn-c1 tambah" data-nama="Paket Segar Komplit" data-harga="19000" style="padding:9px 18px;font-size:13.5px">＋ Tambah</button></div></div>
 </div>
 </div>
 </section>
@@ -186,9 +254,12 @@ footer .kredit b{color:var(--c1)}
 <h2 class="judul reveal">Makan Bareng <span class="grad-text">Lebih Hemat</span></h2>
 <p class="sub reveal">Untuk keluarga, kantor, arisan, dan acara kampus — kami siapkan dalam box rapi dan antar tepat waktu.</p>
 <div class="grid">
-<div class="kartu reveal"><span class="tag">Berdua</span><h3 style="margin-top:13px">Paket Berdua Kenyang</h3><p>2 geprek original + 2 es teh jumbo + 1 porsi kulit crispy. Buat berdua yang sama-sama doyan pedas.</p><div class="harga">Rp35.000 <small>hemat Rp9.000</small></div></div>
-<div class="kartu reveal"><span class="tag">Keluarga</span><h3 style="margin-top:13px">Paket Keluarga 5 Orang</h3><p>1 ayam bakar madu utuh + 5 nasi + sambal bakar 250 gr + es teh 1 pitcher + lalapan lengkap.</p><div class="harga">Rp115.000 <small>hemat Rp28.000</small></div></div>
-<div class="kartu reveal"><span class="tag">Acara</span><h3 style="margin-top:13px">Nasi Box Acara</h3><p>Nasi + geprek + telur + kerupuk + air mineral, dalam box berlabel. Minimal 25 box, gratis ongkir radius 5 km.</p><div class="harga">Rp18.000<small>/box</small></div></div>
+<div class="kartu reveal"><span class="tag">Berdua</span><h3 style="margin-top:13px">Paket Berdua Kenyang</h3><p>2 geprek original + 2 es teh jumbo + 1 porsi kulit crispy. Buat berdua yang sama-sama doyan pedas.</p><div class="harga">Rp35.000 <small>hemat Rp9.000</small></div>
+<div style="margin-top:14px"><button type="button" class="btn btn-c1 tambah" data-nama="Paket Berdua Kenyang" data-harga="35000" style="padding:10px 20px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
+<div class="kartu reveal"><span class="tag">Keluarga</span><h3 style="margin-top:13px">Paket Keluarga 5 Orang</h3><p>1 ayam bakar madu utuh + 5 nasi + sambal bakar 250 gr + es teh 1 pitcher + lalapan lengkap.</p><div class="harga">Rp115.000 <small>hemat Rp28.000</small></div>
+<div style="margin-top:14px"><button type="button" class="btn btn-c1 tambah" data-nama="Paket Keluarga 5 Orang" data-harga="115000" style="padding:10px 20px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
+<div class="kartu reveal"><span class="tag">Acara</span><h3 style="margin-top:13px">Nasi Box Acara</h3><p>Nasi + geprek + telur + kerupuk + air mineral, dalam box berlabel. Minimal 25 box, gratis ongkir radius 5 km.</p><div class="harga">Rp18.000<small>/box</small></div>
+<div style="margin-top:14px"><button type="button" class="btn btn-c1 tambah" data-nama="Nasi Box Acara" data-harga="18000" style="padding:10px 20px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 </div>
 <div style="text-align:center;margin-top:38px" class="reveal">
 <a class="btn btn-wa" href="#" data-wa="Halo Ayam Geprek Sambal Bakar, saya mau tanya paket hemat / nasi box untuk acara.">Tanya Paket via WhatsApp</a>
@@ -237,6 +308,59 @@ footer .kredit b{color:var(--c1)}
 </div>
 </div>
 </section>
+<div id="cartbar">
+<div class="cinfo">🛒 <b id="ckount">0 item</b><span class="ctot">Total: <b id="ctotal">Rp0</b></span></div>
+<div class="cbtn"><button type="button" class="btn btn-ghost" id="clihat">Lihat Keranjang</button><button type="button" class="btn btn-c1" id="ccheckout">Checkout</button></div>
+</div>
+<div id="cartmodal"><div class="cpanel">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h3 style="font-size:19px">🛒 Keranjang &amp; Checkout</h3><button type="button" id="ctutup" aria-label="Tutup">✕</button></div>
+<div id="citems"></div>
+<form id="formCheckout">
+<label for="coNama">Nama pemesan</label>
+<input type="text" id="coNama" required placeholder="cth: Budi Santoso">
+<label for="coAlamat">Alamat pengantaran</label>
+<textarea id="coAlamat" rows="2" required placeholder="Jalan, nomor rumah, RT/RW, patokan"></textarea>
+<label>Metode penerimaan</label>
+<div class="radio-row">
+<label class="radio-card"><input type="radio" name="coMetode" value="antar" checked> Diantar <span>+ ongkir Rp5.000</span></label>
+<label class="radio-card"><input type="radio" name="coMetode" value="ambil"> Ambil Sendiri <span>gratis</span></label>
+</div>
+<label for="coCatatan">Catatan (opsional)</label>
+<input type="text" id="coCatatan" placeholder="cth: sambal dipisah, tidak pakai timun">
+<div class="crow"><span>Subtotal</span><b id="csub">Rp0</b></div>
+<div class="crow"><span>Ongkir</span><b id="congkir">Rp5.000</b></div>
+<div class="crow total"><span>Total bayar</span><b id="cgrand">Rp0</b></div>
+<button type="submit" class="btn btn-wa" style="width:100%;justify-content:center;margin-top:18px">Buat Nota Pesanan</button>
+<p class="cnote">Nota pesanan resmi akan terbit di halaman ini setelah kamu menekan tombol di atas — bisa diunduh sebagai PDF dan dikirim ke WhatsApp kami dari nota tersebut.</p>
+</form>
+</div></div>
+
+<section id="nota" hidden style="padding-top:24px">
+<div class="wrap">
+<div id="areaDokumen">
+<div class="dok-kertas">
+<div class="dok-kop"><div class="dok-logo">🍗</div><div class="dok-kop-tengah"><div class="dok-nama">AYAM GEPREK SAMBAL BAKAR</div><div class="dok-subnama">PEDASNYA NAGIH · SEJAK 2019</div><div class="dok-alamat">Jl. Slamet Riyadi No. 214, Kartasura, Sukoharjo · WhatsApp 0838-4000-2399</div></div></div>
+<div class="dok-judul">NOTA PESANAN</div>
+<div class="dok-subjudul">Terima kasih sudah memesan — simpan nota ini sebagai bukti pesananmu.</div>
+<div class="dok-meta"><div><span>Nomor Nota</span><b id="dNomor">ORD-2026-0000</b></div><div><span>Tanggal</span><b id="dTanggal">-</b></div><div><span>Metode</span><b id="dMetode">-</b></div></div>
+<table class="dok-tabel"><tbody id="dPembeli"></tbody></table>
+<table class="dok-items"><thead><tr><th>Menu</th><th style="text-align:center;width:64px">Qty</th><th style="text-align:right;width:118px">Harga</th><th style="text-align:right;width:128px">Subtotal</th></tr></thead>
+<tbody id="dItems"></tbody>
+<tfoot>
+<tr><td colspan="3" style="text-align:right">Subtotal</td><td style="text-align:right" id="dSub">Rp0</td></tr>
+<tr><td colspan="3" style="text-align:right">Ongkir</td><td style="text-align:right" id="dOngkir">Rp0</td></tr>
+<tr class="grand"><td colspan="3" style="text-align:right">TOTAL BAYAR</td><td style="text-align:right" id="dTotal">Rp0</td></tr>
+</tfoot></table>
+<p class="dok-catatan">Pembayaran dapat dilakukan tunai saat pesanan diterima atau diambil, atau melalui transfer/QRIS sesuai arahan admin via WhatsApp. Level pedas tercantum pada setiap menu geprek. Nota ini diterbitkan otomatis oleh sistem pemesanan online Ayam Geprek Sambal Bakar.</p>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" id="btnUnduh">⬇ Unduh Nota (PDF)</button>
+<a class="btn btn-wa" id="btnWA" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+<button type="button" class="btn btn-ghost" id="btnLagi" style="color:#2B2118;border-color:#D9C6AC">Pesan Lagi</button>
+</div>
+</div>
+</div>
+</div>
+</section>
 <footer><div class="wrap">
 <div class="nama">Ayam Geprek Sambal Bakar</div>
 <p>Jl. Slamet Riyadi No. 214, Kartasura, Sukoharjo · Buka setiap hari<br>Rasa pedas bisa disesuaikan — dari level anak kos sampai level neraka.</p>
@@ -267,6 +391,122 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
 });
+</script>
+<script>
+/* ===== Sistem Pemesanan: Keranjang + Nota Pesanan ===== */
+var keranjang = {};
+var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+function rp(n){ return "Rp" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+function tglIndo(d){ return d.getDate() + " " + BULAN[d.getMonth()] + " " + d.getFullYear(); }
+function ongkirAktif(){
+  var r = document.querySelector('input[name="coMetode"]:checked');
+  return (r && r.value === "antar") ? 5000 : 0;
+}
+function hitungKeranjang(){
+  var jml = 0, sub = 0;
+  Object.keys(keranjang).forEach(function(k){ var it = keranjang[k]; jml += it.qty; sub += it.qty * it.harga; });
+  return {jml: jml, subtotal: sub};
+}
+function labelItem(it){ return it.nama + (it.level ? " (Level " + it.level + ")" : ""); }
+function renderKeranjang(){
+  var h = hitungKeranjang(), ong = ongkirAktif();
+  document.getElementById("ckount").textContent = h.jml + " item";
+  document.getElementById("ctotal").textContent = rp(h.subtotal + ong);
+  document.getElementById("cartbar").classList.toggle("muncul", h.jml > 0);
+  var wadah = document.getElementById("citems");
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length){
+    wadah.innerHTML = '<p style="color:var(--abu);font-size:14px;padding:10px 0">Keranjang masih kosong. Tambahkan menu favoritmu dulu ya.</p>';
+  } else {
+    wadah.innerHTML = kunci.map(function(k){
+      var it = keranjang[k];
+      return '<div class="citem"><div class="cmeta"><b>' + it.nama + (it.level ? '<span class="clvl">🌶️ Level ' + it.level + '</span>' : '') + '</b><span>' + rp(it.harga) + ' / porsi</span></div>' +
+        '<div class="cqty"><button type="button" data-act="kurang" data-kunci="' + k + '">−</button><b>' + it.qty + '</b><button type="button" data-act="tambah" data-kunci="' + k + '">+</button></div>' +
+        '<div class="csub">' + rp(it.harga * it.qty) + '</div></div>';
+    }).join("");
+  }
+  document.getElementById("csub").textContent = rp(h.subtotal);
+  document.getElementById("congkir").textContent = rp(ong);
+  document.getElementById("cgrand").textContent = rp(h.subtotal + ong);
+}
+document.querySelectorAll(".tambah").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var nama = btn.getAttribute("data-nama"), harga = parseInt(btn.getAttribute("data-harga"), 10);
+    var kartu = btn.closest(".kartu"), sel = kartu ? kartu.querySelector(".levelpedas") : null;
+    var level = sel ? sel.value : null;
+    var kunci = nama + (level ? "|L" + level : "");
+    if (!keranjang[kunci]) keranjang[kunci] = {nama: nama, harga: harga, qty: 0, level: level};
+    keranjang[kunci].qty++;
+    renderKeranjang();
+    var teksAsli = btn.textContent;
+    btn.textContent = "✓ Masuk Keranjang";
+    setTimeout(function(){ btn.textContent = teksAsli; }, 1100);
+  });
+});
+document.getElementById("citems").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-act]"); if (!b) return;
+  var kunci = b.getAttribute("data-kunci");
+  if (!keranjang[kunci]) return;
+  if (b.getAttribute("data-act") === "tambah") keranjang[kunci].qty++;
+  else { keranjang[kunci].qty--; if (keranjang[kunci].qty <= 0) delete keranjang[kunci]; }
+  renderKeranjang();
+});
+document.querySelectorAll('input[name="coMetode"]').forEach(function(r){
+  r.addEventListener("change", renderKeranjang);
+});
+function bukaModal(b){ document.getElementById("cartmodal").classList.toggle("buka", b); }
+document.getElementById("clihat").addEventListener("click", function(){ bukaModal(true); });
+document.getElementById("ccheckout").addEventListener("click", function(){ bukaModal(true); });
+document.getElementById("ctutup").addEventListener("click", function(){ bukaModal(false); });
+document.getElementById("cartmodal").addEventListener("click", function(e){ if (e.target === this) bukaModal(false); });
+document.getElementById("formCheckout").addEventListener("submit", function(e){
+  e.preventDefault();
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length){ alert("Keranjang masih kosong — tambahkan menu dulu ya."); return; }
+  var h = hitungKeranjang(), ong = ongkirAktif();
+  var metode = ong ? "Diantar ke Alamat" : "Ambil Sendiri di Outlet";
+  var nomor = "ORD-2026-" + (1000 + (Date.now() % 9000));
+  var nama = document.getElementById("coNama").value.trim();
+  var alamat = document.getElementById("coAlamat").value.trim();
+  var catatan = document.getElementById("coCatatan").value.trim();
+  document.getElementById("dNomor").textContent = nomor;
+  document.getElementById("dTanggal").textContent = tglIndo(new Date());
+  document.getElementById("dMetode").textContent = metode;
+  var barisPembeli = "<tr><td>Nama Pemesan</td><td>" + nama + "</td></tr>" +
+    "<tr><td>Alamat</td><td>" + alamat + "</td></tr>" +
+    "<tr><td>Metode</td><td>" + metode + (ong ? " (ongkir flat Rp5.000)" : " (tanpa ongkir)") + "</td></tr>";
+  if (catatan) barisPembeli += "<tr><td>Catatan</td><td>" + catatan + "</td></tr>";
+  document.getElementById("dPembeli").innerHTML = barisPembeli;
+  document.getElementById("dItems").innerHTML = kunci.map(function(k){
+    var it = keranjang[k];
+    return "<tr><td>" + labelItem(it) + "</td><td style=\"text-align:center\">" + it.qty + "</td><td style=\"text-align:right\">" + rp(it.harga) + "</td><td style=\"text-align:right\">" + rp(it.harga * it.qty) + "</td></tr>";
+  }).join("");
+  document.getElementById("dSub").textContent = rp(h.subtotal);
+  document.getElementById("dOngkir").textContent = rp(ong);
+  document.getElementById("dTotal").textContent = rp(h.subtotal + ong);
+  var baris = ["Halo Ayam Geprek Sambal Bakar, saya mau pesan (Nota " + nomor + "):"];
+  kunci.forEach(function(k){ var it = keranjang[k]; baris.push("- " + labelItem(it) + " x" + it.qty + " = " + rp(it.harga * it.qty)); });
+  baris.push("Subtotal: " + rp(h.subtotal));
+  baris.push("Ongkir (" + (ong ? "Diantar" : "Ambil Sendiri") + "): " + rp(ong));
+  baris.push("Total bayar: " + rp(h.subtotal + ong));
+  baris.push("Nama: " + nama);
+  baris.push("Alamat: " + alamat);
+  if (catatan) baris.push("Catatan: " + catatan);
+  document.getElementById("btnWA").setAttribute("href", waLink(baris.join("\n")));
+  bukaModal(false);
+  var sec = document.getElementById("nota");
+  sec.hidden = false;
+  setTimeout(function(){ sec.scrollIntoView({behavior: "smooth"}); }, 60);
+});
+document.getElementById("btnUnduh").addEventListener("click", function(){ window.print(); });
+document.getElementById("btnLagi").addEventListener("click", function(){
+  keranjang = {};
+  renderKeranjang();
+  document.getElementById("formCheckout").reset();
+  document.getElementById("nota").hidden = true;
+  document.getElementById("menu").scrollIntoView({behavior: "smooth"});
+});
+renderKeranjang();
 </script>
 </body>
 </html>

@@ -127,6 +127,69 @@ footer .kredit b{color:var(--c1)}
 @media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.tampil{opacity:1;transform:none}
+/* ===== Sistem Keranjang + Checkout ===== */
+#cartbar{position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--headerbg);backdrop-filter:blur(14px);border-top:1.5px solid var(--garis2);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -10px 30px var(--bayang)}
+#cartbar.muncul{transform:none}
+#cartbar .cinfo{font-size:15px}
+#cartbar .ctot{margin-left:12px;color:var(--abu)}
+#cartbar .ctot b{color:var(--c1)}
+#cartbar .cbtn{display:flex;gap:9px}
+#cartbar .btn{padding:11px 20px;font-size:14px;white-space:nowrap}
+#cartmodal{position:fixed;inset:0;z-index:80;background:rgba(43,25,34,.55);display:none;align-items:flex-end;justify-content:center}
+#cartmodal.buka{display:flex}
+#cartmodal .cpanel{background:var(--panel);width:100%;max-width:600px;max-height:88vh;overflow:auto;border-radius:24px 24px 0 0;padding:26px 24px 30px}
+@media(min-width:700px){#cartmodal{align-items:center;padding:22px}#cartmodal .cpanel{border-radius:24px}}
+#ctutup{background:var(--inputbg);border:1px solid var(--garis2);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;color:var(--teks);flex:none}
+.citem{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--garis)}
+.citem .cmeta{flex:1;min-width:0}
+.citem .cmeta b{display:block;font-size:14.5px}
+.citem .cmeta span{font-size:12.5px;color:var(--abu)}
+.citem .cqty{display:flex;align-items:center;gap:9px}
+.citem .cqty button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--garis2);background:var(--panel);font-size:16px;font-weight:700;cursor:pointer;color:var(--c1);line-height:1}
+.citem .csub{font-weight:800;font-size:14.5px;min-width:92px;text-align:right}
+#cartmodal label{display:block;font-size:13.5px;font-weight:600;margin:15px 0 7px;color:var(--abu)}
+#cartmodal input[type=text],#cartmodal input[type=tel]{width:100%;background:var(--inputbg);border:1px solid var(--garis2);border-radius:12px;padding:12px 14px;color:var(--teks);font-family:inherit;font-size:15px}
+#cartmodal input:focus{outline:none;border-color:var(--c1)}
+.crow{display:flex;justify-content:space-between;font-size:15px;padding-top:11px;color:var(--abu)}
+.crow b{color:var(--teks)}
+.crow.total{font-size:17px;border-top:1px dashed var(--garis2);margin-top:9px;padding-top:14px;color:var(--teks)}
+.crow.total b{color:var(--c1);font-size:20px}
+.cnote{font-size:12.5px;color:var(--abu);margin-top:13px;line-height:1.6}
+/* ===== Dokumen Struk / Nota ===== */
+.dok-kertas{background:#fff;color:#2B2118;border:1px solid var(--garis);border-radius:14px;padding:38px 42px;box-shadow:0 20px 50px var(--bayang);max-width:820px;margin:0 auto;text-align:left}
+.dok-kop{display:flex;align-items:center;gap:16px;border-bottom:3px double #2B2118;padding-bottom:15px}
+.dok-logo{width:62px;height:62px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:31px;flex:none}
+.dok-kop-tengah{flex:1;text-align:center}
+.dok-nama{font-size:23px;font-weight:800;letter-spacing:.4px;line-height:1.2}
+.dok-subnama{font-size:12.5px;font-weight:700;letter-spacing:2.2px;color:var(--c1)}
+.dok-alamat{font-size:12.5px;color:#8A7360;margin-top:3px}
+.dok-judul{text-align:center;font-weight:800;font-size:19px;letter-spacing:.4px;margin:22px 0 4px;text-decoration:underline;text-underline-offset:5px}
+.dok-subjudul{text-align:center;color:#8A7360;font-size:13.5px;margin-bottom:20px}
+.dok-meta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+.dok-meta>div{flex:1;min-width:180px;border:1px solid #EDE3D3;border-radius:10px;padding:10px 15px;background:#FFF9F0}
+.dok-meta span{display:block;font-size:11px;color:#8A7360;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.dok-meta b{font-size:16px}
+table.dok-tabel{width:100%;border-collapse:collapse;margin-bottom:18px}
+table.dok-tabel td{border:1px solid #E3D5C0;padding:9px 14px;font-size:14.5px;vertical-align:top;line-height:1.55}
+table.dok-tabel td:first-child{width:30%;color:#8A7360;font-weight:600;background:#FFF9F0}
+table.dok-items{width:100%;border-collapse:collapse}
+table.dok-items th{background:var(--c1);color:#fff;text-align:left;padding:10px 14px;font-size:13.5px;letter-spacing:.4px}
+table.dok-items td{border-bottom:1px solid #EDE3D3;padding:10px 14px;font-size:14.5px;vertical-align:top}
+table.dok-items tfoot td{border-bottom:none;border-top:2px solid #2B2118;font-weight:700}
+table.dok-items tfoot .grand td{font-size:17px;color:var(--c1);border-top:3px double #2B2118}
+.dok-catatan{font-size:13px;color:#8A7360;line-height:1.7;margin-top:18px}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+@media(max-width:640px){.dok-kertas{padding:26px 20px}.dok-nama{font-size:18px}.dok-logo{width:48px;height:48px;font-size:24px;border-radius:11px}}
+/* ===== Cetak: hanya dokumen struk ===== */
+@media print{
+@page{margin:12mm}
+body{background:#fff!important}
+body>*{display:none!important}
+body>section#struk{display:block!important;padding:0!important}
+.dok-kertas{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
+.no-print{display:none!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 
 </head>
@@ -159,7 +222,7 @@ footer .kredit b{color:var(--c1)}
 <div class="wrap">
 <div class="kicker reveal">Katalog Produk</div>
 <h2 class="judul reveal">Pilih Favoritmu, <span class="grad-text">Klik Pesan</span></h2>
-<p class="sub reveal">Harga sudah termasuk packing rapi. Klik tombol pesan di produk yang kamu suka — admin akan konfirmasi stok, ukuran, dan ongkir lewat WhatsApp.</p>
+<p class="sub reveal">Harga sudah termasuk packing rapi. Klik Tambah pada produk yang kamu suka, atur jumlahnya di keranjang, lalu checkout — nota pesananmu terbit otomatis untuk dikirim ke WhatsApp admin.</p>
 <div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:36px" class="reveal">
 <span class="badge" style="border-color:var(--c1);color:var(--c1)"><b>Semua</b></span><span class="badge">Dress &amp; Atasan</span><span class="badge">Tas</span><span class="badge">Sepatu</span><span class="badge">Hijab</span><span class="badge">Aksesoris</span>
 </div>
@@ -168,47 +231,47 @@ footer .kredit b{color:var(--c1)}
 <img class="pimg" src="foto/08-produk-1.jpg" alt="Foto produk Dress Floral Aira — Midi">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Dress · Best Seller</span><h3 style="margin-top:10px;font-size:17.5px">Dress Floral Aira — Midi</h3>
 <div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp249.000</span> <span class="harga" style="margin-top:0">Rp189.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Dress Floral Aira — Midi (Rp189.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Dress Floral Aira — Midi" data-harga="189000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-2.jpg" alt="Foto produk Blus Linen Nayla — Putih Tulang">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Atasan · Baru</span><h3 style="margin-top:10px;font-size:17.5px">Blus Linen Nayla — Putih Tulang</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp139.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Blus Linen Nayla — Putih Tulang (Rp139.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Blus Linen Nayla — Putih Tulang" data-harga="139000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-3.jpg" alt="Foto produk Tas Selempang Kania — Cokelat Susu">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Tas · Kulit Sintetis Premium</span><h3 style="margin-top:10px;font-size:17.5px">Tas Selempang Kania — Cokelat Susu</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp215.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Tas Selempang Kania — Cokelat Susu (Rp215.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Tas Selempang Kania — Cokelat Susu" data-harga="215000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-4.jpg" alt="Foto produk Sneakers Putih Lumi">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Sepatu · Promo</span><h3 style="margin-top:10px;font-size:17.5px">Sneakers Putih Lumi — 37–40</h3>
 <div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp320.000</span> <span class="harga" style="margin-top:0">Rp259.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Sneakers Putih Lumi — 37–40 (Rp259.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Sneakers Putih Lumi — 37–40" data-harga="259000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-5.jpg" alt="Foto produk Hijab Voal Premium">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Hijab · Mudah Dibentuk</span><h3 style="margin-top:10px;font-size:17.5px">Hijab Voal Premium — 12 Warna</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp59.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Hijab Voal Premium — 12 Warna (Rp59.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Hijab Voal Premium — 12 Warna" data-harga="59000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-6.jpg" alt="Foto produk Jam Tangan Minimalis Rose Gold">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Anti Air</span><h3 style="margin-top:10px;font-size:17.5px">Jam Tangan Minimalis Rose Gold</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp175.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Jam Tangan Minimalis Rose Gold (Rp175.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Jam Tangan Minimalis Rose Gold" data-harga="175000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-7.jpg" alt="Foto produk Kacamata Retro Sinta">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · UV400</span><h3 style="margin-top:10px;font-size:17.5px">Kacamata Retro Sinta + Case</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp89.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Kacamata Retro Sinta + Case (Rp89.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Kacamata Retro Sinta + Case" data-harga="89000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-8.jpg" alt="Foto produk Dompet Lipat Miu — Dusty Pink">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Promo</span><h3 style="margin-top:10px;font-size:17.5px">Dompet Lipat Miu — Dusty Pink</h3>
 <div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp150.000</span> <span class="harga" style="margin-top:0">Rp119.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Dompet Lipat Miu — Dusty Pink (Rp119.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Dompet Lipat Miu — Dusty Pink" data-harga="119000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 <div class="kartu reveal" style="padding:0;overflow:hidden">
 <img class="pimg" src="foto/08-produk-9.jpg" alt="Foto produk Set Kalung dan Anting Arunika">
 <div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Lapis Emas 18K</span><h3 style="margin-top:10px;font-size:17.5px">Set Kalung &amp; Anting Arunika</h3>
 <div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp98.000</span></div>
-<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Set Kalung &amp; Anting Arunika (Rp98.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Set Kalung &amp; Anting Arunika" data-harga="98000" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px">＋ Tambah ke Keranjang</button></div></div>
 </div>
 <p class="sub reveal" style="margin-top:36px;margin-bottom:0">Tidak menemukan yang dicari? Katalog lengkap &amp; stok harian dibagikan di grup WhatsApp pelanggan — <a href="#" data-wa="Halo Kirana Boutique, saya ingin bergabung ke grup WhatsApp pelanggan untuk katalog lengkap." style="color:var(--c1);font-weight:700">gabung di sini</a>.</p>
 </div>
@@ -221,8 +284,8 @@ footer .kredit b{color:var(--c1)}
 <p class="sub reveal">Tidak perlu install aplikasi atau membuat akun. Semua lewat WhatsApp yang sudah kamu pakai setiap hari.</p>
 <div class="langkah">
 <div class="step reveal"><div class="no">01</div><h4>Pilih Produk</h4><p>Telusuri katalog di halaman ini dan temukan yang kamu suka.</p></div>
-<div class="step reveal"><div class="no">02</div><h4>Klik Tombol Pesan</h4><p>Kamu diarahkan ke WhatsApp admin dengan pesan yang sudah terisi nama produk.</p></div>
-<div class="step reveal"><div class="no">03</div><h4>Konfirmasi &amp; Bayar</h4><p>Admin cek stok, hitung ongkir, dan kirim instruksi transfer/QRIS. Stok kami kunci untukmu setelah pembayaran.</p></div>
+<div class="step reveal"><div class="no">02</div><h4>Masukkan Keranjang</h4><p>Klik Tambah pada produk, atur jumlah di panel keranjang, lalu isi nama, alamat, dan nomor WA di form checkout.</p></div>
+<div class="step reveal"><div class="no">03</div><h4>Nota Terbit &amp; Bayar</h4><p>Nota pesananmu terbit otomatis — unduh dan kirim ke WhatsApp admin. Admin cek stok, hitung ongkir, dan kirim instruksi transfer/QRIS.</p></div>
 <div class="step reveal"><div class="no">04</div><h4>Paket Meluncur</h4><p>Pesanan dikirim di hari yang sama (order sebelum 15.00) dengan nomor resi yang bisa dilacak.</p></div>
 </div>
 </div>
@@ -272,6 +335,50 @@ footer .kredit b{color:var(--c1)}
 </div>
 </div>
 </section>
+<div id="cartbar">
+<div class="cinfo">🛒 <b id="ckount">0 item</b><span class="ctot">Total: <b id="ctotal">Rp0</b></span></div>
+<div class="cbtn"><button type="button" class="btn btn-ghost" id="clihat">Lihat Keranjang</button><button type="button" class="btn btn-c1" id="ccheckout">Checkout</button></div>
+</div>
+<div id="cartmodal"><div class="cpanel">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h3 style="font-size:19px">🛒 Keranjang &amp; Checkout</h3><button type="button" id="ctutup" aria-label="Tutup">✕</button></div>
+<div id="citems"></div>
+<form id="formCheckout">
+<label for="coNama">Nama pemesan</label>
+<input type="text" id="coNama" required placeholder="cth: Ayu Lestari">
+<label for="coAlamat">Alamat pengiriman</label>
+<input type="text" id="coAlamat" required placeholder="Jalan, nomor rumah, kota, kode pos">
+<label for="coWA">Nomor WhatsApp</label>
+<input type="tel" id="coWA" required placeholder="cth: 0812xxxxxxxx">
+<div class="crow total"><span>Total belanja</span><b id="cgrand">Rp0</b></div>
+<button type="submit" class="btn btn-wa" style="width:100%;justify-content:center;margin-top:18px">Buat Struk Pesanan</button>
+<p class="cnote">Struk pesanan resmi akan terbit di halaman ini — bisa diunduh sebagai PDF dan dikirim ke WhatsApp admin. Ongkir dihitung admin sesuai alamat &amp; berat, lalu dikonfirmasi sebelum pembayaran.</p>
+</form>
+</div></div>
+
+<section id="struk" hidden style="padding-top:24px">
+<div class="wrap">
+<div id="areaDokumen">
+<div class="dok-kertas">
+<div class="dok-kop"><div class="dok-logo">👗</div><div class="dok-kop-tengah"><div class="dok-nama">KIRANA BOUTIQUE</div><div class="dok-subnama">FASHION &amp; AKSESORIS WANITA</div><div class="dok-alamat">Ruko Pasar Gede Blok B No. 12, Jl. Adisucipto No. 56, Sukoharjo · WhatsApp 0838-4000-2399</div></div></div>
+<div class="dok-judul">STRUK PESANAN</div>
+<div class="dok-subjudul">Terima kasih sudah berbelanja — simpan struk ini sebagai bukti pesananmu.</div>
+<div class="dok-meta"><div><span>Nomor Pesanan</span><b id="dNomor">ORD-2026-0000</b></div><div><span>Tanggal</span><b id="dTanggal">-</b></div><div><span>Status</span><b>Menunggu Konfirmasi</b></div></div>
+<table class="dok-tabel"><tbody id="dPembeli"></tbody></table>
+<table class="dok-items"><thead><tr><th>Produk</th><th style="text-align:center;width:64px">Qty</th><th style="text-align:right;width:118px">Harga</th><th style="text-align:right;width:128px">Subtotal</th></tr></thead>
+<tbody id="dItems"></tbody>
+<tfoot>
+<tr class="grand"><td colspan="3" style="text-align:right">TOTAL BELANJA</td><td style="text-align:right" id="dTotal">Rp0</td></tr>
+</tfoot></table>
+<p class="dok-catatan">Total di atas belum termasuk ongkir — admin akan mengonfirmasi stok, ukuran, dan ongkir lewat WhatsApp sebelum pembayaran (transfer/QRIS). Order sebelum pukul 16.00 WIB dikirim di hari yang sama (Senin–Sabtu). Tukar ukuran bisa dalam 3 hari selama label masih terpasang.</p>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" id="btnUnduh">⬇ Unduh Struk (PDF)</button>
+<a class="btn btn-wa" id="btnWA" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+<button type="button" class="btn btn-ghost" id="btnLagi">Belanja Lagi</button>
+</div>
+</div>
+</div>
+</div>
+</section>
 <footer><div class="wrap">
 <div class="nama">Kirana Boutique</div>
 <p>Jl. Adisucipto No. 56, Sukoharjo, Jawa Tengah · Buka setiap hari 08.00–21.00 WIB<br>Pengiriman se-Indonesia dari Sukoharjo · COD area Sukoharjo–Solo.</p>
@@ -302,6 +409,102 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
 });
+</script>
+<script>
+/* ===== Sistem Keranjang + Struk Pesanan ===== */
+var keranjang = {};
+var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+function rp(n){ return "Rp" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+function tglIndo(d){ return d.getDate() + " " + BULAN[d.getMonth()] + " " + d.getFullYear(); }
+function totalKeranjang(){
+  var jml = 0, tot = 0;
+  Object.keys(keranjang).forEach(function(k){ var it = keranjang[k]; jml += it.qty; tot += it.qty * it.harga; });
+  return {jml: jml, total: tot};
+}
+function renderKeranjang(){
+  var h = totalKeranjang();
+  document.getElementById("ckount").textContent = h.jml + " item";
+  document.getElementById("ctotal").textContent = rp(h.total);
+  document.getElementById("cartbar").classList.toggle("muncul", h.jml > 0);
+  var wadah = document.getElementById("citems");
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length){
+    wadah.innerHTML = '<p style="color:var(--abu);font-size:14px;padding:10px 0">Keranjang masih kosong. Pilih produk favoritmu dulu ya.</p>';
+  } else {
+    wadah.innerHTML = kunci.map(function(k){
+      var it = keranjang[k];
+      return '<div class="citem"><div class="cmeta"><b>' + it.nama + '</b><span>' + rp(it.harga) + ' / pcs</span></div>' +
+        '<div class="cqty"><button type="button" data-act="kurang" data-kunci="' + k + '">−</button><b>' + it.qty + '</b><button type="button" data-act="tambah" data-kunci="' + k + '">+</button></div>' +
+        '<div class="csub">' + rp(it.harga * it.qty) + '</div></div>';
+    }).join("");
+  }
+  document.getElementById("cgrand").textContent = rp(h.total);
+}
+document.querySelectorAll(".tambah").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var nama = btn.getAttribute("data-nama"), harga = parseInt(btn.getAttribute("data-harga"), 10);
+    if (!keranjang[nama]) keranjang[nama] = {nama: nama, harga: harga, qty: 0};
+    keranjang[nama].qty++;
+    renderKeranjang();
+    var teksAsli = btn.textContent;
+    btn.textContent = "✓ Masuk Keranjang";
+    setTimeout(function(){ btn.textContent = teksAsli; }, 1100);
+  });
+});
+document.getElementById("citems").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-act]"); if (!b) return;
+  var kunci = b.getAttribute("data-kunci");
+  if (!keranjang[kunci]) return;
+  if (b.getAttribute("data-act") === "tambah") keranjang[kunci].qty++;
+  else { keranjang[kunci].qty--; if (keranjang[kunci].qty <= 0) delete keranjang[kunci]; }
+  renderKeranjang();
+});
+function bukaModal(b){ document.getElementById("cartmodal").classList.toggle("buka", b); }
+document.getElementById("clihat").addEventListener("click", function(){ bukaModal(true); });
+document.getElementById("ccheckout").addEventListener("click", function(){ bukaModal(true); });
+document.getElementById("ctutup").addEventListener("click", function(){ bukaModal(false); });
+document.getElementById("cartmodal").addEventListener("click", function(e){ if (e.target === this) bukaModal(false); });
+document.getElementById("formCheckout").addEventListener("submit", function(e){
+  e.preventDefault();
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length){ alert("Keranjang masih kosong — pilih produk dulu ya."); return; }
+  var h = totalKeranjang();
+  var nomor = "ORD-2026-" + (1000 + (Date.now() % 9000));
+  var nama = document.getElementById("coNama").value.trim();
+  var alamat = document.getElementById("coAlamat").value.trim();
+  var wa = document.getElementById("coWA").value.trim();
+  document.getElementById("dNomor").textContent = nomor;
+  document.getElementById("dTanggal").textContent = tglIndo(new Date());
+  document.getElementById("dPembeli").innerHTML =
+    "<tr><td>Nama Pemesan</td><td>" + nama + "</td></tr>" +
+    "<tr><td>Alamat Pengiriman</td><td>" + alamat + "</td></tr>" +
+    "<tr><td>No. WhatsApp</td><td>" + wa + "</td></tr>";
+  document.getElementById("dItems").innerHTML = kunci.map(function(k){
+    var it = keranjang[k];
+    return "<tr><td>" + it.nama + "</td><td style=\"text-align:center\">" + it.qty + "</td><td style=\"text-align:right\">" + rp(it.harga) + "</td><td style=\"text-align:right\">" + rp(it.harga * it.qty) + "</td></tr>";
+  }).join("");
+  document.getElementById("dTotal").textContent = rp(h.total);
+  var baris = ["Halo Kirana Boutique, saya mau pesan (Struk " + nomor + "):"];
+  kunci.forEach(function(k){ var it = keranjang[k]; baris.push("- " + it.nama + " x" + it.qty + " = " + rp(it.harga * it.qty)); });
+  baris.push("Total belanja: " + rp(h.total) + " (belum termasuk ongkir)");
+  baris.push("Nama: " + nama);
+  baris.push("Alamat: " + alamat);
+  baris.push("No. WA saya: " + wa);
+  document.getElementById("btnWA").setAttribute("href", waLink(baris.join("\n")));
+  bukaModal(false);
+  var sec = document.getElementById("struk");
+  sec.hidden = false;
+  setTimeout(function(){ sec.scrollIntoView({behavior: "smooth"}); }, 60);
+});
+document.getElementById("btnUnduh").addEventListener("click", function(){ window.print(); });
+document.getElementById("btnLagi").addEventListener("click", function(){
+  keranjang = {};
+  renderKeranjang();
+  document.getElementById("formCheckout").reset();
+  document.getElementById("struk").hidden = true;
+  document.getElementById("katalog").scrollIntoView({behavior: "smooth"});
+});
+renderKeranjang();
 </script>
 </body>
 </html>

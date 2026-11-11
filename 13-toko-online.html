@@ -126,6 +126,40 @@ footer .kredit b{color:var(--c1)}
 @media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.tampil{opacity:1;transform:none}
+/* ===== Dokumen Nota Pesanan (modal) ===== */
+#notamodal{position:fixed;inset:0;z-index:90;background:rgba(30,18,8,.6);display:none;align-items:flex-start;justify-content:center;overflow:auto;padding:22px 14px}
+#notamodal.buka{display:flex}
+#notamodal .dok-kertas{background:#fff;color:#2B2118;border-radius:14px;padding:38px 42px;box-shadow:0 20px 50px rgba(0,0,0,.4);width:100%;max-width:820px;margin:auto;text-align:left}
+#notamodal .dok-kop{display:flex;align-items:center;gap:16px;border-bottom:3px double #2B2118;padding-bottom:15px}
+#notamodal .dok-logo{width:62px;height:62px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:31px;flex:none}
+#notamodal .dok-kop-tengah{flex:1;text-align:center}
+#notamodal .dok-nama{font-size:23px;font-weight:800;letter-spacing:.4px;line-height:1.2}
+#notamodal .dok-subnama{font-size:12.5px;font-weight:700;letter-spacing:2.2px;color:var(--c1)}
+#notamodal .dok-alamat{font-size:12.5px;color:#8A7360;margin-top:3px}
+#notamodal .dok-judul{text-align:center;font-weight:800;font-size:19px;letter-spacing:.4px;margin:22px 0 4px;text-decoration:underline;text-underline-offset:5px}
+#notamodal .dok-subjudul{text-align:center;color:#8A7360;font-size:13.5px;margin-bottom:20px}
+#notamodal .dok-meta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+#notamodal .dok-meta>div{flex:1;min-width:180px;border:1px solid #EDE3D3;border-radius:10px;padding:10px 15px;background:#FFF9F0}
+#notamodal .dok-meta span{display:block;font-size:11px;color:#8A7360;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+#notamodal .dok-meta b{font-size:16px}
+#notamodal table.dok-items{width:100%;border-collapse:collapse}
+#notamodal table.dok-items th{background:var(--c1);color:#fff;text-align:left;padding:10px 14px;font-size:13.5px;letter-spacing:.4px}
+#notamodal table.dok-items td{border-bottom:1px solid #EDE3D3;padding:10px 14px;font-size:14.5px;vertical-align:top}
+#notamodal table.dok-items tfoot td{border-bottom:none;border-top:2px solid #2B2118;font-weight:700}
+#notamodal table.dok-items tfoot .grand td{font-size:17px;color:var(--c1);border-top:3px double #2B2118}
+#notamodal .dok-catatan{font-size:13px;color:#8A7360;line-height:1.7;margin-top:18px}
+#notamodal .dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+@media(max-width:640px){#notamodal .dok-kertas{padding:26px 20px}#notamodal .dok-nama{font-size:18px}#notamodal .dok-logo{width:48px;height:48px;font-size:24px;border-radius:11px}}
+/* ===== Cetak: hanya dokumen nota ===== */
+@media print{
+@page{margin:12mm}
+body{background:#fff!important}
+body>*{display:none!important}
+body>#notamodal{display:block!important;position:static;background:none;padding:0;overflow:visible}
+#notamodal .dok-kertas{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
+.no-print{display:none!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 <style>
 .prod{padding:0;overflow:hidden}
@@ -383,16 +417,45 @@ function checkoutWA(){
   var kunci = Object.keys(keranjang);
   if (!kunci.length) return;
   var h = hitungKeranjang();
-  var baris = ["Halo Rasa Nusantara, saya mau pesan:"];
+  var nomor = "ORD-2026-" + (1000 + (Date.now() % 9000));
+  var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+  var tgl = new Date();
+  document.getElementById("nNomor").textContent = nomor;
+  document.getElementById("nTanggal").textContent = tgl.getDate() + " " + BULAN[tgl.getMonth()] + " " + tgl.getFullYear();
+  document.getElementById("nItems").innerHTML = kunci.map(function(k){
+    var it = keranjang[k];
+    return "<tr><td>" + k + "</td><td style=\"text-align:center\">" + it.qty + "</td><td style=\"text-align:right\">" + rp(it.harga) + "</td><td style=\"text-align:right\">" + rp(it.harga * it.qty) + "</td></tr>";
+  }).join("");
+  document.getElementById("nTotal").textContent = rp(h.total);
+  var baris = ["Halo Rasa Nusantara, saya mau pesan (Nota " + nomor + "):"];
   kunci.forEach(function(k){ var it = keranjang[k]; baris.push("- " + k + " x" + it.qty + " = " + rp(it.harga * it.qty)); });
   baris.push("Total belanja: " + rp(h.total));
   baris.push("(Ongkir mohon diinfokan ya kak. Terima kasih!)");
-  window.open(waLink(baris.join("\n")), "_blank");
+  document.getElementById("btnWA2").setAttribute("href", waLink(baris.join("\n")));
+  bukaModal(false);
+  document.getElementById("notamodal").classList.add("buka");
 }
 document.getElementById("ccheckout").addEventListener("click", checkoutWA);
 document.getElementById("ccheckout2").addEventListener("click", checkoutWA);
 renderKeranjang();
 </script>
+<div id="notamodal"><div class="dok-kertas" id="notaDok">
+<div class="dok-kop"><div class="dok-logo">🌶️</div><div class="dok-kop-tengah"><div class="dok-nama">RASA NUSANTARA</div><div class="dok-subnama">OLEH-OLEH &amp; Camilan KHAS DAERAH</div><div class="dok-alamat">Jl. Godean KM 7, Sleman, Yogyakarta · WhatsApp 0838-4000-2399</div></div></div>
+<div class="dok-judul">NOTA PESANAN</div>
+<div class="dok-subjudul">Terima kasih sudah berbelanja — simpan nota ini sebagai bukti pesananmu.</div>
+<div class="dok-meta"><div><span>Nomor Nota</span><b id="nNomor">ORD-2026-0000</b></div><div><span>Tanggal</span><b id="nTanggal">-</b></div><div><span>Status</span><b>Menunggu Konfirmasi</b></div></div>
+<table class="dok-items"><thead><tr><th>Produk</th><th style="text-align:center;width:64px">Qty</th><th style="text-align:right;width:118px">Harga</th><th style="text-align:right;width:128px">Subtotal</th></tr></thead>
+<tbody id="nItems"></tbody>
+<tfoot>
+<tr class="grand"><td colspan="3" style="text-align:right">TOTAL BELANJA</td><td style="text-align:right" id="nTotal">Rp0</td></tr>
+</tfoot></table>
+<p class="dok-catatan">Total di atas belum termasuk ongkir — admin akan mengonfirmasi stok dan ongkir lewat WhatsApp sebelum pembayaran (transfer/QRIS). Order sebelum pukul 15.00 WIB dikirim di hari yang sama; fresh dari dapur &amp; produsen mitra tiap Senin, Rabu, dan Jumat.</p>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" id="btnUnduhNota">⬇ Unduh Nota (PDF)</button>
+<a class="btn btn-wa" id="btnWA2" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+<button type="button" class="btn btn-ghost" id="btnTutupNota">Tutup</button>
+</div>
+</div></div>
 <footer><div class="wrap">
 <div class="nama">Rasa Nusantara</div>
 <p>Jl. Godean KM 7, Sleman, Yogyakarta · Admin aktif setiap hari 08.00–21.00 WIB<br>Pengiriman se-Indonesia · Kopi disangrai fresh setiap ada pesanan.</p>
@@ -423,6 +486,12 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
 });
+</script>
+<script>
+/* ===== Tombol pada Nota Pesanan ===== */
+document.getElementById("btnUnduhNota").addEventListener("click", function(){ window.print(); });
+document.getElementById("btnTutupNota").addEventListener("click", function(){ document.getElementById("notamodal").classList.remove("buka"); });
+document.getElementById("notamodal").addEventListener("click", function(e){ if (e.target === this) this.classList.remove("buka"); });
 </script>
 </body>
 </html>

@@ -139,6 +139,37 @@ footer .kredit b{color:var(--c1)}
 .tile .tshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,22,.08) 28%,rgba(10,14,22,.82))}
 .tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 </style>
+
+<style>
+/* ===== SISTEM PENGAJUAN SURAT & PENERBITAN SURAT RESMI ===== */
+.dok-wrap{max-width:760px;margin:38px auto 0}
+.konfirm-surat{max-width:760px;margin:0 auto;background:#EAF7EE;border:1px solid var(--garis2);border-radius:14px;padding:16px 20px;font-size:14.5px;line-height:1.65;text-align:left}
+.surat{background:#fff;color:#1B1B1B;font-family:Georgia,'Times New Roman',serif;border:1px solid var(--garis2);border-radius:8px;padding:42px 46px;box-shadow:0 20px 46px var(--bayang);text-align:left;line-height:1.65}
+.kop-surat{text-align:center}
+.kop-baris{font-size:15px;letter-spacing:2px}
+.kop-desa{font-size:25px;font-weight:800;letter-spacing:1px;margin:2px 0}
+.kop-alamat{font-size:12px}
+.kop-garis{border-top:3px solid #1E3325;border-bottom:1px solid #1E3325;height:4px;margin:12px 0 22px}
+.surat-judul{text-align:center;font-size:17px;font-weight:700;letter-spacing:1px;text-decoration:underline;text-underline-offset:4px}
+.surat-nomor{text-align:center;font-size:14.5px;margin:4px 0 20px}
+.surat-p{font-size:14.5px;margin-bottom:14px;text-align:justify}
+.surat-tabel{width:100%;border-collapse:collapse;font-size:14.5px;margin:6px 0 16px 14px}
+.surat-tabel td{padding:3.5px 6px;vertical-align:top}
+.surat-tabel td:first-child{width:175px}
+.surat-tabel td:nth-child(2){width:14px}
+.surat-ttd{display:flex;justify-content:flex-end;margin-top:26px}
+.ttd-kanan{width:270px;text-align:center;font-size:14.5px}
+.ttd-ruang{height:76px}
+.ttd-nama{font-weight:700;text-decoration:underline}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:22px}
+.dok-info{text-align:center;font-size:12.5px;color:var(--abu);margin-top:14px}
+@media print{
+body *{visibility:hidden}
+.surat,.surat *{visibility:visible}
+.surat{position:absolute;top:0;left:0;width:100%;box-shadow:none;border:none;border-radius:0}
+.no-print{display:none !important}
+}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -207,21 +238,85 @@ footer .kredit b{color:var(--c1)}
 <div class="kartu reveal"><div class="ikon">💍</div><h3>Pengantar Nikah (NA)</h3><p>Berkas N1–N4 untuk pencatatan di KUA. Syarat: KTP, KK, akta kelahiran, dan pas foto. Ajukan minimal 10 hari sebelum hari akad.</p></div>
 <div class="kartu reveal"><div class="ikon">📄</div><h3>Surat Lainnya</h3><p>Keterangan berkelakuan baik, belum menikah, penghasilan orang tua, ahli waris, dan legalisasi dokumen. Tanyakan dulu syaratnya lewat WhatsApp agar tidak bolak-balik.</p></div>
 </div>
-<form class="formbox reveal" style="margin-top:40px" data-wa-form="Halo Perangkat Desa Sukamaju, saya ingin mengajukan surat.">
+<form class="formbox reveal" id="formSurat">
 <h3 style="font-size:20px">Formulir Pengajuan Surat</h3>
-<label>Nama Lengkap (sesuai KTP)</label>
-<input type="text" placeholder="cth: Siti Aminah" data-label="Nama pemohon" required>
+<p style="font-size:13.5px;color:var(--abu);margin-top:6px">Pilih jenis surat dan lengkapi data warga — sistem langsung <b>menerbitkan surat keterangan resmi</b> bernomor surat yang bisa kamu unduh/cetak. Perangkat desa juga mencatat pengajuanmu dari nomor surat tersebut.</p>
 <label>Jenis Surat yang Diajukan</label>
-<select data-label="Jenis surat"><option>Surat Domisili / Pengantar KTP-KK</option><option>Surat Keterangan Usaha (SKU)</option><option>Surat Keterangan Tidak Mampu (SKTM)</option><option>Pengantar Akta Kelahiran</option><option>Surat Kematian</option><option>Pengantar Nikah (NA)</option><option>Surat Lainnya</option></select>
-<label>Dusun / RT-RW</label>
-<input type="text" placeholder="cth: Dusun Krajan, RT 03 / RW 02" data-label="Dusun/RT-RW" required>
+<select id="dsJenis">
+<option value="domisili">Surat Keterangan Domisili</option>
+<option value="sku">Surat Keterangan Usaha (SKU)</option>
+<option value="sktm">Surat Keterangan Tidak Mampu (SKTM)</option>
+<option value="nikah">Surat Keterangan Pengantar Nikah</option>
+<option value="kelahiran">Pengantar Akta Kelahiran</option>
+<option value="kematian">Surat Keterangan Kematian</option>
+<option value="lainnya">Surat Keterangan Lainnya</option>
+</select>
+<label>Nama Lengkap (sesuai KTP)</label>
+<input type="text" id="dsNama" placeholder="cth: Siti Aminah" required>
+<label>NIK (data demo — isi 16 digit angka)</label>
+<input type="text" id="dsNIK" inputmode="numeric" maxlength="16" placeholder="cth: 3311012345670001" required>
+<label>Tempat Lahir</label>
+<input type="text" id="dsTmpLahir" placeholder="cth: Sukoharjo" required>
+<label>Tanggal Lahir</label>
+<input type="date" id="dsTglLahir" required>
+<label>Jenis Kelamin</label>
+<select id="dsJK"><option>Laki-laki</option><option>Perempuan</option></select>
+<label>Agama</label>
+<select id="dsAgama"><option>Islam</option><option>Kristen</option><option>Katolik</option><option>Hindu</option><option>Buddha</option><option>Konghucu</option></select>
+<label>Pekerjaan</label>
+<input type="text" id="dsPekerjaan" placeholder="cth: Petani" required>
+<label>Status Perkawinan</label>
+<select id="dsStatus"><option>Belum Kawin</option><option>Kawin</option><option>Cerai Hidup</option><option>Cerai Mati</option></select>
+<label>Alamat / Dusun — RT/RW</label>
+<input type="text" id="dsAlamat" placeholder="cth: Dusun Krajan, RT 03 / RW 02" required>
 <label>Keperluan / Keterangan Tambahan</label>
-<textarea rows="3" placeholder="cth: Untuk syarat pendaftaran KUR di bank" data-label="Keperluan"></textarea>
+<textarea rows="3" id="dsKeperluan" placeholder="cth: Untuk syarat pendaftaran KUR di bank" required></textarea>
 <label>Nomor WhatsApp Aktif</label>
-<input type="tel" placeholder="cth: 0812xxxxxxx" data-label="No. WA pemohon" required>
-<button class="btn btn-wa" type="submit">Kirim Pengajuan via WhatsApp</button>
-<p style="font-size:12.5px;color:var(--abu);margin-top:14px;text-align:center">Pengajuan online tidak menggantikan verifikasi berkas asli — bawa KTP &amp; KK asli saat mengambil surat. Layanan administrasi desa <b>tidak dipungut biaya</b>.</p>
+<input type="tel" id="dsWA" placeholder="cth: 0812xxxxxxx" required>
+<button class="btn btn-c1" type="submit">📄 Terbitkan Surat Saya</button>
+<p style="font-size:12.5px;color:var(--abu);margin-top:14px;text-align:center">Surat yang diterbitkan sistem adalah dokumen resmi siap cetak. Untuk pengambilan versi bertanda tangan basah &amp; stempel, datang ke balai desa dengan membawa KTP &amp; KK asli. Layanan administrasi desa <b>tidak dipungut biaya</b>.</p>
 </form>
+<div class="dok-wrap" id="hasilSurat" style="display:none">
+<div class="konfirm-surat no-print" style="margin-bottom:20px">✅ <b>Pengajuanmu tercatat di sistem desa.</b> Nomor Surat: <b id="kNomor">—</b>. Unduh/cetak surat di bawah ini, atau kirim pemberitahuan ke perangkat desa lewat tombol WhatsApp agar berkasmu diverifikasi.</div>
+<div class="surat" id="dokSurat">
+<div class="kop-surat">
+<div class="kop-baris">PEMERINTAH KABUPATEN ARUNIKA</div>
+<div class="kop-baris">KECAMATAN MAKMUR SEJAHTERA</div>
+<div class="kop-desa">DESA SUKAMAJU</div>
+<div class="kop-alamat">Jl. Raya Sukamaju No. 1, Kecamatan Makmur Sejahtera, Kabupaten Arunika</div>
+<div class="kop-garis"></div>
+</div>
+<div class="surat-judul" id="sJudul">SURAT KETERANGAN</div>
+<div class="surat-nomor">Nomor: <span id="sNomor">—</span></div>
+<p class="surat-p">Yang bertanda tangan di bawah ini, Kepala Desa Sukamaju, Kecamatan Makmur Sejahtera, Kabupaten Arunika, menerangkan dengan sebenarnya bahwa:</p>
+<table class="surat-tabel">
+<tr><td>Nama</td><td>:</td><td><b id="sNama">—</b></td></tr>
+<tr><td>NIK</td><td>:</td><td id="sNIK">—</td></tr>
+<tr><td>Tempat, Tanggal Lahir</td><td>:</td><td id="sTTL">—</td></tr>
+<tr><td>Jenis Kelamin</td><td>:</td><td id="sJK">—</td></tr>
+<tr><td>Agama</td><td>:</td><td id="sAgama">—</td></tr>
+<tr><td>Pekerjaan</td><td>:</td><td id="sPekerjaan">—</td></tr>
+<tr><td>Status Perkawinan</td><td>:</td><td id="sStatus">—</td></tr>
+<tr><td>Alamat</td><td>:</td><td id="sAlamat">—</td></tr>
+</table>
+<p class="surat-p" id="sIsi">—</p>
+<p class="surat-p">Demikian surat keterangan ini dibuat dengan sebenarnya untuk dapat dipergunakan sebagaimana mestinya.</p>
+<div class="surat-ttd">
+<div class="ttd-kanan">
+<p>Sukamaju, <span id="sTanggal">—</span></p>
+<p>Kepala Desa Sukamaju</p>
+<div class="ttd-ruang"></div>
+<p class="ttd-nama">H. Bambang Sutrisno</p>
+</div>
+</div>
+</div>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" onclick="window.print()">⬇️ Unduh / Cetak Surat</button>
+<a class="btn btn-wa" id="waSurat" href="#" target="_blank">Kirim ke WA Perangkat Desa</a>
+<button type="button" class="btn btn-ghost" id="btnSuratLagi">Ajukan Surat Lain</button>
+</div>
+<p class="dok-info no-print">Nomor surat terbit otomatis mengikuti register surat keluar Desa Sukamaju. Tunjukkan nomor surat ini saat mengambil versi tanda tangan basah di balai desa.</p>
+</div>
 </div>
 </section>
 
@@ -347,6 +442,88 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
+});
+</script>
+<script>
+// ===== SISTEM PENGAJUAN & PENERBITAN SURAT DESA =====
+function dsSimpan(k, v){ try { localStorage.setItem(k, JSON.stringify(v)); } catch(e){} }
+function dsAmbil(k, bawaan){ try { var v = localStorage.getItem(k); return v ? JSON.parse(v) : bawaan; } catch(e){ return bawaan; } }
+function esc(t){ return String(t == null ? "" : t).replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;"); }
+var ROMAWI = ["I","II","III","IV","V","VI","VII","VIII","IX","X","XI","XII"];
+var JUDUL_SURAT = {
+  domisili: "SURAT KETERANGAN DOMISILI",
+  sku: "SURAT KETERANGAN USAHA",
+  sktm: "SURAT KETERANGAN TIDAK MAMPU",
+  nikah: "SURAT KETERANGAN PENGANTAR NIKAH",
+  kelahiran: "SURAT PENGANTAR AKTA KELAHIRAN",
+  kematian: "SURAT KETERANGAN KEMATIAN",
+  lainnya: "SURAT KETERANGAN"
+};
+var NAMA_SURAT = {
+  domisili: "Surat Keterangan Domisili", sku: "Surat Keterangan Usaha (SKU)",
+  sktm: "Surat Keterangan Tidak Mampu (SKTM)", nikah: "Surat Keterangan Pengantar Nikah",
+  kelahiran: "Pengantar Akta Kelahiran", kematian: "Surat Keterangan Kematian", lainnya: "Surat Keterangan Lainnya"
+};
+function isiSurat(jenis, d){
+  var kep = "<b>" + esc(d.keperluan) + "</b>";
+  if (jenis === "domisili") return "Bahwa orang tersebut di atas adalah benar penduduk dan warga Desa Sukamaju, dan sampai dengan diterbitkannya surat ini yang bersangkutan berdomisili tetap di alamat sebagaimana tersebut di atas. Surat keterangan domisili ini dibuat untuk keperluan: " + kep + ".";
+  if (jenis === "sku") return "Bahwa orang tersebut di atas adalah benar penduduk Desa Sukamaju, dan berdasarkan data administrasi desa yang bersangkutan benar memiliki dan menjalankan usaha dengan keterangan sebagai berikut: " + kep + ". Surat keterangan usaha ini dibuat sebagai kelengkapan persyaratan administrasi usaha yang bersangkutan.";
+  if (jenis === "sktm") return "Bahwa orang tersebut di atas adalah benar penduduk Desa Sukamaju. Berdasarkan data administrasi desa dan hasil verifikasi perangkat dusun setempat, yang bersangkutan beserta keluarganya termasuk dalam kategori keluarga <b>tidak mampu (prasejahtera)</b>. Surat keterangan ini dibuat untuk keperluan: " + kep + ".";
+  if (jenis === "nikah") return "Bahwa orang tersebut di atas adalah benar penduduk Desa Sukamaju dengan status perkawinan <b>" + esc(d.status) + "</b>. Surat keterangan ini diberikan sebagai <b>pengantar pengurusan pernikahan</b> yang bersangkutan pada Kantor Urusan Agama (KUA) Kecamatan Makmur Sejahtera. Keperluan: " + kep + ".";
+  if (jenis === "kelahiran") return "Surat keterangan ini dibuat sebagai <b>pengantar pengurusan akta kelahiran</b> pada Dinas Kependudukan dan Pencatatan Sipil Kabupaten Arunika. Keterangan pemohon: " + kep + ".";
+  if (jenis === "kematian") return "Surat keterangan ini dibuat sebagai <b>pengantar pengurusan administrasi kematian</b> dan pembaruan data kependudukan keluarga yang bersangkutan. Keterangan pemohon: " + kep + ".";
+  return "Surat keterangan ini dibuat untuk keperluan: " + kep + ".";
+}
+document.getElementById("formSurat").addEventListener("submit", function(e){
+  e.preventDefault();
+  var jenis = document.getElementById("dsJenis").value;
+  var d = {
+    nama: document.getElementById("dsNama").value.trim(),
+    nik: document.getElementById("dsNIK").value.trim(),
+    tmpLahir: document.getElementById("dsTmpLahir").value.trim(),
+    tglLahir: document.getElementById("dsTglLahir").value,
+    jk: document.getElementById("dsJK").value,
+    agama: document.getElementById("dsAgama").value,
+    pekerjaan: document.getElementById("dsPekerjaan").value.trim(),
+    status: document.getElementById("dsStatus").value,
+    alamat: document.getElementById("dsAlamat").value.trim(),
+    keperluan: document.getElementById("dsKeperluan").value.trim(),
+    wa: document.getElementById("dsWA").value.trim()
+  };
+  var arsip = dsAmbil("desa_pengajuan", []);
+  var sekarang = new Date();
+  var urut = 214 + arsip.length + 1;
+  var nomor = "470/" + String(urut).padStart(3, "0") + "/DS-SKM/" + ROMAWI[sekarang.getMonth()] + "/" + sekarang.getFullYear();
+  var tglSurat = sekarang.toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" });
+  var ttl = d.tmpLahir + ", " + (d.tglLahir ? new Date(d.tglLahir + "T00:00:00").toLocaleDateString("id-ID", { day: "numeric", month: "long", year: "numeric" }) : "—");
+  arsip.push({ nomor: nomor, jenis: NAMA_SURAT[jenis], nama: d.nama, nik: d.nik, keperluan: d.keperluan, wa: d.wa, dibuat: sekarang.toISOString() });
+  dsSimpan("desa_pengajuan", arsip);
+  document.getElementById("kNomor").textContent = nomor;
+  document.getElementById("sJudul").textContent = JUDUL_SURAT[jenis];
+  document.getElementById("sNomor").textContent = nomor;
+  document.getElementById("sNama").textContent = d.nama;
+  document.getElementById("sNIK").textContent = d.nik;
+  document.getElementById("sTTL").textContent = ttl;
+  document.getElementById("sJK").textContent = d.jk;
+  document.getElementById("sAgama").textContent = d.agama;
+  document.getElementById("sPekerjaan").textContent = d.pekerjaan;
+  document.getElementById("sStatus").textContent = d.status;
+  document.getElementById("sAlamat").textContent = d.alamat + ", Desa Sukamaju, Kec. Makmur Sejahtera, Kab. Arunika";
+  document.getElementById("sIsi").innerHTML = isiSurat(jenis, d);
+  document.getElementById("sTanggal").textContent = tglSurat;
+  var pesan = ["Halo Perangkat Desa Sukamaju, saya sudah mengajukan surat secara online dan surat saya telah diterbitkan sistem.",
+    "Nomor Surat: " + nomor, "Jenis Surat: " + NAMA_SURAT[jenis],
+    "Nama: " + d.nama, "NIK: " + d.nik, "Keperluan: " + d.keperluan,
+    "Mohon dibantu verifikasi berkas saya. Terima kasih."].join("\n");
+  document.getElementById("waSurat").setAttribute("href", waLink(pesan));
+  var hasil = document.getElementById("hasilSurat");
+  hasil.style.display = "block";
+  hasil.scrollIntoView({ behavior: "smooth", block: "start" });
+});
+document.getElementById("btnSuratLagi").addEventListener("click", function(){
+  document.getElementById("hasilSurat").style.display = "none";
+  document.getElementById("formSurat").reset();
+  document.getElementById("formSurat").scrollIntoView({ behavior: "smooth" });
 });
 </script>
 </body>

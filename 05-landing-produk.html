@@ -129,6 +129,51 @@ footer .kredit b{color:var(--c1)}
 @media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
 .reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
 .reveal.tampil{opacity:1;transform:none}
+/* ===== Sistem Order: Formulir + Invoice ===== */
+.radio-row{display:flex;gap:10px;flex-wrap:wrap;margin-top:7px}
+.radio-card{flex:1;min-width:200px;border:1.5px solid var(--garis2);border-radius:14px;padding:12px 15px;display:flex!important;align-items:center;gap:9px;margin:0!important;cursor:pointer;font-size:14.5px;font-weight:600;color:var(--teks)!important;background:var(--panel)}
+.radio-card span{margin-left:auto;font-size:12.5px;color:var(--abu);font-weight:600;text-align:right}
+.radio-card input{accent-color:var(--c1);width:17px;height:17px;flex:none}
+.crow{display:flex;justify-content:space-between;font-size:15px;padding-top:11px;color:var(--abu)}
+.crow b{color:var(--teks)}
+.crow.total{font-size:17px;border-top:1px dashed var(--garis2);margin-top:9px;padding-top:14px;color:var(--teks)}
+.crow.total b{color:var(--c1);font-size:20px}
+.cnote{font-size:12.5px;color:var(--abu);margin-top:13px;line-height:1.6}
+/* ===== Dokumen Invoice ===== */
+.dok-kertas{background:#fff;color:#2B2118;border:1px solid var(--garis);border-radius:14px;padding:38px 42px;box-shadow:0 20px 50px var(--bayang);max-width:820px;margin:0 auto;text-align:left}
+.dok-kop{display:flex;align-items:center;gap:16px;border-bottom:3px double #2B2118;padding-bottom:15px}
+.dok-logo{width:62px;height:62px;border-radius:14px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:31px;flex:none}
+.dok-kop-tengah{flex:1;text-align:center}
+.dok-nama{font-size:23px;font-weight:800;letter-spacing:.4px;line-height:1.2}
+.dok-subnama{font-size:12.5px;font-weight:700;letter-spacing:2.2px;color:var(--c1)}
+.dok-alamat{font-size:12.5px;color:#8A7360;margin-top:3px}
+.dok-judul{text-align:center;font-weight:800;font-size:19px;letter-spacing:.4px;margin:22px 0 4px;text-decoration:underline;text-underline-offset:5px}
+.dok-subjudul{text-align:center;color:#8A7360;font-size:13.5px;margin-bottom:20px}
+.dok-meta{display:flex;gap:13px;flex-wrap:wrap;margin-bottom:18px}
+.dok-meta>div{flex:1;min-width:180px;border:1px solid #EDE3D3;border-radius:10px;padding:10px 15px;background:#FFF9F0}
+.dok-meta span{display:block;font-size:11px;color:#8A7360;font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:2px}
+.dok-meta b{font-size:16px}
+table.dok-tabel{width:100%;border-collapse:collapse;margin-bottom:18px}
+table.dok-tabel td{border:1px solid #E3D5C0;padding:9px 14px;font-size:14.5px;vertical-align:top;line-height:1.55}
+table.dok-tabel td:first-child{width:30%;color:#8A7360;font-weight:600;background:#FFF9F0}
+table.dok-items{width:100%;border-collapse:collapse}
+table.dok-items th{background:var(--c1);color:#fff;text-align:left;padding:10px 14px;font-size:13.5px;letter-spacing:.4px}
+table.dok-items td{border-bottom:1px solid #EDE3D3;padding:10px 14px;font-size:14.5px;vertical-align:top}
+table.dok-items tfoot td{border-bottom:none;border-top:2px solid #2B2118;font-weight:700}
+table.dok-items tfoot .grand td{font-size:17px;color:var(--c1);border-top:3px double #2B2118}
+.dok-catatan{font-size:13px;color:#8A7360;line-height:1.7;margin-top:18px}
+.dok-aksi{display:flex;gap:12px;flex-wrap:wrap;justify-content:center;margin-top:28px}
+@media(max-width:640px){.dok-kertas{padding:26px 20px}.dok-nama{font-size:18px}.dok-logo{width:48px;height:48px;font-size:24px;border-radius:11px}}
+/* ===== Cetak: hanya dokumen invoice ===== */
+@media print{
+@page{margin:12mm}
+body{background:#fff!important}
+body>*{display:none!important}
+body>section#invoice{display:block!important;padding:0!important}
+.dok-kertas{box-shadow:none;border:none;border-radius:0;max-width:none;padding:0}
+.no-print{display:none!important}
+*{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+}
 </style>
 
 </head>
@@ -180,9 +225,9 @@ footer .kredit b{color:var(--c1)}
 <h2 class="judul reveal">Pilih Ukuran, <span class="grad-text">Makin Besar Makin Hemat</span></h2>
 <p class="sub reveal">Harga sudah termasuk botol kaca food-grade dan packing kayu aman. Gratis ongkir untuk paket Keluarga ke seluruh Jawa.</p>
 <div class="grid">
-<div class="kartu reveal"><h3>Coba Dulu — 250 ml</h3><p>Untuk yang baru pertama kali. Cukup ±2 minggu konsumsi pribadi.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp129.000</span><br>Rp89.000</div><a class="btn btn-wa" style="width:100%;justify-content:center;margin-top:18px" href="#" data-wa="Halo, saya mau pesan Madu Hutan Sumbawa paket COBA DULU 250 ml (Rp89.000). Nama & alamat saya: ">Pesan Paket Ini</a></div>
-<div class="kartu reveal" style="border:2px solid var(--c1)"><span class="tag">Paling Laris</span><h3 style="margin-top:13px">Keluarga — 500 ml × 2</h3><p>Untuk konsumsi keluarga ±2 bulan. Gratis ongkir se-Jawa + sendok kayu madu.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp398.000</span><br>Rp279.000</div><a class="btn btn-wa" style="width:100%;justify-content:center;margin-top:18px" href="#" data-wa="Halo, saya mau pesan Madu Hutan Sumbawa paket KELUARGA 500 ml x 2 (Rp279.000, gratis ongkir). Nama & alamat saya: ">Pesan Paket Ini</a></div>
-<div class="kartu reveal"><h3>Stok Agen — 1 liter × 3</h3><p>Untuk stok lama atau dijual lagi. Harga khusus + materi promosi &amp; sertifikat uji lab per batch.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp1.050.000</span><br>Rp749.000</div><a class="btn btn-wa" style="width:100%;justify-content:center;margin-top:18px" href="#" data-wa="Halo, saya mau pesan Madu Hutan Sumbawa paket STOK AGEN 1 liter x 3 (Rp749.000). Nama & alamat saya: ">Pesan Paket Ini</a></div>
+<div class="kartu reveal"><h3>Coba Dulu — 250 ml</h3><p>Untuk yang baru pertama kali. Cukup ±2 minggu konsumsi pribadi.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp129.000</span><br>Rp89.000</div><button type="button" class="btn btn-c1 pilih-paket" data-paket="coba" style="width:100%;justify-content:center;margin-top:18px">Pilih Paket Ini</button></div>
+<div class="kartu reveal" style="border:2px solid var(--c1)"><span class="tag">Paling Laris</span><h3 style="margin-top:13px">Keluarga — 500 ml × 2</h3><p>Untuk konsumsi keluarga ±2 bulan. Gratis ongkir se-Jawa + sendok kayu madu.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp398.000</span><br>Rp279.000</div><button type="button" class="btn btn-c1 pilih-paket" data-paket="keluarga" style="width:100%;justify-content:center;margin-top:18px">Pilih Paket Ini</button></div>
+<div class="kartu reveal"><h3>Stok Agen — 1 liter × 3</h3><p>Untuk stok lama atau dijual lagi. Harga khusus + materi promosi &amp; sertifikat uji lab per batch.</p><div class="harga"><span style="text-decoration:line-through;color:var(--abu);font-size:15px;font-weight:500">Rp1.050.000</span><br>Rp749.000</div><button type="button" class="btn btn-c1 pilih-paket" data-paket="agen" style="width:100%;justify-content:center;margin-top:18px">Pilih Paket Ini</button></div>
 </div>
 <div class="reveal" style="max-width:760px;margin:36px auto 0">
 <ul class="check">
@@ -190,6 +235,67 @@ footer .kredit b{color:var(--c1)}
 <li>Bayar setelah barang sampai (COD) tersedia untuk wilayah Jawa</li>
 <li>Packing kayu + bubble wrap — botol pecah di perjalanan kami ganti baru</li>
 </ul>
+</div>
+</div>
+</section>
+
+<section id="order">
+<div class="wrap">
+<div class="kicker reveal">Formulir Pemesanan</div>
+<h2 class="judul reveal">Isi Data, <span class="grad-text">Invoice Langsung Terbit</span></h2>
+<p class="sub reveal">Pilih paket dan jumlahnya, lengkapi data pengiriman — sistem menerbitkan invoice resmi yang bisa kamu unduh sebagai PDF dan kirim ke WhatsApp kami untuk diproses.</p>
+<form class="formbox reveal" id="formOrder">
+<label for="oPaket">Pilih paket</label>
+<select id="oPaket">
+<option value="coba">Coba Dulu — 250 ml · Rp89.000</option>
+<option value="keluarga" selected>Keluarga — 500 ml × 2 · Rp279.000</option>
+<option value="agen">Stok Agen — 1 liter × 3 · Rp749.000</option>
+</select>
+<label for="oJumlah">Jumlah paket</label>
+<input type="number" id="oJumlah" min="1" max="99" value="1" required>
+<label for="oNama">Nama penerima</label>
+<input type="text" id="oNama" required placeholder="cth: Sari Wulandari">
+<label for="oAlamat">Alamat lengkap pengiriman</label>
+<textarea id="oAlamat" rows="3" required placeholder="Jalan, nomor rumah, RT/RW, kelurahan, kecamatan, kota, kode pos"></textarea>
+<label for="oWA">Nomor WhatsApp penerima</label>
+<input type="tel" id="oWA" required placeholder="cth: 0812xxxxxxxx">
+<label>Metode pengiriman</label>
+<div class="radio-row">
+<label class="radio-card"><input type="radio" name="oKirim" value="reguler" checked> Reguler (2–4 hari) <span>estimasi Rp10.000</span></label>
+<label class="radio-card"><input type="radio" name="oKirim" value="express"> Express (1–2 hari) <span>estimasi Rp20.000</span></label>
+</div>
+<div class="crow" style="margin-top:10px"><span>Subtotal</span><b id="oSub">Rp279.000</b></div>
+<div class="crow"><span>Ongkir (estimasi)</span><b id="oOngkir">Rp10.000</b></div>
+<div class="crow total"><span>Total bayar</span><b id="oTotal">Rp289.000</b></div>
+<button type="submit" class="btn btn-c1">Buat Invoice</button>
+<p class="cnote">Ongkir bersifat estimasi — ongkir final dikonfirmasi admin sesuai alamat &amp; berat paket (paket Keluarga gratis ongkir se-Jawa sesuai promo). Invoice terbit di bawah formulir ini setelah tombol ditekan.</p>
+</form>
+</div>
+</section>
+
+<section id="invoice" hidden style="padding-top:24px">
+<div class="wrap">
+<div id="areaDokumen">
+<div class="dok-kertas">
+<div class="dok-kop"><div class="dok-logo">🍯</div><div class="dok-kop-tengah"><div class="dok-nama">MADU HUTAN SUMBAWA ASLI</div><div class="dok-subnama">100% MURNI · TANPA CAMPURAN</div><div class="dok-alamat">Gudang: Jl. Merdeka No. 88, Sukoharjo, Jawa Tengah · WhatsApp 0838-4000-2399</div></div></div>
+<div class="dok-judul">INVOICE</div>
+<div class="dok-subjudul">Terima kasih sudah memesan — simpan invoice ini sebagai bukti pesananmu.</div>
+<div class="dok-meta"><div><span>Nomor Invoice</span><b id="iNomor">INV-2026-0000</b></div><div><span>Tanggal</span><b id="iTanggal">-</b></div><div><span>Pengiriman</span><b id="iKirim">-</b></div></div>
+<table class="dok-tabel"><tbody id="iPembeli"></tbody></table>
+<table class="dok-items"><thead><tr><th>Paket</th><th style="text-align:center;width:76px">Jumlah</th><th style="text-align:right;width:128px">Harga Satuan</th><th style="text-align:right;width:128px">Subtotal</th></tr></thead>
+<tbody id="iItems"></tbody>
+<tfoot>
+<tr><td colspan="3" style="text-align:right">Subtotal</td><td style="text-align:right" id="iSub">Rp0</td></tr>
+<tr><td colspan="3" style="text-align:right">Ongkir (estimasi)</td><td style="text-align:right" id="iOngkir">Rp0</td></tr>
+<tr class="grand"><td colspan="3" style="text-align:right">TOTAL BAYAR</td><td style="text-align:right" id="iTotal">Rp0</td></tr>
+</tfoot></table>
+<p class="dok-catatan">Pembayaran melalui transfer bank, e-wallet, atau QRIS sesuai arahan admin via WhatsApp; COD tersedia untuk wilayah Jawa. Ongkir pada invoice ini adalah estimasi — nilai final dikonfirmasi admin sebelum pembayaran. Garansi uang kembali 100% bila madu terbukti campuran dari uji laboratorium mana pun.</p>
+<div class="dok-aksi no-print">
+<button type="button" class="btn btn-c1" id="btnUnduhInv">⬇ Unduh Invoice (PDF)</button>
+<a class="btn btn-wa" id="btnWAInv" href="#" target="_blank" rel="noopener">Kirim via WhatsApp</a>
+<button type="button" class="btn btn-ghost" id="btnLagiInv">Pesan Lagi</button>
+</div>
+</div>
 </div>
 </div>
 </section>
@@ -259,6 +365,86 @@ document.querySelectorAll(".tanya button").forEach(function(b){
     jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
   });
 });
+</script>
+<script>
+/* ===== Sistem Order: Pilihan Paket + Invoice ===== */
+var PAKET = {
+  coba:     {nama: "Coba Dulu — 250 ml", harga: 89000},
+  keluarga: {nama: "Keluarga — 500 ml × 2", harga: 279000},
+  agen:     {nama: "Stok Agen — 1 liter × 3", harga: 749000}
+};
+var BULAN = ["Januari","Februari","Maret","April","Mei","Juni","Juli","Agustus","September","Oktober","November","Desember"];
+function rp(n){ return "Rp" + String(n).replace(/\B(?=(\d{3})+(?!\d))/g, "."); }
+function tglIndo(d){ return d.getDate() + " " + BULAN[d.getMonth()] + " " + d.getFullYear(); }
+function ongkirOrder(){
+  var r = document.querySelector('input[name="oKirim"]:checked');
+  return (r && r.value === "express") ? 20000 : 10000;
+}
+function labelKirim(){ return ongkirOrder() === 20000 ? "Express (1–2 hari)" : "Reguler (2–4 hari)"; }
+function jumlahOrder(){
+  var j = parseInt(document.getElementById("oJumlah").value || "1", 10);
+  if (isNaN(j) || j < 1) j = 1;
+  if (j > 99) j = 99;
+  return j;
+}
+function updateRingkasan(){
+  var p = PAKET[document.getElementById("oPaket").value];
+  var sub = p.harga * jumlahOrder(), ong = ongkirOrder();
+  document.getElementById("oSub").textContent = rp(sub);
+  document.getElementById("oOngkir").textContent = rp(ong);
+  document.getElementById("oTotal").textContent = rp(sub + ong);
+}
+document.getElementById("oPaket").addEventListener("change", updateRingkasan);
+document.getElementById("oJumlah").addEventListener("input", updateRingkasan);
+document.querySelectorAll('input[name="oKirim"]').forEach(function(r){ r.addEventListener("change", updateRingkasan); });
+document.querySelectorAll(".pilih-paket").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    document.getElementById("oPaket").value = btn.getAttribute("data-paket");
+    updateRingkasan();
+    document.getElementById("order").scrollIntoView({behavior: "smooth"});
+  });
+});
+document.getElementById("formOrder").addEventListener("submit", function(e){
+  e.preventDefault();
+  var p = PAKET[document.getElementById("oPaket").value];
+  var jml = jumlahOrder(), ong = ongkirOrder(), sub = p.harga * jml, total = sub + ong;
+  var nomor = "INV-2026-" + (1000 + (Date.now() % 9000));
+  var nama = document.getElementById("oNama").value.trim();
+  var alamat = document.getElementById("oAlamat").value.trim();
+  var wa = document.getElementById("oWA").value.trim();
+  document.getElementById("iNomor").textContent = nomor;
+  document.getElementById("iTanggal").textContent = tglIndo(new Date());
+  document.getElementById("iKirim").textContent = labelKirim();
+  document.getElementById("iPembeli").innerHTML =
+    "<tr><td>Nama Penerima</td><td>" + nama + "</td></tr>" +
+    "<tr><td>Alamat Pengiriman</td><td>" + alamat + "</td></tr>" +
+    "<tr><td>No. WhatsApp</td><td>" + wa + "</td></tr>";
+  document.getElementById("iItems").innerHTML =
+    "<tr><td>Madu Hutan Sumbawa ASLI — Paket " + p.nama + "</td><td style=\"text-align:center\">" + jml + "</td><td style=\"text-align:right\">" + rp(p.harga) + "</td><td style=\"text-align:right\">" + rp(sub) + "</td></tr>";
+  document.getElementById("iSub").textContent = rp(sub);
+  document.getElementById("iOngkir").textContent = rp(ong);
+  document.getElementById("iTotal").textContent = rp(total);
+  var baris = ["Halo Madu Hutan Sumbawa ASLI, saya mau pesan (Invoice " + nomor + "):",
+    "- Paket " + p.nama + " x" + jml + " = " + rp(sub),
+    "Ongkir " + labelKirim() + " (estimasi): " + rp(ong),
+    "Total bayar: " + rp(total),
+    "Nama: " + nama,
+    "Alamat: " + alamat,
+    "No. WA saya: " + wa];
+  document.getElementById("btnWAInv").setAttribute("href", waLink(baris.join("\n")));
+  var sec = document.getElementById("invoice");
+  sec.hidden = false;
+  setTimeout(function(){ sec.scrollIntoView({behavior: "smooth"}); }, 60);
+});
+document.getElementById("btnUnduhInv").addEventListener("click", function(){ window.print(); });
+document.getElementById("btnLagiInv").addEventListener("click", function(){
+  document.getElementById("formOrder").reset();
+  document.getElementById("oPaket").value = "keluarga";
+  updateRingkasan();
+  document.getElementById("invoice").hidden = true;
+  document.getElementById("paket").scrollIntoView({behavior: "smooth"});
+});
+updateRingkasan();
 </script>
 </body>
 </html>
