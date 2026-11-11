@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vega Ardana — 3D Artist & Motion Designer | Render Produk, Animasi Iklan, 3D Web</title>
+<meta name="description" content=" Portofolio 3D artist: render produk, animasi iklan 3D, dan 3D interaktif untuk web. Panggung 3D di halaman ini bisa kamu seret & putar langsung — render real-time di browser. ">
+<meta property="og:title" content=" Vega Ardana — 3D Artist & Motion Designer | Render Produk, Animasi Iklan, 3D Web ">
+<meta property="og:description" content=" Seret & putar panggung 3D saya langsung di browser. Booking project bulan ini — slot terbatas 3 klien. ">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--c1:#881BFC; --c2:#18D1FE; --grad:linear-gradient(92deg,#C02ADD,#881BFC,#0C85FC,#18D1FE);
+--bg:#07070D; --altbg:#0B0B14; --panel:#10101B; --teks:#EDEEF4; --abu:#9BA0B4;
+--garis:#22222F; --garis2:#3A3A4E; --headerbg:rgba(7,7,13,.88); --inputbg:#0C0C15;
+--bayang:rgba(136,27,252,.20);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--teks);font-family:'Poppins',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-c1{background:var(--grad);color:#fff;box-shadow:0 10px 28px var(--bayang)}
+.btn-wa{background:#1FAF54;color:#fff;box-shadow:0 10px 28px rgba(31,175,84,.35)}
+.btn-ghost{background:transparent;border:1.5px solid var(--garis2);color:var(--teks)}
+.btn-ghost:hover{border-color:var(--c1)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--garis)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;line-height:1.15}
+.logo .lk{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:21px;flex:none;color:#fff}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--abu);letter-spacing:.6px}
+.menu{display:flex;gap:26px;font-size:14.5px;color:var(--abu);font-weight:500}
+.menu a:hover{color:var(--c1)}
+.nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:860px){.menu{display:none}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.logo{font-size:16.5px}}
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero .dekor{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--garis2);border-radius:999px;background:var(--panel);font-size:13px;font-weight:600;color:var(--abu)}
+.badge b{color:var(--c1)}
+.hero h1{font-size:clamp(33px,5.4vw,58px);font-weight:800;line-height:1.14;margin:22px 0 18px}
+.hero p.lead{font-size:clamp(15.5px,2vw,18.5px);color:var(--abu);line-height:1.7;max-width:640px}
+.hero.ctr{text-align:center}
+.hero.ctr p.lead{margin:0 auto}
+.hero .rel{position:relative;z-index:2}
+.cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero.ctr .cta-row{justify-content:center}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
+.stat .n{font-size:25px;font-weight:800;color:var(--c1)}
+.stat .l{font-size:12.5px;color:var(--abu)}
+section{padding:84px 0}
+.alt{background:var(--altbg)}
+.kicker{text-align:center;font-weight:700;letter-spacing:3px;font-size:12.5px;color:var(--c1);text-transform:uppercase}
+.judul{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;margin:11px auto 13px;max-width:720px;line-height:1.25}
+.sub{text-align:center;color:var(--abu);max-width:620px;margin:0 auto 46px;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kartu{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:28px 25px;transition:.3s}
+.kartu:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:0 18px 40px var(--bayang)}
+.kartu .ikon{width:54px;height:54px;border-radius:15px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:15px;color:#fff}
+.kartu h3{font-size:18.5px;margin-bottom:7px}
+.kartu p{font-size:14.5px;color:var(--abu);line-height:1.65}
+.kartu .harga{font-size:21px;font-weight:800;color:var(--c1);margin-top:12px}
+.kartu .harga small{font-size:13px;color:var(--abu);font-weight:500}
+.kartu .btn{margin-top:16px;padding:11px 22px;font-size:14px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;text-transform:uppercase}
+.galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{border-radius:20px;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;padding:22px;transition:.3s}
+.tile:hover{transform:scale(1.025)}
+.tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.tile .tt{font-weight:700;font-size:16px}
+.tile .ts{font-size:13px;opacity:.88}
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
+.tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
+.tst p{font-size:14.5px;line-height:1.7;color:var(--teks)}
+.tst .siapa{display:flex;align-items:center;gap:12px;margin-top:17px}
+.tst .ava{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+.tst .siapa b{display:block;font-size:14.5px}
+.tst .siapa span{font-size:12.5px;color:var(--abu)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.tanya{border:1px solid var(--garis);border-radius:15px;background:var(--panel);overflow:hidden}
+.tanya button{width:100%;background:none;border:none;color:var(--teks);font-family:inherit;font-size:15.5px;font-weight:600;text-align:left;padding:17px 21px;cursor:pointer;display:flex;justify-content:space-between;gap:13px;align-items:center}
+.tanya .jawab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tanya .jawab p{padding:0 21px 18px;color:var(--abu);font-size:14.5px;line-height:1.65}
+.tanya .panah{transition:.3s;color:var(--c1);flex:none}
+.tanya.buka .panah{transform:rotate(180deg)}
+.langkah{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{border:1px solid var(--garis);border-radius:18px;padding:26px 23px;background:var(--panel)}
+.step .no{font-size:38px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{margin:10px 0 6px;font-size:16.5px}
+.step p{font-size:14px;color:var(--abu);line-height:1.6}
+.check{list-style:none;display:grid;gap:11px;font-size:15px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+footer{border-top:1px solid var(--garis);padding:52px 0 38px;background:var(--altbg);text-align:center}
+footer .nama{font-weight:800;font-size:19px;margin-bottom:7px}
+footer p{color:var(--abu);font-size:13.5px;line-height:1.75;max-width:560px;margin:0 auto}
+footer .kredit{margin-top:20px;font-size:12.5px;color:var(--abu)}
+footer .kredit b{color:var(--c1)}
+.wa-float{position:fixed;right:19px;bottom:19px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FAF54;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 10px 28px rgba(31,175,84,.45);animation:denyut 2.4s infinite}
+@keyframes denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.tampil{opacity:1;transform:none}
+/* ===== PANGGUNG 3D ===== */
+.panggung{position:relative;border-radius:26px;overflow:hidden;height:440px;border:1px solid var(--garis2);box-shadow:0 24px 60px var(--bayang)}
+.panggung canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.panggung canvas:active{cursor:grabbing}
+.panggung .cadangan{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:110px;z-index:1}
+.panggung.no3d canvas{display:none}
+.panggung.no3d .cadangan{display:flex}
+.chip3d{position:absolute;left:14px;bottom:14px;z-index:3;background:rgba(5,5,12,.55);backdrop-filter:blur(6px);color:#fff;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:600;pointer-events:none}
+.chip3d.kanan{left:auto;right:14px}
+.latar3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero.no3d .latar3d{display:none}
+@media(max-width:860px){.panggung{height:330px}}
+/* swatch produk 360 */
+.swatch{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 6px}
+.swatch button{width:46px;height:46px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.swatch button.aktif{border-color:var(--c1);transform:scale(1.12)}
+.skillbar{margin-bottom:17px}
+.skillbar .lbl{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:7px}
+.skillbar .lbl span{color:var(--c1)}
+.skillbar .rel{height:10px;border-radius:99px;background:var(--garis);overflow:hidden}
+.skillbar .isi{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.1s ease}
+
+:root{--c1:#8B5CF6; --c2:#F472B6; --grad:linear-gradient(92deg,#7C3AED,#C026D3,#F472B6);
+--bg:#0A0714; --altbg:#0E0A1C; --panel:#130E24; --teks:#F1EEFA; --abu:#A79FC0;
+--garis:#251C40; --garis2:#453468; --headerbg:rgba(10,7,20,.88); --inputbg:#0F0B1E;
+--bayang:rgba(139,92,246,.22);}
+</style>
+</head>
+<body class="  ">
+
+<header><div class="wrap nav">
+<a class="logo" href="#"><span class="lk">🧊</span><span>Vega Ardana<small>3D ARTIST &amp; MOTION DESIGNER</small></span></a>
+<nav class="menu"><a href="#karya">Karya</a><a href="#keahlian">Keahlian</a><a href="#paket">Paket</a><a href="#testimoni">Testimoni</a></nav>
+<a class="btn btn-wa" href="#" data-wa="Halo Vega, saya mau booking jasa 3D/motion untuk project saya. Mohon info jadwal yang tersedia.">Booking Project</a>
+</div></header>
+
+<div class="hero">
+<div class="dekor" style="width:440px;height:440px;background:#7C3AED;top:-150px;right:-100px;opacity:.4"></div>
+<div class="dekor" style="width:300px;height:300px;background:#C026D3;bottom:-130px;left:-80px;opacity:.3"></div>
+<div class="wrap split rel">
+<div>
+<span class="badge">🧊 3D Artist — <b>Terbuka untuk Project Baru</b></span>
+<h1>Saya Mengubah Ide Jadi <span class="grad-text">Dunia 3D yang Hidup</span></h1>
+<p class="lead">Spesialis model 3D produk, animasi brand, dan visual interaktif untuk iklan &amp; website. Panggung di samping ini render real-time di browsermu — seret untuk memutarnya.</p>
+<div class="cta-row">
+<a class="btn btn-wa" href="#" data-wa="Halo Vega, saya mau diskusi project 3D: ____. Mohon info proses &amp; estimasi biayanya.">Diskusi Project via WA</a>
+<a class="btn btn-ghost" href="#karya">Lihat Karya</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="n">85+</div><div class="l">Project 3D &amp; motion selesai</div></div>
+<div class="stat"><div class="n">40+</div><div class="l">Brand &amp; agensi terbantu</div></div>
+<div class="stat"><div class="n">6 th</div><div class="l">Pengalaman profesional</div></div>
+</div>
+</div>
+<div class="panggung reveal" style="background:radial-gradient(120% 120% at 30% 15%,#241243 0%,#120A26 55%,#0A0714 100%)">
+<canvas id="cv17"></canvas>
+<div class="cadangan">🧊</div>
+<div class="chip3d">👆 Seret untuk memutar panggung 3D</div>
+<div class="chip3d kanan">Render Real-Time</div>
+</div>
+</div>
+</div>
+
+<section id="karya" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Karya Pilihan</div>
+<h2 class="judul reveal">Setiap Karya Punya <span class="grad-text">Tujuan Bisnis</span></h2>
+<p class="sub reveal">Bukan sekadar cantik — setiap visual dirancang untuk menjual, menjelaskan, atau membuat orang berhenti scroll.</p>
+<div class="galeri">
+<div class="tile reveal" style="background:linear-gradient(150deg,#5B21B6,#0EA5E9)"><div class="emo">👟</div><div class="tt">Sneakers 360° Interaktif</div><div class="ts">Konfigurator warna untuk toko online</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#9D174D,#F59E0B)"><div class="emo">🧴</div><div class="tt">Render Produk Skincare</div><div class="ts">Menggantikan sesi foto produk — hemat 70%</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#155E75,#2DD4BF)"><div class="emo">🏙️</div><div class="tt">Visualisasi Apartemen</div><div class="ts">Pre-selling unit naik 3x lebih cepat</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#7C2D12,#EC4899)"><div class="emo">🎮</div><div class="tt">Karakter Game Mobile</div><div class="ts">12 karakter + animasi idle &amp; lari</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#1E3A8A,#A78BFA)"><div class="emo">🚗</div><div class="tt">Animasi Logo Otomotif</div><div class="ts">Intro 5 detik untuk kanal YouTube 800rb subs</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#14532D,#84CC16)"><div class="emo">🥤</div><div class="tt">Iklan Minuman 3D</div><div class="ts">15 detik — 2,1 jt tayangan organik</div></div>
+</div>
+</div>
+</section>
+
+<section id="keahlian">
+<div class="wrap split">
+<div class="reveal">
+<div class="kicker" style="text-align:left">Keahlian</div>
+<h2 class="judul" style="text-align:left;margin-left:0">Senjata Saya: <span class="grad-text">Detail &amp; Deadline</span></h2>
+<p style="color:var(--abu);line-height:1.75;font-size:15.5px">Saya bekerja dengan pipeline studio: konsep → modeling → material &amp; pencahayaan → render/animasi → revisi terjadwal. Kamu menerima update visual di setiap tahap — tidak ada kejutan di akhir.</p>
+<ul class="check" style="margin-top:20px">
+<li>File sumber rapi &amp; terorganisir — mudah dilanjutkan tim lain</li>
+<li>Output dioptimasi untuk web (ringan) maupun cetak (resolusi tinggi)</li>
+<li>Revisi minor tanpa batas selama masa pengerjaan</li>
+</ul>
+</div>
+<div class="reveal">
+<div class="skillbar"><div class="lbl">3D Modeling &amp; Sculpting <span>95%</span></div><div class="rel"><div class="isi" data-lebar="95%"></div></div></div>
+<div class="skillbar"><div class="lbl">Material, Lighting &amp; Render <span>92%</span></div><div class="rel"><div class="isi" data-lebar="92%"></div></div></div>
+<div class="skillbar"><div class="lbl">Motion &amp; Animasi <span>90%</span></div><div class="rel"><div class="isi" data-lebar="90%"></div></div></div>
+<div class="skillbar"><div class="lbl">3D Web Interaktif (WebGL) <span>86%</span></div><div class="rel"><div class="isi" data-lebar="86%"></div></div></div>
+<div class="skillbar"><div class="lbl">Compositing &amp; Color Grading <span>84%</span></div><div class="rel"><div class="isi" data-lebar="84%"></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="paket" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Paket Jasa</div>
+<h2 class="judul reveal">Harga Per Project, <span class="grad-text">Bukan Per Jam</span></h2>
+<p class="sub reveal">Kamu tahu persis biaya di muka. Yang berubah hanyalah scope — dan itu selalu dibicarakan dulu.</p>
+<div class="grid">
+<div class="kartu reveal"><div class="ikon">🧴</div><h3>Render Produk</h3><p>Model 3D produk + 5 sudut render resolusi iklan + 1 versi transparan untuk marketplace.</p><div class="harga">Mulai Rp1,2 jt</div><a class="btn btn-wa" href="#" data-wa="Halo Vega, saya tertarik paket RENDER PRODUK mulai Rp1,2 jt. Produk saya: ____">Pesan Paket Ini</a></div>
+<div class="kartu reveal"><div class="ikon">🎬</div><h3>Animasi Iklan 3D</h3><p>Video 3D 10–20 detik untuk iklan &amp; media sosial, termasuk konsep, musik latar berlisensi, dan 2 format (persegi &amp; vertikal).</p><div class="harga">Mulai Rp3,5 jt</div><a class="btn btn-wa" href="#" data-wa="Halo Vega, saya tertarik paket ANIMASI IKLAN 3D mulai Rp3,5 jt. Konsep saya: ____">Pesan Paket Ini</a></div>
+<div class="kartu reveal"><div class="ikon">🌐</div><h3>3D Interaktif Web</h3><p>Model 3D ringan yang bisa diputar &amp; dikustomisasi pengunjung di website — seperti panggung di halaman ini.</p><div class="harga">Mulai Rp4 jt</div><a class="btn btn-wa" href="#" data-wa="Halo Vega, saya tertarik paket 3D INTERAKTIF WEB mulai Rp4 jt. Kebutuhan saya: ____">Pesan Paket Ini</a></div>
+</div>
+</div>
+</section>
+
+<section id="testimoni">
+<div class="wrap">
+<div class="kicker reveal">Testimoni</div>
+<h2 class="judul reveal">Klien yang Kembali <span class="grad-text">Lagi &amp; Lagi</span></h2>
+<p class="sub reveal">70% project saya datang dari klien lama dan rekomendasi mereka.</p>
+<div class="testi">
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Render produk Vega menggantikan sesi foto kami sepenuhnya. Lebih cepat, lebih konsisten, dan bisa ganti warna tanpa syuting ulang. Biaya konten turun drastis."</p><div class="siapa"><div class="ava">🧴</div><div><b>Brand Manager Skincare</b><span>Klien render produk, Jakarta</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Komunikasinya enak: setiap tahap ada preview, revisi cepat. Animasi iklan kami tembus 2 juta tayang — tim internal sampai minta kontaknya."</p><div class="siapa"><div class="ava">🥤</div><div><b>Owner Brand Minuman</b><span>Klien animasi iklan, Surabaya</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Konfigurator 3D di website kami membuat pengunjung betah dan konversi naik 38%. Vega paham sisi teknis web, bukan cuma artistik."</p><div class="siapa"><div class="ava">👟</div><div><b>Direktur E-Commerce Fashion</b><span>Klien 3D web, Bandung</span></div></div></div>
+</div>
+<div style="text-align:center;margin-top:44px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo Vega, saya mau booking slot project bulan ini. Jenis project: ____">Amankan Slot Project Bulan Ini</a>
+</div>
+</div>
+</section>
+
+<footer><div class="wrap">
+<div class="nama">Vega Ardana — 3D Artist &amp; Motion Designer</div>
+<p>Studio: Jl. Prawirotaman No. 8, Yogyakarta · Bekerja remote untuk klien di seluruh Indonesia<br>Slot project dibatasi 3 klien per bulan demi kualitas — booking lebih awal lebih aman.</p>
+<p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
+</div></footer>
+<a class="wa-float" href="#" data-wa="Halo Vega Ardana — 3D Artist, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
+
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js "></script>
+<script>
+const WA_NUMBER = "6283840002399";
+function waLink(pesan){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(pesan); }
+function pasangWA(){
+  document.querySelectorAll("[data-wa]").forEach(function(el){
+    el.setAttribute("href", waLink(el.getAttribute("data-wa"))); el.setAttribute("target", "_blank");
+  });
+}
+pasangWA();
+var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+document.querySelectorAll(".tanya button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
+    jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
+  });
+});
+/* Boot 3D hemat daya: render hanya saat panggung terlihat & tab aktif.
+   Gagal WebGL/CDN -> kelas no3d -> fallback gradasi + emoji, tanpa error. */
+function boot3D(id, setup){
+  var cv = document.getElementById(id);
+  function gagal(){ if(cv && cv.parentElement) cv.parentElement.classList.add("no3d"); }
+  if(!cv || typeof THREE === "undefined"){ gagal(); return; }
+  var renderer;
+  try{ renderer = new THREE.WebGLRenderer({canvas: cv, antialias: true, alpha: true}); }
+  catch(e){ gagal(); return; }
+  if(!renderer.getContext()){ gagal(); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+  var st = {mx:0, my:0, drag:false, lx:0, ly:0, dx:0, dy:0, rx:0, ry:0};
+  window.addEventListener("pointermove", function(e){
+    st.mx = (e.clientX / window.innerWidth) * 2 - 1;
+    st.my = (e.clientY / window.innerHeight) * 2 - 1;
+  }, {passive:true});
+  cv.addEventListener("pointerdown", function(e){ st.drag = true; st.lx = e.clientX; st.ly = e.clientY; });
+  window.addEventListener("pointermove", function(e){
+    if(!st.drag) return;
+    st.dx = e.clientX - st.lx; st.dy = e.clientY - st.ly;
+    st.ry += st.dx * 0.008; st.rx += st.dy * 0.008;
+    st.lx = e.clientX; st.ly = e.clientY;
+  }, {passive:true});
+  window.addEventListener("pointerup", function(){ st.drag = false; });
+  function ukuran(){
+    var w = cv.clientWidth || 600, h = cv.clientHeight || 400;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  ukuran(); window.addEventListener("resize", ukuran);
+  var tick;
+  try{ tick = setup(scene, camera, renderer, st); }
+  catch(e){ gagal(); return; }
+  var terlihat = true, aktif = !document.hidden;
+  new IntersectionObserver(function(es){ terlihat = es[0].isIntersecting; }, {threshold:.05}).observe(cv);
+  document.addEventListener("visibilitychange", function(){ aktif = !document.hidden; });
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(!terlihat || !aktif) return;
+    tick(performance.now() * 0.001, st);
+    renderer.render(scene, camera);
+  })();
+}
+
+boot3D("cv17", function(scene, camera, st){
+  camera.position.set(0, 0.4, 8);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.5));
+  var dir = new THREE.DirectionalLight(0xffffff, 1.2); dir.position.set(6, 9, 7); scene.add(dir);
+  var titik = new THREE.PointLight(0xF472B6, 50, 40); titik.position.set(-6, -2, 5); scene.add(titik);
+  var grup = new THREE.Group(); scene.add(grup);
+  var matEmas = new THREE.MeshStandardMaterial({color: 0xC9A227, metalness: 0.95, roughness: 0.22});
+  var matUngu = new THREE.MeshStandardMaterial({color: 0x7C3AED, metalness: 0.85, roughness: 0.3});
+  var matKaca = new THREE.MeshStandardMaterial({color: 0x67E8F9, metalness: 0.9, roughness: 0.15});
+  var matPink = new THREE.MeshStandardMaterial({color: 0xEC4899, metalness: 0.7, roughness: 0.35});
+  var bola = new THREE.Mesh(new THREE.SphereGeometry(1.05, 40, 28), matEmas); bola.position.set(-0.6, 0.25, 0); grup.add(bola);
+  var kubus = new THREE.Mesh(new THREE.BoxGeometry(1.15, 1.15, 1.15), matUngu); kubus.position.set(1.55, -0.55, -0.4); kubus.rotation.set(0.5, 0.7, 0.2); grup.add(kubus);
+  var torus = new THREE.Mesh(new THREE.TorusGeometry(0.62, 0.2, 16, 40), matKaca); torus.position.set(1.35, 1.15, 0.3); grup.add(torus);
+  var kerucut = new THREE.Mesh(new THREE.ConeGeometry(0.55, 1.1, 28), matPink); kerucut.position.set(-1.9, -0.85, 0.4); grup.add(kerucut);
+  var kecil = [];
+  for(var i = 0; i < 7; i++){
+    var s = new THREE.Mesh(new THREE.SphereGeometry(0.16 + Math.random() * 0.12, 18, 14),
+      [matEmas, matUngu, matKaca, matPink][i % 4]);
+    var sudut = i / 7 * Math.PI * 2;
+    s.userData = {sudut: sudut, r: 2.6 + Math.random() * 0.5, cpt: 0.25 + Math.random() * 0.3, y: (Math.random() - 0.5) * 1.6};
+    grup.add(s); kecil.push(s);
+  }
+  var alas = new THREE.Mesh(new THREE.CylinderGeometry(2.5, 2.8, 0.18, 40),
+    new THREE.MeshStandardMaterial({color: 0x1E1638, metalness: 0.4, roughness: 0.6}));
+  alas.position.y = -1.85; grup.add(alas);
+  return function(t, st){
+    var targetY = st.ry + t * 0.12, targetX = Math.max(-0.7, Math.min(0.7, st.rx));
+    grup.rotation.y += (targetY - grup.rotation.y) * 0.06;
+    grup.rotation.x += (targetX - grup.rotation.x) * 0.06;
+    bola.rotation.y = t * 0.4;
+    kubus.rotation.y = t * 0.35; kubus.rotation.x = 0.5 + Math.sin(t * 0.6) * 0.15;
+    kubus.position.y = -0.55 + Math.sin(t * 0.8) * 0.12;
+    torus.rotation.x = t * 0.5; torus.rotation.y = t * 0.3;
+    kerucut.rotation.y = -t * 0.45; kerucut.position.y = -0.85 + Math.cos(t * 0.7) * 0.1;
+    kecil.forEach(function(s){
+      var a = s.userData.sudut + t * s.userData.cpt;
+      s.position.set(Math.cos(a) * s.userData.r, s.userData.y + Math.sin(t + s.userData.sudut * 3) * 0.18, Math.sin(a) * s.userData.r);
+    });
+  };
+});
+/* animasi bar keahlian */
+var ioSkill = new IntersectionObserver(function(es){ es.forEach(function(en){
+  if(en.isIntersecting){ en.target.style.width = en.target.getAttribute("data-lebar"); ioSkill.unobserve(en.target); }
+}); }, {threshold:.4});
+document.querySelectorAll(".skillbar .isi").forEach(function(el){ ioSkill.observe(el); });
+
+</script>
+</body>
+</html>

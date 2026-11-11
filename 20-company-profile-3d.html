@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>INDATA — PT Inovasi Data Nusantara | Integrasi Data, Dashboard BI & Cloud</title>
+<meta name="description" content=" Perusahaan teknologi data & cloud: integrasi sistem, dashboard BI real-time, migrasi cloud, dan audit keamanan ISO 27001. Dipercaya 180+ perusahaan & instansi di Indonesia. ">
+<meta property="og:title" content=" INDATA — PT Inovasi Data Nusantara | Integrasi Data, Dashboard BI & Cloud ">
+<meta property="og:description" content=" Data perusahaanmu bisa terkoneksi & bekerja untukmu. Konsultasi transformasi data — gratis, tanpa kewajiban. ">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--c1:#881BFC; --c2:#18D1FE; --grad:linear-gradient(92deg,#C02ADD,#881BFC,#0C85FC,#18D1FE);
+--bg:#07070D; --altbg:#0B0B14; --panel:#10101B; --teks:#EDEEF4; --abu:#9BA0B4;
+--garis:#22222F; --garis2:#3A3A4E; --headerbg:rgba(7,7,13,.88); --inputbg:#0C0C15;
+--bayang:rgba(136,27,252,.20);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--teks);font-family:'Poppins',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-c1{background:var(--grad);color:#fff;box-shadow:0 10px 28px var(--bayang)}
+.btn-wa{background:#1FAF54;color:#fff;box-shadow:0 10px 28px rgba(31,175,84,.35)}
+.btn-ghost{background:transparent;border:1.5px solid var(--garis2);color:var(--teks)}
+.btn-ghost:hover{border-color:var(--c1)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--garis)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;line-height:1.15}
+.logo .lk{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:21px;flex:none;color:#fff}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--abu);letter-spacing:.6px}
+.menu{display:flex;gap:26px;font-size:14.5px;color:var(--abu);font-weight:500}
+.menu a:hover{color:var(--c1)}
+.nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:860px){.menu{display:none}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.logo{font-size:16.5px}}
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero .dekor{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--garis2);border-radius:999px;background:var(--panel);font-size:13px;font-weight:600;color:var(--abu)}
+.badge b{color:var(--c1)}
+.hero h1{font-size:clamp(33px,5.4vw,58px);font-weight:800;line-height:1.14;margin:22px 0 18px}
+.hero p.lead{font-size:clamp(15.5px,2vw,18.5px);color:var(--abu);line-height:1.7;max-width:640px}
+.hero.ctr{text-align:center}
+.hero.ctr p.lead{margin:0 auto}
+.hero .rel{position:relative;z-index:2}
+.cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero.ctr .cta-row{justify-content:center}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
+.stat .n{font-size:25px;font-weight:800;color:var(--c1)}
+.stat .l{font-size:12.5px;color:var(--abu)}
+section{padding:84px 0}
+.alt{background:var(--altbg)}
+.kicker{text-align:center;font-weight:700;letter-spacing:3px;font-size:12.5px;color:var(--c1);text-transform:uppercase}
+.judul{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;margin:11px auto 13px;max-width:720px;line-height:1.25}
+.sub{text-align:center;color:var(--abu);max-width:620px;margin:0 auto 46px;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kartu{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:28px 25px;transition:.3s}
+.kartu:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:0 18px 40px var(--bayang)}
+.kartu .ikon{width:54px;height:54px;border-radius:15px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:15px;color:#fff}
+.kartu h3{font-size:18.5px;margin-bottom:7px}
+.kartu p{font-size:14.5px;color:var(--abu);line-height:1.65}
+.kartu .harga{font-size:21px;font-weight:800;color:var(--c1);margin-top:12px}
+.kartu .harga small{font-size:13px;color:var(--abu);font-weight:500}
+.kartu .btn{margin-top:16px;padding:11px 22px;font-size:14px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;text-transform:uppercase}
+.galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{border-radius:20px;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;padding:22px;transition:.3s}
+.tile:hover{transform:scale(1.025)}
+.tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.tile .tt{font-weight:700;font-size:16px}
+.tile .ts{font-size:13px;opacity:.88}
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
+.tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
+.tst p{font-size:14.5px;line-height:1.7;color:var(--teks)}
+.tst .siapa{display:flex;align-items:center;gap:12px;margin-top:17px}
+.tst .ava{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+.tst .siapa b{display:block;font-size:14.5px}
+.tst .siapa span{font-size:12.5px;color:var(--abu)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.tanya{border:1px solid var(--garis);border-radius:15px;background:var(--panel);overflow:hidden}
+.tanya button{width:100%;background:none;border:none;color:var(--teks);font-family:inherit;font-size:15.5px;font-weight:600;text-align:left;padding:17px 21px;cursor:pointer;display:flex;justify-content:space-between;gap:13px;align-items:center}
+.tanya .jawab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tanya .jawab p{padding:0 21px 18px;color:var(--abu);font-size:14.5px;line-height:1.65}
+.tanya .panah{transition:.3s;color:var(--c1);flex:none}
+.tanya.buka .panah{transform:rotate(180deg)}
+.langkah{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{border:1px solid var(--garis);border-radius:18px;padding:26px 23px;background:var(--panel)}
+.step .no{font-size:38px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{margin:10px 0 6px;font-size:16.5px}
+.step p{font-size:14px;color:var(--abu);line-height:1.6}
+.check{list-style:none;display:grid;gap:11px;font-size:15px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+footer{border-top:1px solid var(--garis);padding:52px 0 38px;background:var(--altbg);text-align:center}
+footer .nama{font-weight:800;font-size:19px;margin-bottom:7px}
+footer p{color:var(--abu);font-size:13.5px;line-height:1.75;max-width:560px;margin:0 auto}
+footer .kredit{margin-top:20px;font-size:12.5px;color:var(--abu)}
+footer .kredit b{color:var(--c1)}
+.wa-float{position:fixed;right:19px;bottom:19px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FAF54;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 10px 28px rgba(31,175,84,.45);animation:denyut 2.4s infinite}
+@keyframes denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.tampil{opacity:1;transform:none}
+/* ===== PANGGUNG 3D ===== */
+.panggung{position:relative;border-radius:26px;overflow:hidden;height:440px;border:1px solid var(--garis2);box-shadow:0 24px 60px var(--bayang)}
+.panggung canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.panggung canvas:active{cursor:grabbing}
+.panggung .cadangan{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:110px;z-index:1}
+.panggung.no3d canvas{display:none}
+.panggung.no3d .cadangan{display:flex}
+.chip3d{position:absolute;left:14px;bottom:14px;z-index:3;background:rgba(5,5,12,.55);backdrop-filter:blur(6px);color:#fff;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:600;pointer-events:none}
+.chip3d.kanan{left:auto;right:14px}
+.latar3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero.no3d .latar3d{display:none}
+@media(max-width:860px){.panggung{height:330px}}
+/* swatch produk 360 */
+.swatch{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 6px}
+.swatch button{width:46px;height:46px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.swatch button.aktif{border-color:var(--c1);transform:scale(1.12)}
+.skillbar{margin-bottom:17px}
+.skillbar .lbl{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:7px}
+.skillbar .lbl span{color:var(--c1)}
+.skillbar .rel{height:10px;border-radius:99px;background:var(--garis);overflow:hidden}
+.skillbar .isi{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.1s ease}
+
+:root{--c1:#38BDF8; --c2:#818CF8; --grad:linear-gradient(92deg,#0EA5E9,#38BDF8,#818CF8);
+--bg:#060B18; --altbg:#081120; --panel:#0A1628; --teks:#E8EEF7; --abu:#93A5C4;
+--garis:#16263F; --garis2:#2B4568; --headerbg:rgba(6,11,24,.9); --inputbg:#0A1628;
+--bayang:rgba(14,165,233,.18);}
+</style>
+</head>
+<body class="  ">
+
+<header><div class="wrap nav">
+<a class="logo" href="#"><span class="lk">🛰️</span><span>INDATA<small>PT INOVASI DATA NUSANTARA</small></span></a>
+<nav class="menu"><a href="#tentang">Tentang</a><a href="#layanan">Layanan</a><a href="#klien">Klien</a><a href="#faq">FAQ</a></nav>
+<a class="btn btn-wa" href="#" data-wa="Halo INDATA, perusahaan kami mau konsultasi kebutuhan data/cloud. Mohon info jadwal diskusi awal.">Konsultasi</a>
+</div></header>
+
+<div class="hero ctr">
+<canvas id="cv20" class="latar3d"></canvas>
+<div class="dekor" style="width:420px;height:420px;background:#0EA5E9;top:-160px;right:-100px;opacity:.28"></div>
+<div class="wrap rel">
+<span class="badge">🛰️ Perusahaan Teknologi Data &amp; Cloud — <b>Sejak 2015</b></span>
+<h1>Data Perusahaanmu, <span class="grad-text">Terkoneksi &amp; Bekerja untukmu</span></h1>
+<p class="lead">INDATA membantu perusahaan Indonesia mengubah data yang tersebar menjadi keputusan yang cepat: integrasi sistem, dashboard real-time, dan infrastruktur cloud yang aman. Jaringan di belakang teks ini? Gambaran cara kami menghubungkan segalanya.</p>
+<div class="cta-row">
+<a class="btn btn-wa" href="#" data-wa="Halo INDATA, kami mau konsultasi transformasi data perusahaan. Bidang usaha kami: ____">Mulai Konsultasi Gratis</a>
+<a class="btn btn-ghost" href="#layanan">Jelajahi Layanan</a>
+</div>
+<div class="stats" style="max-width:900px;margin-left:auto;margin-right:auto;text-align:left">
+<div class="stat"><div class="n"><span class="hitung" data-target="180">0</span>+</div><div class="l">Perusahaan &amp; instansi terbantu</div></div>
+<div class="stat"><div class="n"><span class="hitung" data-target="450">0</span>+</div><div class="l">Sistem &amp; dashboard dibangun</div></div>
+<div class="stat"><div class="n"><span class="hitung" data-target="99">0</span>,9%</div><div class="l">Uptime infrastruktur terjaga</div></div>
+<div class="stat"><div class="n"><span class="hitung" data-target="60">0</span>+</div><div class="l">Engineer &amp; data analyst bersertifikat</div></div>
+</div>
+</div>
+</div>
+
+<section id="tentang" class="alt">
+<div class="wrap split">
+<div class="reveal">
+<div class="kicker" style="text-align:left">Tentang Kami</div>
+<h2 class="judul" style="text-align:left;margin-left:0">Partner Teknologi yang <span class="grad-text">Bicara Bahasa Bisnis</span></h2>
+<p style="color:var(--abu);line-height:1.75;font-size:15.5px">Banyak proyek IT gagal bukan karena teknologinya, tapi karena vendor tidak memahami bisnis klien. INDATA memulai setiap kerja sama dari angka bisnismu: biaya yang ingin ditekan, penjualan yang ingin dinaikkan, laporan yang ingin dipercepat.</p>
+<p style="color:var(--abu);line-height:1.75;font-size:15.5px;margin-top:14px">Dari kantor kami di Jakarta &amp; Surabaya, 60+ engineer melayani manufaktur, logistik, retail, dan instansi pemerintah — dengan SLA tertulis dan laporan progres mingguan yang bisa dibaca direksi, bukan hanya tim IT.</p>
+</div>
+<div class="reveal">
+<ul class="check">
+<li>Bersertifikat ISO 27001 untuk keamanan informasi</li>
+<li>Partner resmi dua penyedia cloud global &amp; satu cloud lokal</li>
+<li>Kontrak berbasis hasil dengan SLA dan penalti yang jelas</li>
+<li>Tim support berbahasa Indonesia, respons &lt; 15 menit di jam kerja</li>
+<li>Dokumentasi &amp; pelatihan lengkap — tidak ada ketergantungan vendor</li>
+</ul>
+</div>
+</div>
+</section>
+
+<section id="layanan">
+<div class="wrap">
+<div class="kicker reveal">Layanan</div>
+<h2 class="judul reveal">Empat Pilar <span class="grad-text">Transformasi Digitalmu</span></h2>
+<p class="sub reveal">Ambil satu pilar dulu pun boleh — arsitekturnya kami siapkan agar siap menyambung ke pilar berikutnya.</p>
+<div class="grid2">
+<div class="kartu reveal"><div class="ikon">🔗</div><h3>Integrasi Sistem &amp; API</h3><p>Menyambungkan ERP, POS, gudang, dan aplikasi lama agar data mengalir otomatis — tanpa input ulang dan tanpa file Excel beterbangan.</p><div class="harga">Mulai Rp45 jt</div></div>
+<div class="kartu reveal"><div class="ikon">📊</div><h3>Dashboard &amp; BI</h3><p>Satu layar untuk seluruh perusahaan: penjualan, stok, dan keuangan ter-update real-time, bisa dibuka direksi dari HP.</p><div class="harga">Mulai Rp35 jt</div></div>
+<div class="kartu reveal"><div class="ikon">☁️</div><h3>Migrasi &amp; Kelola Cloud</h3><p>Pindah server ke cloud dengan nol downtime terencana, plus pengelolaan bulanan: monitoring 24/7, backup, dan optimasi biaya.</p><div class="harga">Mulai Rp25 jt</div></div>
+<div class="kartu reveal"><div class="ikon">🛡️</div><h3>Keamanan &amp; Audit IT</h3><p>Audit keamanan, uji penetrasi, dan pendampingan kepatuhan (termasuk UU PDP) agar data pelangganmu tidak jadi berita buruk.</p><div class="harga">Mulai Rp30 jt</div></div>
+</div>
+<div style="text-align:center;margin-top:38px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo INDATA, saya mau tanya layanan yang cocok untuk kebutuhan perusahaan kami: ____">Tanya Layanan via WhatsApp</a>
+</div>
+</div>
+</section>
+
+<section id="klien" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Klien Kami</div>
+<h2 class="judul reveal">Dipercaya Perusahaan <span class="grad-text">dari Berbagai Industri</span></h2>
+<p class="sub reveal">Sebagian dari 180+ organisasi yang mempercayakan datanya kepada INDATA.</p>
+<div class="galeri">
+<div class="tile reveal" style="background:linear-gradient(150deg,#0C4A6E,#0369A1)"><div class="emo">🏭</div><div class="tt">Artha Manufaktur</div><div class="ts">Integrasi ERP &amp; 4 pabrik</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#14532D,#15803D)"><div class="emo">🚚</div><div class="tt">KirimCepat Logistik</div><div class="ts">Dashboard armada real-time</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#7C2D12,#C2410C)"><div class="emo">🛒</div><div class="tt">RitelMart Group</div><div class="ts">120 toko, satu stok terpusat</div></div>
+<div class="tile reveal" style="background:linear-gradient(150deg,#3B0764,#6D28D9)"><div class="emo">🏛️</div><div class="tt">Dinas Kominfo Provinsi</div><div class="ts">Portal data terbuka daerah</div></div>
+</div>
+<div class="testi" style="margin-top:22px">
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Laporan yang dulu disusun 3 hari oleh 4 orang, sekarang terbuka sendiri setiap pagi. Direksi akhirnya melihat angka yang sama — rapat jauh lebih pendek dan tajam."</p><div class="siapa"><div class="ava">🏭</div><div><b>Direktur Operasional</b><span>Artha Manufaktur, Tangerang</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Migrasi cloud tanpa downtime bukan janji kosong — gudang kami tetap beroperasi penuh selama proses. Biaya server malah turun 31% setelah dioptimasi INDATA."</p><div class="siapa"><div class="ava">🚚</div><div><b>VP Technology</b><span>KirimCepat Logistik, Jakarta</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Yang membedakan INDATA: laporannya bisa dibaca orang non-IT. Board kami paham progres tanpa perlu diterjemahkan engineer."</p><div class="siapa"><div class="ava">🛒</div><div><b>CFO RitelMart Group</b><span>Ritel, Surabaya</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap">
+<div class="kicker reveal">FAQ</div>
+<h2 class="judul reveal">Sering <span class="grad-text">Ditanyakan</span></h2>
+<p class="sub reveal">Sebelum perusahaanmu memutuskan bekerja sama.</p>
+<div class="faq">
+<div class="tanya reveal"><button>Berapa lama proyek rata-rata selesai?<span class="panah">▾</span></button><div class="jawab"><p>Dashboard BI 6–10 minggu, integrasi sistem 8–14 minggu, migrasi cloud 4–8 minggu — semua dengan tonggak mingguan yang terlihat. Timeline tertulis di kontrak beserta konsekuensi keterlambatannya.</p></div></div>
+<div class="tanya reveal"><button>Apakah data kami aman selama proyek?<span class="panah">▾</span></button><div class="jawab"><p>Seluruh tim terikat NDA, akses diberikan berbasis peran dan dicatat (audit log), dan proses kami mengikuti standar ISO 27001. Data produksi tidak pernah keluar dari lingkungan yang disepakati.</p></div></div>
+<div class="tanya reveal"><button>Bisakah mulai dari proyek kecil dulu?<span class="panah">▾</span></button><div class="jawab"><p>Sangat bisa — mayoritas klien besar kami mulai dari satu dashboard atau satu integrasi. Kami justru menyarankan membuktikan nilai dari lingkup kecil sebelum memperluas kontrak.</p></div></div>
+<div class="tanya reveal"><button>Apakah ada dukungan setelah proyek selesai?<span class="panah">▾</span></button><div class="jawab"><p>Ada paket managed service dengan SLA respons &lt; 15 menit di jam kerja dan monitoring 24/7. Dokumentasi &amp; pelatihan tim internal selalu termasuk, jadi kamu tidak terkunci pada kami.</p></div></div>
+</div>
+<div style="text-align:center;margin-top:44px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo INDATA, perusahaan kami ingin menjadwalkan diskusi awal transformasi data. Nama perusahaan: ____">Jadwalkan Diskusi Awal</a>
+</div>
+</div>
+</section>
+
+<footer><div class="wrap">
+<div class="nama">PT Inovasi Data Nusantara (INDATA)</div>
+<p>Menara Data Lt. 12, Jl. Sudirman Kav. 21, Jakarta Selatan · Cabang: Surabaya<br>Konsultasi awal selalu gratis dan tanpa kewajiban kontrak.</p>
+<p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
+</div></footer>
+<a class="wa-float" href="#" data-wa="Halo INDATA, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
+
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js "></script>
+<script>
+const WA_NUMBER = "6283840002399";
+function waLink(pesan){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(pesan); }
+function pasangWA(){
+  document.querySelectorAll("[data-wa]").forEach(function(el){
+    el.setAttribute("href", waLink(el.getAttribute("data-wa"))); el.setAttribute("target", "_blank");
+  });
+}
+pasangWA();
+var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+document.querySelectorAll(".tanya button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
+    jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
+  });
+});
+/* Boot 3D hemat daya: render hanya saat panggung terlihat & tab aktif.
+   Gagal WebGL/CDN -> kelas no3d -> fallback gradasi + emoji, tanpa error. */
+function boot3D(id, setup){
+  var cv = document.getElementById(id);
+  function gagal(){ if(cv && cv.parentElement) cv.parentElement.classList.add("no3d"); }
+  if(!cv || typeof THREE === "undefined"){ gagal(); return; }
+  var renderer;
+  try{ renderer = new THREE.WebGLRenderer({canvas: cv, antialias: true, alpha: true}); }
+  catch(e){ gagal(); return; }
+  if(!renderer.getContext()){ gagal(); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+  var st = {mx:0, my:0, drag:false, lx:0, ly:0, dx:0, dy:0, rx:0, ry:0};
+  window.addEventListener("pointermove", function(e){
+    st.mx = (e.clientX / window.innerWidth) * 2 - 1;
+    st.my = (e.clientY / window.innerHeight) * 2 - 1;
+  }, {passive:true});
+  cv.addEventListener("pointerdown", function(e){ st.drag = true; st.lx = e.clientX; st.ly = e.clientY; });
+  window.addEventListener("pointermove", function(e){
+    if(!st.drag) return;
+    st.dx = e.clientX - st.lx; st.dy = e.clientY - st.ly;
+    st.ry += st.dx * 0.008; st.rx += st.dy * 0.008;
+    st.lx = e.clientX; st.ly = e.clientY;
+  }, {passive:true});
+  window.addEventListener("pointerup", function(){ st.drag = false; });
+  function ukuran(){
+    var w = cv.clientWidth || 600, h = cv.clientHeight || 400;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  ukuran(); window.addEventListener("resize", ukuran);
+  var tick;
+  try{ tick = setup(scene, camera, renderer, st); }
+  catch(e){ gagal(); return; }
+  var terlihat = true, aktif = !document.hidden;
+  new IntersectionObserver(function(es){ terlihat = es[0].isIntersecting; }, {threshold:.05}).observe(cv);
+  document.addEventListener("visibilitychange", function(){ aktif = !document.hidden; });
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(!terlihat || !aktif) return;
+    tick(performance.now() * 0.001, st);
+    renderer.render(scene, camera);
+  })();
+}
+
+boot3D("cv20", function(scene, camera, st){
+  camera.position.set(0, 0, 13);
+  var grup = new THREE.Group(); scene.add(grup);
+  var seed = 42;
+  function acak(){ seed = (seed * 16807) % 2147483647; return seed / 2147483647; }
+  var N = 90, posisi = [];
+  var posArr = new Float32Array(N * 3);
+  for(var i = 0; i < N; i++){
+    var r = 3.2 + acak() * 3.6, th = acak() * Math.PI * 2, ph = Math.acos(2 * acak() - 1);
+    var v = new THREE.Vector3(r * Math.sin(ph) * Math.cos(th), r * Math.sin(ph) * Math.sin(th) * 0.72, r * Math.cos(ph));
+    posisi.push(v);
+    posArr[i*3] = v.x; posArr[i*3+1] = v.y; posArr[i*3+2] = v.z;
+  }
+  var geoP = new THREE.BufferGeometry();
+  geoP.setAttribute("position", new THREE.BufferAttribute(posArr, 3));
+  var titik = new THREE.Points(geoP, new THREE.PointsMaterial({color: 0x7DD3FC, size: 0.14, transparent: true, opacity: 0.95}));
+  grup.add(titik);
+  var garisPos = [];
+  for(var a = 0; a < N; a++) for(var b = a + 1; b < N; b++){
+    if(posisi[a].distanceTo(posisi[b]) < 2.7){ garisPos.push(posisi[a].x, posisi[a].y, posisi[a].z, posisi[b].x, posisi[b].y, posisi[b].z); }
+  }
+  var geoG = new THREE.BufferGeometry();
+  geoG.setAttribute("position", new THREE.BufferAttribute(new Float32Array(garisPos), 3));
+  var garis = new THREE.LineSegments(geoG, new THREE.LineBasicMaterial({color: 0x2563EB, transparent: true, opacity: 0.32}));
+  grup.add(garis);
+  var inti = new THREE.Mesh(new THREE.IcosahedronGeometry(1.15, 1),
+    new THREE.MeshBasicMaterial({color: 0x38BDF8, wireframe: true, transparent: true, opacity: 0.5}));
+  grup.add(inti);
+  grup.position.y = 0.4;
+  return function(t, st){
+    grup.rotation.y = t * 0.07 + st.mx * 0.35;
+    grup.rotation.x = st.my * 0.22 + Math.sin(t * 0.15) * 0.05;
+    var s = 1 + Math.sin(t * 0.8) * 0.025;
+    grup.scale.set(s, s, s);
+    inti.rotation.y = -t * 0.25; inti.rotation.x = t * 0.18;
+  };
+});
+/* counter statistik */
+var ioHit = new IntersectionObserver(function(es){ es.forEach(function(en){
+  if(!en.isIntersecting) return; ioHit.unobserve(en.target);
+  var target = +en.target.getAttribute("data-target"), t0 = null;
+  function langkah(ts){ if(!t0) t0 = ts; var p = Math.min((ts - t0) / 1400, 1);
+    en.target.textContent = Math.round(target * (1 - Math.pow(1 - p, 3))); if(p < 1) requestAnimationFrame(langkah); }
+  requestAnimationFrame(langkah);
+}); }, {threshold:.5});
+document.querySelectorAll(".hitung").forEach(function(el){ ioHit.observe(el); });
+
+</script>
+</body>
+</html>

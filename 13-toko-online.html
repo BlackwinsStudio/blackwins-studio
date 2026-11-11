@@ -1,0 +1,419 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Rasa Nusantara — Toko Online Snack & Kopi Kemasan | Checkout via WhatsApp</title>
+<meta name="description" content="Toko online Rasa Nusantara: kopi sangrai fresh & snack UMKM pilihan. Tambah ke keranjang, checkout mudah lewat WhatsApp, packing aman, kirim se-Indonesia.">
+<meta property="og:title" content="Rasa Nusantara — Toko Online Snack & Kopi Kemasan | Checkout via WhatsApp">
+<meta property="og:description" content="Kopi sangrai fresh & snack kurasi UMKM — checkout semudah chat WhatsApp.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{
+--c1:#8A5A2B; --c2:#D9A441; --grad:linear-gradient(92deg,#8A5A2B,#D9A441);
+--bg:#FBF5EC; --altbg:#F4E9D7; --panel:#FFFFFF; --teks:#33241A; --abu:#84705C;
+--garis:#EEE0CB; --garis2:#DEC7A3; --headerbg:rgba(251,245,236,.92); --inputbg:#FAF1E2;
+--bayang:rgba(138,90,43,.18);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--teks);font-family:'Poppins',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-c1{background:var(--grad);color:#fff;box-shadow:0 10px 28px var(--bayang)}
+.btn-wa{background:#1FAF54;color:#fff;box-shadow:0 10px 28px rgba(31,175,84,.35)}
+.btn-ghost{background:transparent;border:1.5px solid var(--garis2);color:var(--teks)}
+.btn-ghost:hover{border-color:var(--c1)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--garis)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;line-height:1.15}
+.logo .lk{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:21px;flex:none}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--abu);letter-spacing:.6px}
+.menu{display:flex;gap:26px;font-size:14.5px;color:var(--abu);font-weight:500}
+.menu a:hover{color:var(--c1)}
+.nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:860px){.menu{display:none}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.logo{font-size:16.5px}}
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero .dekor{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--garis2);border-radius:999px;background:var(--panel);font-size:13px;font-weight:600;color:var(--abu)}
+.badge b{color:var(--c1)}
+.hero h1{font-size:clamp(33px,5.4vw,58px);font-weight:800;line-height:1.14;margin:22px 0 18px}
+.hero p.lead{font-size:clamp(15.5px,2vw,18.5px);color:var(--abu);line-height:1.7;max-width:640px}
+.hero.ctr{text-align:center}
+.hero.ctr p.lead{margin:0 auto}
+.cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero.ctr .cta-row{justify-content:center}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.visual{border-radius:26px;background:var(--grad);min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:34px;position:relative;overflow:hidden;box-shadow:0 24px 60px var(--bayang)}
+.visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
+.visual .vt{font-size:21px;font-weight:800}
+.visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
+.stat .n{font-size:25px;font-weight:800;color:var(--c1)}
+.stat .l{font-size:12.5px;color:var(--abu)}
+section{padding:84px 0}
+.alt{background:var(--altbg)}
+.kicker{text-align:center;font-weight:700;letter-spacing:3px;font-size:12.5px;color:var(--c1);text-transform:uppercase}
+.judul{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;margin:11px auto 13px;max-width:720px;line-height:1.25}
+.sub{text-align:center;color:var(--abu);max-width:620px;margin:0 auto 46px;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kartu{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:28px 25px;transition:.3s}
+.kartu:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:0 18px 40px var(--bayang)}
+.kartu .ikon{width:54px;height:54px;border-radius:15px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:15px}
+.kartu h3{font-size:18.5px;margin-bottom:7px}
+.kartu p{font-size:14.5px;color:var(--abu);line-height:1.65}
+.kartu .harga{font-size:21px;font-weight:800;color:var(--c1);margin-top:12px}
+.kartu .harga small{font-size:13px;color:var(--abu);font-weight:500}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;text-transform:uppercase}
+.galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{border-radius:20px;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;padding:22px;transition:.3s}
+.tile:hover{transform:scale(1.025)}
+.tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.tile .tt{font-weight:700;font-size:16px}
+.tile .ts{font-size:13px;opacity:.88}
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
+.tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
+.tst p{font-size:14.5px;line-height:1.7;color:var(--teks)}
+.tst .siapa{display:flex;align-items:center;gap:12px;margin-top:17px}
+.tst .ava{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+.tst .siapa b{display:block;font-size:14.5px}
+.tst .siapa span{font-size:12.5px;color:var(--abu)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.tanya{border:1px solid var(--garis);border-radius:15px;background:var(--panel);overflow:hidden}
+.tanya button{width:100%;background:none;border:none;color:var(--teks);font-family:inherit;font-size:15.5px;font-weight:600;text-align:left;padding:17px 21px;cursor:pointer;display:flex;justify-content:space-between;gap:13px;align-items:center}
+.tanya .jawab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tanya .jawab p{padding:0 21px 18px;color:var(--abu);font-size:14.5px;line-height:1.65}
+.tanya .panah{transition:.3s;color:var(--c1);flex:none}
+.tanya.buka .panah{transform:rotate(180deg)}
+.formbox{max-width:680px;margin:0 auto;border:1px solid var(--garis2);border-radius:24px;background:var(--panel);padding:36px 32px;box-shadow:0 20px 50px var(--bayang)}
+.formbox label{display:block;font-size:13.5px;font-weight:600;margin:16px 0 7px;color:var(--abu)}
+.formbox input,.formbox select,.formbox textarea{width:100%;background:var(--inputbg);border:1px solid var(--garis2);border-radius:12px;padding:12.5px 14px;color:var(--teks);font-family:inherit;font-size:15px}
+.formbox input:focus,.formbox select:focus,.formbox textarea:focus{outline:none;border-color:var(--c1)}
+.formbox .btn{width:100%;justify-content:center;margin-top:24px}
+.langkah{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{border:1px solid var(--garis);border-radius:18px;padding:26px 23px;background:var(--panel)}
+.step .no{font-size:38px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{margin:10px 0 6px;font-size:16.5px}
+.step p{font-size:14px;color:var(--abu);line-height:1.6}
+table.jadwal{width:100%;border-collapse:collapse;max-width:760px;margin:0 auto;background:var(--panel);border-radius:16px;overflow:hidden}
+table.jadwal th,table.jadwal td{padding:13px 18px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--garis)}
+table.jadwal th{background:var(--grad);color:#fff;font-size:14px}
+table.jadwal tr:last-child td{border-bottom:none}
+.check{list-style:none;display:grid;gap:11px;font-size:15px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+footer{border-top:1px solid var(--garis);padding:52px 0 38px;background:var(--altbg);text-align:center}
+footer .nama{font-weight:800;font-size:19px;margin-bottom:7px}
+footer p{color:var(--abu);font-size:13.5px;line-height:1.75;max-width:560px;margin:0 auto}
+footer .kredit{margin-top:20px;font-size:12.5px;color:var(--abu)}
+footer .kredit b{color:var(--c1)}
+.wa-float{position:fixed;right:19px;bottom:19px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FAF54;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 10px 28px rgba(31,175,84,.45);animation:denyut 2.4s infinite}
+@keyframes denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:55;padding:11px 14px;background:var(--headerbg);backdrop-filter:blur(12px);border-top:1px solid var(--garis);display:none;align-items:center;justify-content:space-between;gap:12px}
+.stickybar .sh b{font-size:15px;display:block}
+.stickybar .sh span{font-size:12.5px;color:var(--abu)}
+.stickybar .btn{padding:11px 20px;font-size:14px;white-space:nowrap}
+@media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.tampil{opacity:1;transform:none}
+</style>
+<style>
+.prod{padding:0;overflow:hidden}
+.prod .pimg{min-height:150px;display:flex;align-items:center;justify-content:center;font-size:64px}
+.prod .prow{display:flex;align-items:center;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.prod .tambah{padding:10px 19px;font-size:14px}
+#cartbar{position:fixed;left:0;right:0;bottom:0;z-index:58;background:var(--headerbg);backdrop-filter:blur(14px);border-top:1.5px solid var(--garis2);padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;transform:translateY(110%);transition:transform .35s ease;box-shadow:0 -10px 30px rgba(0,0,0,.12)}
+#cartbar.muncul{transform:none}
+#cartbar .cinfo{font-size:15px}
+#cartbar .ctot{margin-left:12px;color:var(--abu)}
+#cartbar .ctot b{color:var(--c1)}
+#cartbar .cbtn{display:flex;gap:9px}
+#cartbar .btn{padding:11px 20px;font-size:14px;white-space:nowrap}
+#cartmodal{position:fixed;inset:0;z-index:80;background:rgba(30,18,8,.55);display:none;align-items:flex-end;justify-content:center;padding:0}
+#cartmodal.buka{display:flex}
+#cartmodal .cpanel{background:var(--panel);width:100%;max-width:560px;max-height:82vh;overflow:auto;border-radius:24px 24px 0 0;padding:26px 24px 30px}
+@media(min-width:700px){#cartmodal{align-items:center;padding:22px}#cartmodal .cpanel{border-radius:24px}}
+#ctutup{background:var(--inputbg);border:1px solid var(--garis2);width:38px;height:38px;border-radius:50%;font-size:16px;cursor:pointer;color:var(--teks);flex:none}
+.citem{display:flex;align-items:center;gap:12px;padding:13px 0;border-bottom:1px solid var(--garis)}
+.citem .cmeta{flex:1;min-width:0}
+.citem .cmeta b{display:block;font-size:14.5px}
+.citem .cmeta span{font-size:12.5px;color:var(--abu)}
+.citem .cqty{display:flex;align-items:center;gap:9px}
+.citem .cqty button{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--garis2);background:var(--panel);font-size:16px;font-weight:700;cursor:pointer;color:var(--c1);line-height:1}
+.citem .csub{font-weight:800;font-size:14.5px;min-width:82px;text-align:right}
+#cartmodal .crow{display:flex;justify-content:space-between;font-size:16px;padding-top:16px}
+#cartmodal .crow b{color:var(--c1);font-size:19px}
+body{padding-bottom:0}
+.wa-float{bottom:96px}
+</style>
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#"><span class="lk">🌾</span><span>Rasa Nusantara<small>TOKO SNACK & KOPI KEMASAN</small></span></a>
+<nav class="menu"><a href="#produk">Produk</a><a href="#keunggulan">Keunggulan</a><a href="#cara-belanja">Cara Belanja</a><a href="#faq">FAQ</a></nav>
+<a class="btn btn-wa" href="#" data-wa="Halo Rasa Nusantara, saya ingin bertanya tentang produk di toko.">Chat Toko</a>
+</div></header>
+<div class="hero ctr">
+<div class="dekor" style="width:420px;height:420px;background:#8A5A2B;top:-150px;left:-110px"></div>
+<div class="dekor" style="width:300px;height:300px;background:#D9A441;bottom:-120px;right:-80px"></div>
+<div class="wrap">
+<span class="badge">🚚 <b>Gratis Ongkir</b> untuk pembelian di atas Rp150 rb (Pulau Jawa)</span>
+<h1>Snack &amp; Kopi Pilihan Nusantara, <span class="grad-text">Checkout Semudah Chat</span></h1>
+<p class="lead">Rasa Nusantara mengkurasi kopi sangrai fresh dan camilan UMKM terbaik dari berbagai daerah. Masukkan ke keranjang, checkout lewat WhatsApp — tanpa daftar akun, tanpa ribet, pesananmu langsung kami siapkan.</p>
+<div class="cta-row">
+<a class="btn btn-c1" href="#produk">Mulai Belanja</a>
+<a class="btn btn-ghost" href="#" data-wa="Halo Rasa Nusantara, saya mau tanya stok & rekomendasi produk untuk oleh-oleh.">Tanya Rekomendasi</a>
+</div>
+<div class="stats" style="max-width:820px;margin-left:auto;margin-right:auto">
+<div class="stat"><div class="n">120+</div><div class="l">Produk kurasi UMKM daerah</div></div>
+<div class="stat"><div class="n">18 rb</div><div class="l">Paket terkirim sejak 2021</div></div>
+<div class="stat"><div class="n">4.9★</div><div class="l">Ulasan pembeli terverifikasi</div></div>
+<div class="stat"><div class="n">Fresh</div><div class="l">Kopi disangrai setelah dipesan</div></div>
+</div>
+</div>
+</div>
+
+<section id="produk" style="padding-top:26px">
+<div class="wrap">
+<div class="kicker reveal">Katalog Produk</div>
+<h2 class="judul reveal">Tambahkan ke Keranjang, <span class="grad-text">Kami yang Menyiapkan</span></h2>
+<p class="sub reveal">Klik <b>＋ Tambah</b> pada produk yang kamu mau. Keranjang di bagian bawah layar akan menghitung total otomatis — checkout-nya lewat WhatsApp, admin mengonfirmasi stok &amp; ongkir sebelum kamu membayar.</p>
+<div class="grid">
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#6B4226,#A9743B)">☕</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Kopi · Best Seller</span>
+<h3 style="margin-top:10px;font-size:17px">Kopi Robusta Lampung 200g</h3><p style="min-height:66px">Biji sangrai medium-dark, digiling fresh saat dipesan. Notes cokelat & karamel, cocok untuk tubruk maupun espresso.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp48.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Kopi Robusta Lampung 200g" data-harga="48000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#3E5C48,#6E9E7E)">☕</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Kopi · Premium</span>
+<h3 style="margin-top:10px;font-size:17px">Kopi Arabika Gayo 200g</h3><p style="min-height:66px">Single origin dataran tinggi Gayo, sangrai medium. Aroma floral, rasa jeruk tipis & gula aren di akhir.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp72.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Kopi Arabika Gayo 200g" data-harga="72000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#B3392B,#E07B4C)">🌶️</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Snack · Pedas</span>
+<h3 style="margin-top:10px;font-size:17px">Keripik Singkong Balado 250g</h3><p style="min-height:66px">Singkong pilihan diiris tipis, bumbu balado pedas-manis yang nempel di setiap keping. Renyahnya konsisten.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp18.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Keripik Singkong Balado 250g" data-harga="18000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#8C2D1B,#C65A2E)">🔥</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Snack · Viral</span>
+<h3 style="margin-top:10px;font-size:17px">Basreng Pedas Daun Jeruk 200g</h3><p style="min-height:66px">Bakso goreng renyah dengan taburan cabai kering & daun jeruk asli. Sekali buka susah berhenti.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp15.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Basreng Pedas Daun Jeruk 200g" data-harga="15000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#C9A227,#E5C766)">🥜</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Snack · Premium</span>
+<h3 style="margin-top:10px;font-size:17px">Kacang Mete Panggang 250g</h3><p style="min-height:66px">Mete utuh grade A dipanggang tanpa minyak, gurih alami tanpa pengawet. Kemasan ziplock, tetap renyah.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp65.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Kacang Mete Panggang 250g" data-harga="65000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#4A2C1A,#7A4A26)">🍫</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Snack · Manis</span>
+<h3 style="margin-top:10px;font-size:17px">Brownies Crispy Cokelat 180g</h3><p style="min-height:66px">Irisan brownies tipis dipanggang sampai garing — rasa fudgy cokelatnya pekat, teksturnya kriuk.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp28.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Brownies Crispy Cokelat 180g" data-harga="28000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#5B7553,#93AC84)">🍵</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Minuman · Klasik</span>
+<h3 style="margin-top:10px;font-size:17px">Teh Melati Premium 100g</h3><p style="min-height:66px">Daun teh pilihan dipadukan bunga melati asli, diseduh menghasilkan aroma wangi yang menenangkan.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp32.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Teh Melati Premium 100g" data-harga="32000">＋ Tambah</button></div></div></div>
+<div class="kartu prod reveal">
+<div class="pimg" style="background:linear-gradient(135deg,#9E2B25,#D95436)">🧄</div>
+<div style="padding:20px 22px 22px"><span class="tag" style="font-size:10.5px">Bumbu · Pedas Nampol</span>
+<h3 style="margin-top:10px;font-size:17px">Sambal Bawang Kemasan 150g</h3><p style="min-height:66px">Cabai rawit & bawang digoreng perlahan, tanpa pengawet. Penyelamat nasi hangat & lauk apa pun.</p>
+<div class="prow"><div class="harga" style="margin-top:0">Rp25.000</div>
+<button type="button" class="btn btn-c1 tambah" data-nama="Sambal Bawang Kemasan 150g" data-harga="25000">＋ Tambah</button></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="keunggulan" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Keunggulan Toko</div>
+<h2 class="judul reveal">Belanja Oleh-Oleh <span class="grad-text">Tanpa Was-Was</span></h2>
+<p class="sub reveal">Kami memperlakukan setiap paket seperti mengirim untuk keluarga sendiri.</p>
+<div class="grid2">
+<div class="kartu reveal"><div class="ikon">🔥</div><h3>Sangrai &amp; Produksi Fresh</h3><p>Kopi baru disangrai setelah pesanan masuk; snack dikemas ulang dalam batch kecil agar tanggal produksi selalu baru.</p></div>
+<div class="kartu reveal"><div class="ikon">📦</div><h3>Packing Aman Berlapis</h3><p>Bubble wrap + kardus tebal, kemasan kaca diberi segel tambahan. Garansi ganti baru bila paket tiba rusak karena pengiriman.</p></div>
+<div class="kartu reveal"><div class="ikon">🤝</div><h3>Langsung dari Produsen</h3><p>Bermitra dengan 40+ UMKM &amp; petani kopi daerah. Harga adil untuk produsen, tetap bersahabat untuk pembeli.</p></div>
+<div class="kartu reveal"><div class="ikon">💬</div><h3>Admin Responsif 08.00–21.00</h3><p>Dibalas manusia asli. Boleh konsultasi dulu: untuk hampers, acara kantor, atau oleh-oleh mudik dalam jumlah besar.</p></div>
+</div>
+</div>
+</section>
+
+<section id="cara-belanja">
+<div class="wrap">
+<div class="kicker reveal">Cara Belanja</div>
+<h2 class="judul reveal">Empat Langkah, <span class="grad-text">Paket Meluncur</span></h2>
+<p class="sub reveal">Tidak ada payment gateway yang membingungkan — semua dikonfirmasi manusia lewat WhatsApp.</p>
+<div class="langkah">
+<div class="step reveal"><div class="no">01</div><h4>Pilih &amp; Tambahkan</h4><p>Klik ＋ Tambah pada produk favoritmu. Atur jumlahnya di panel keranjang.</p></div>
+<div class="step reveal"><div class="no">02</div><h4>Checkout via WhatsApp</h4><p>Tekan tombol checkout — daftar belanja &amp; total otomatis tersusun rapi sebagai pesan WhatsApp.</p></div>
+<div class="step reveal"><div class="no">03</div><h4>Konfirmasi &amp; Bayar</h4><p>Admin memastikan stok, menghitung ongkir, lalu mengirim instruksi transfer/QRIS. Bayar hanya setelah total final disepakati.</p></div>
+<div class="step reveal"><div class="no">04</div><h4>Dikirim + Nomor Resi</h4><p>Pesanan dikirim maksimal H+1 hari kerja dengan nomor resi yang dikirim ke WhatsApp-mu.</p></div>
+</div>
+</div>
+</section>
+
+<section>
+<div class="wrap">
+<div class="kicker reveal">Favorit Pembeli</div>
+<h2 class="judul reveal">Yang Paling Sering <span class="grad-text">Masuk Keranjang</span></h2>
+<p class="sub reveal">Sekilas isi paket-paket kami sebelum meluncur ke pembeli.</p>
+<div class="galeri">
+<div class="tile reveal" style="background:linear-gradient(135deg,#6B4226,#A9743B)"><div class="emo">☕</div><div class="tt">Kopi Sangrai Fresh</div><div class="ts">Digiling sesuai permintaan</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#B3392B,#E07B4C)"><div class="emo">🌶️</div><div class="tt">Aneka Snack Pedas</div><div class="ts">Dari level santai sampai nampol</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#C9A227,#E5C766)"><div class="emo">🎁</div><div class="tt">Paket Hampers</div><div class="ts">Kartu ucapan gratis</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#5B7553,#93AC84)"><div class="emo">🍃</div><div class="tt">Teh &amp; Rempah</div><div class="ts">Dari kebun mitra pilihan</div></div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<div class="kicker reveal">Kata Pembeli</div>
+<h2 class="judul reveal">Sekali Coba, <span class="grad-text">Balik Lagi</span></h2>
+<p class="sub reveal">Cerita pembeli Rasa Nusantara.</p>
+<div class="testi">
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Robustanya juara — disangrai fresh itu kerasa beda, aromanya kuat banget pas dibuka. Checkout-nya juga gampang, tinggal klik kirim."</p><div class="siapa"><div class="ava">👩</div><div><b>Andini P.</b><span>Pelanggan dari Bekasi</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Pesan 40 paket hampers untuk klien kantor. Admin bantu pilihkan isi sesuai budget, packing rapi, semua sampai tepat waktu."</p><div class="siapa"><div class="ava">🧑</div><div><b>Bimo S.</b><span>Admin kantor, Jakarta</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Basrengnya nagih parah. Udah langganan tiap bulan buat stok di kos, ongkirnya juga sering gratis karena sekalian beli kopi."</p><div class="siapa"><div class="ava">🎓</div><div><b>Galih R.</b><span>Mahasiswa, Yogyakarta</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap">
+<div class="kicker reveal">FAQ</div>
+<h2 class="judul reveal">Sering <span class="grad-text">Ditanyakan</span></h2>
+<p class="sub reveal">Hal praktis sebelum checkout.</p>
+<div class="faq">
+<div class="tanya reveal"><button>Bagaimana cara membayar pesanan saya?<span class="panah">▾</span></button><div class="jawab"><p>Setelah checkout via WhatsApp, admin akan mengonfirmasi stok dan total termasuk ongkir, lalu mengirim pilihan pembayaran (transfer bank, e-wallet, atau QRIS). Pesanan diproses setelah pembayaran terkonfirmasi — tidak ada pembayaran otomatis di website ini.</p></div></div>
+<div class="tanya reveal"><button>Berapa ongkir dan berapa lama pengiriman?<span class="panah">▾</span></button><div class="jawab"><p>Ongkir dihitung per alamat & berat saat konfirmasi WhatsApp. Gratis ongkir Pulau Jawa untuk pembelian di atas Rp150 rb. Estimasi pengiriman 2–5 hari kerja tergantung kota tujuan.</p></div></div>
+<div class="tanya reveal"><button>Apakah bisa pesan dalam jumlah besar untuk acara/hampers?<span class="panah">▾</span></button><div class="jawab"><p>Bisa. Untuk pesanan di atas 20 paket kami beri harga khusus dan kartu ucapan gratis. Chat admin minimal H-5 agar sangrai & pengemasan tidak terburu-buru.</p></div></div>
+<div class="tanya reveal"><button>Kopi bisa digilingkan sekalian?<span class="panah">▾</span></button><div class="jawab"><p>Bisa, gratis. Tulis di pesan checkout: utuh (biji), giling kasar (french press), sedang (V60), atau halus (espresso/tubruk). Standarnya kami kirim biji utuh agar aroma paling awet.</p></div></div>
+<div class="tanya reveal"><button>Kalau paket rusak di perjalanan bagaimana?<span class="panah">▾</span></button><div class="jawab"><p>Sertakan foto/video unboxing saat komplain via WhatsApp maksimal 2x24 jam sejak paket diterima. Kerusakan akibat pengiriman kami ganti baru atau refund, tanpa ribet.</p></div></div>
+</div>
+<div style="text-align:center;margin-top:44px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo Rasa Nusantara, saya ingin bertanya tentang produk/pesanan dalam jumlah besar.">Chat Admin via WhatsApp</a>
+</div>
+</div>
+</section>
+
+<div id="cartbar">
+<div class="cinfo">🛒 <b id="ckount">0 item</b><span class="ctot">Total: <b id="ctotal">Rp0</b></span></div>
+<div class="cbtn"><button type="button" class="btn btn-ghost" id="clihat">Lihat Keranjang</button><button type="button" class="btn btn-wa" id="ccheckout">Checkout via WA</button></div>
+</div>
+<div id="cartmodal"><div class="cpanel">
+<div style="display:flex;justify-content:space-between;align-items:center;gap:12px"><h3 style="font-size:19px">🛒 Keranjang Kamu</h3><button type="button" id="ctutup" aria-label="Tutup">✕</button></div>
+<div id="citems"></div>
+<div class="crow"><span>Total belanja</span><b id="cgrand">Rp0</b></div>
+<p style="font-size:12.5px;color:var(--abu);margin:6px 0 16px">Ongkir dihitung admin saat konfirmasi. Checkout akan membuka WhatsApp dengan rincian pesanan yang sudah tersusun.</p>
+<button type="button" class="btn btn-wa" id="ccheckout2" style="width:100%;justify-content:center">Checkout via WhatsApp</button>
+</div></div>
+<script>
+var keranjang = {};
+function rp(n){ return "Rp" + n.toLocaleString("id-ID"); }
+function hitungKeranjang(){
+  var jml = 0, total = 0;
+  Object.keys(keranjang).forEach(function(k){ jml += keranjang[k].qty; total += keranjang[k].qty * keranjang[k].harga; });
+  return {jml: jml, total: total};
+}
+function renderKeranjang(){
+  var h = hitungKeranjang();
+  document.getElementById("ckount").textContent = h.jml + " item";
+  document.getElementById("ctotal").textContent = rp(h.total);
+  document.getElementById("cgrand").textContent = rp(h.total);
+  document.getElementById("cartbar").classList.toggle("muncul", h.jml > 0);
+  var wadah = document.getElementById("citems");
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length){ wadah.innerHTML = '<p style="color:var(--abu);font-size:14px;padding:10px 0">Keranjang masih kosong. Yuk, tambahkan snack atau kopi favoritmu.</p>'; return; }
+  wadah.innerHTML = kunci.map(function(k){
+    var it = keranjang[k];
+    return '<div class="citem"><div class="cmeta"><b>' + k + '</b><span>' + rp(it.harga) + ' / pcs</span></div>' +
+      '<div class="cqty"><button type="button" data-act="kurang" data-nama="' + k + '">−</button><b>' + it.qty + '</b><button type="button" data-act="tambah" data-nama="' + k + '">+</button></div>' +
+      '<div class="csub">' + rp(it.harga * it.qty) + '</div></div>';
+  }).join("");
+}
+document.querySelectorAll(".tambah").forEach(function(btn){
+  btn.addEventListener("click", function(){
+    var nama = btn.getAttribute("data-nama"), harga = parseInt(btn.getAttribute("data-harga"), 10);
+    if (!keranjang[nama]) keranjang[nama] = {harga: harga, qty: 0};
+    keranjang[nama].qty++;
+    renderKeranjang();
+    btn.textContent = "✓ Masuk Keranjang";
+    setTimeout(function(){ btn.textContent = "＋ Tambah"; }, 1100);
+  });
+});
+document.getElementById("citems").addEventListener("click", function(e){
+  var b = e.target.closest("button[data-act]"); if (!b) return;
+  var nama = b.getAttribute("data-nama");
+  if (b.getAttribute("data-act") === "tambah") keranjang[nama].qty++;
+  else { keranjang[nama].qty--; if (keranjang[nama].qty <= 0) delete keranjang[nama]; }
+  renderKeranjang();
+});
+function bukaModal(buka){ document.getElementById("cartmodal").classList.toggle("buka", buka); }
+document.getElementById("clihat").addEventListener("click", function(){ bukaModal(true); });
+document.getElementById("ctutup").addEventListener("click", function(){ bukaModal(false); });
+document.getElementById("cartmodal").addEventListener("click", function(e){ if (e.target === this) bukaModal(false); });
+function checkoutWA(){
+  var kunci = Object.keys(keranjang);
+  if (!kunci.length) return;
+  var h = hitungKeranjang();
+  var baris = ["Halo Rasa Nusantara, saya mau pesan:"];
+  kunci.forEach(function(k){ var it = keranjang[k]; baris.push("- " + k + " x" + it.qty + " = " + rp(it.harga * it.qty)); });
+  baris.push("Total belanja: " + rp(h.total));
+  baris.push("(Ongkir mohon diinfokan ya kak. Terima kasih!)");
+  window.open(waLink(baris.join("\n")), "_blank");
+}
+document.getElementById("ccheckout").addEventListener("click", checkoutWA);
+document.getElementById("ccheckout2").addEventListener("click", checkoutWA);
+renderKeranjang();
+</script>
+<footer><div class="wrap">
+<div class="nama">Rasa Nusantara</div>
+<p>Jl. Godean KM 7, Sleman, Yogyakarta · Admin aktif setiap hari 08.00–21.00 WIB<br>Pengiriman se-Indonesia · Kopi disangrai fresh setiap ada pesanan.</p>
+<p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
+</div></footer>
+<a class="wa-float" href="#" data-wa="Halo Rasa Nusantara, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
+<script>
+const WA_NUMBER = "6283840002399";
+function waLink(pesan){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(pesan); }
+document.querySelectorAll("[data-wa]").forEach(function(el){
+  el.setAttribute("href", waLink(el.getAttribute("data-wa"))); el.setAttribute("target", "_blank");
+});
+document.querySelectorAll("form[data-wa-form]").forEach(function(f){
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var baris = [f.getAttribute("data-wa-form")];
+    f.querySelectorAll("[data-label]").forEach(function(inp){
+      var v = (inp.value || "").trim(); if (v) baris.push(inp.getAttribute("data-label") + ": " + v);
+    });
+    window.open(waLink(baris.join("\n")), "_blank");
+  });
+});
+var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+document.querySelectorAll(".tanya button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
+    jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
+  });
+});
+</script>
+</body>
+</html>

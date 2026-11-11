@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Arunika Shoes — Velocity Runner | Putar 360°, Ganti Warna, Pesan via WA</title>
+<meta name="description" content=" Sepatu lari lokal premium Velocity Runner: putar model 3D-nya 360°, ganti warna langsung (Marun, Navy, Onyx, Putih Abu), dan pesan via WhatsApp. Garansi tukar ukuran 30 hari. ">
+<meta property="og:title" content=" Arunika Shoes — Velocity Runner | Putar 360°, Ganti Warna, Pesan via WA ">
+<meta property="og:description" content=" Putar dulu sepatunya, ganti warnanya, baru beli. Velocity Runner mulai Rp429.000 — gratis ongkir Jawa. ">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+:root{
+--c1:#881BFC; --c2:#18D1FE; --grad:linear-gradient(92deg,#C02ADD,#881BFC,#0C85FC,#18D1FE);
+--bg:#07070D; --altbg:#0B0B14; --panel:#10101B; --teks:#EDEEF4; --abu:#9BA0B4;
+--garis:#22222F; --garis2:#3A3A4E; --headerbg:rgba(7,7,13,.88); --inputbg:#0C0C15;
+--bayang:rgba(136,27,252,.20);
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--teks);font-family:'Poppins',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-c1{background:var(--grad);color:#fff;box-shadow:0 10px 28px var(--bayang)}
+.btn-wa{background:#1FAF54;color:#fff;box-shadow:0 10px 28px rgba(31,175,84,.35)}
+.btn-ghost{background:transparent;border:1.5px solid var(--garis2);color:var(--teks)}
+.btn-ghost:hover{border-color:var(--c1)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--garis)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;line-height:1.15}
+.logo .lk{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:21px;flex:none;color:#fff}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--abu);letter-spacing:.6px}
+.menu{display:flex;gap:26px;font-size:14.5px;color:var(--abu);font-weight:500}
+.menu a:hover{color:var(--c1)}
+.nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:860px){.menu{display:none}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.logo{font-size:16.5px}}
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero .dekor{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--garis2);border-radius:999px;background:var(--panel);font-size:13px;font-weight:600;color:var(--abu)}
+.badge b{color:var(--c1)}
+.hero h1{font-size:clamp(33px,5.4vw,58px);font-weight:800;line-height:1.14;margin:22px 0 18px}
+.hero p.lead{font-size:clamp(15.5px,2vw,18.5px);color:var(--abu);line-height:1.7;max-width:640px}
+.hero.ctr{text-align:center}
+.hero.ctr p.lead{margin:0 auto}
+.hero .rel{position:relative;z-index:2}
+.cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero.ctr .cta-row{justify-content:center}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
+.stat .n{font-size:25px;font-weight:800;color:var(--c1)}
+.stat .l{font-size:12.5px;color:var(--abu)}
+section{padding:84px 0}
+.alt{background:var(--altbg)}
+.kicker{text-align:center;font-weight:700;letter-spacing:3px;font-size:12.5px;color:var(--c1);text-transform:uppercase}
+.judul{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;margin:11px auto 13px;max-width:720px;line-height:1.25}
+.sub{text-align:center;color:var(--abu);max-width:620px;margin:0 auto 46px;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kartu{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:28px 25px;transition:.3s}
+.kartu:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:0 18px 40px var(--bayang)}
+.kartu .ikon{width:54px;height:54px;border-radius:15px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:15px;color:#fff}
+.kartu h3{font-size:18.5px;margin-bottom:7px}
+.kartu p{font-size:14.5px;color:var(--abu);line-height:1.65}
+.kartu .harga{font-size:21px;font-weight:800;color:var(--c1);margin-top:12px}
+.kartu .harga small{font-size:13px;color:var(--abu);font-weight:500}
+.kartu .btn{margin-top:16px;padding:11px 22px;font-size:14px}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;text-transform:uppercase}
+.galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{border-radius:20px;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;padding:22px;transition:.3s}
+.tile:hover{transform:scale(1.025)}
+.tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.tile .tt{font-weight:700;font-size:16px}
+.tile .ts{font-size:13px;opacity:.88}
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
+.tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
+.tst p{font-size:14.5px;line-height:1.7;color:var(--teks)}
+.tst .siapa{display:flex;align-items:center;gap:12px;margin-top:17px}
+.tst .ava{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+.tst .siapa b{display:block;font-size:14.5px}
+.tst .siapa span{font-size:12.5px;color:var(--abu)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.tanya{border:1px solid var(--garis);border-radius:15px;background:var(--panel);overflow:hidden}
+.tanya button{width:100%;background:none;border:none;color:var(--teks);font-family:inherit;font-size:15.5px;font-weight:600;text-align:left;padding:17px 21px;cursor:pointer;display:flex;justify-content:space-between;gap:13px;align-items:center}
+.tanya .jawab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tanya .jawab p{padding:0 21px 18px;color:var(--abu);font-size:14.5px;line-height:1.65}
+.tanya .panah{transition:.3s;color:var(--c1);flex:none}
+.tanya.buka .panah{transform:rotate(180deg)}
+.langkah{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{border:1px solid var(--garis);border-radius:18px;padding:26px 23px;background:var(--panel)}
+.step .no{font-size:38px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{margin:10px 0 6px;font-size:16.5px}
+.step p{font-size:14px;color:var(--abu);line-height:1.6}
+.check{list-style:none;display:grid;gap:11px;font-size:15px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+footer{border-top:1px solid var(--garis);padding:52px 0 38px;background:var(--altbg);text-align:center}
+footer .nama{font-weight:800;font-size:19px;margin-bottom:7px}
+footer p{color:var(--abu);font-size:13.5px;line-height:1.75;max-width:560px;margin:0 auto}
+footer .kredit{margin-top:20px;font-size:12.5px;color:var(--abu)}
+footer .kredit b{color:var(--c1)}
+.wa-float{position:fixed;right:19px;bottom:19px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FAF54;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 10px 28px rgba(31,175,84,.45);animation:denyut 2.4s infinite}
+@keyframes denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.tampil{opacity:1;transform:none}
+/* ===== PANGGUNG 3D ===== */
+.panggung{position:relative;border-radius:26px;overflow:hidden;height:440px;border:1px solid var(--garis2);box-shadow:0 24px 60px var(--bayang)}
+.panggung canvas{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:none;cursor:grab}
+.panggung canvas:active{cursor:grabbing}
+.panggung .cadangan{position:absolute;inset:0;display:none;align-items:center;justify-content:center;font-size:110px;z-index:1}
+.panggung.no3d canvas{display:none}
+.panggung.no3d .cadangan{display:flex}
+.chip3d{position:absolute;left:14px;bottom:14px;z-index:3;background:rgba(5,5,12,.55);backdrop-filter:blur(6px);color:#fff;padding:8px 15px;border-radius:999px;font-size:12.5px;font-weight:600;pointer-events:none}
+.chip3d.kanan{left:auto;right:14px}
+.latar3d{position:absolute;inset:0;width:100%;height:100%;display:block}
+.hero.no3d .latar3d{display:none}
+@media(max-width:860px){.panggung{height:330px}}
+/* swatch produk 360 */
+.swatch{display:flex;gap:12px;flex-wrap:wrap;margin:14px 0 6px}
+.swatch button{width:46px;height:46px;border-radius:50%;border:3px solid transparent;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(0,0,0,.18)}
+.swatch button.aktif{border-color:var(--c1);transform:scale(1.12)}
+.skillbar{margin-bottom:17px}
+.skillbar .lbl{display:flex;justify-content:space-between;font-size:14px;font-weight:600;margin-bottom:7px}
+.skillbar .lbl span{color:var(--c1)}
+.skillbar .rel{height:10px;border-radius:99px;background:var(--garis);overflow:hidden}
+.skillbar .isi{height:100%;border-radius:99px;background:var(--grad);width:0;transition:width 1.1s ease}
+
+:root{--c1:#E11D48; --c2:#F59E0B; --grad:linear-gradient(92deg,#E11D48,#F97316,#F59E0B);
+--bg:#FAFAF8; --altbg:#F1EFE9; --panel:#FFFFFF; --teks:#1C1917; --abu:#6B6259;
+--garis:#E7E2D9; --garis2:#CFC7B8; --headerbg:rgba(250,250,248,.92); --inputbg:#FFFFFF;
+--bayang:rgba(225,29,72,.14);}
+</style>
+</head>
+<body class="  ">
+
+<header><div class="wrap nav">
+<a class="logo" href="#"><span class="lk">👟</span><span>Arunika Shoes<small>SEPATU LOKAL PREMIUM — SOLO</small></span></a>
+<nav class="menu"><a href="#produk">Produk 360°</a><a href="#keunggulan">Keunggulan</a><a href="#testimoni">Testimoni</a><a href="#faq">FAQ</a></nav>
+<a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau tanya stok &amp; ukuran sepatu Velocity Runner.">Tanya Stok</a>
+</div></header>
+
+<div class="hero" id="produk">
+<div class="dekor" style="width:400px;height:400px;background:#FECDD3;top:-150px;right:-90px;opacity:.55"></div>
+<div class="dekor" style="width:280px;height:280px;background:#FDE68A;bottom:-130px;left:-70px;opacity:.5"></div>
+<div class="wrap split rel">
+<div class="panggung reveal" style="background:radial-gradient(120% 120% at 50% 0%,#FFFFFF 0%,#F3EFE6 60%,#EAE4D6 100%)">
+<canvas id="cv19"></canvas>
+<div class="cadangan">👟</div>
+<div class="chip3d">👆 Seret untuk memutar sepatu 360°</div>
+<div class="chip3d kanan">Model 3D Interaktif</div>
+</div>
+<div>
+<span class="badge">🔥 Terlaris — <b>2.400+ Pasang Terjual</b></span>
+<h1 style="font-size:clamp(30px,4.6vw,48px)">Velocity Runner — <span class="grad-text">Putar Dulu, Baru Beli</span></h1>
+<p class="lead" style="max-width:520px">Geser model 3D-nya untuk melihat sepatu dari semua sisi, ganti warnanya langsung, lalu pesan warna favoritmu via WhatsApp. Tanpa foto edit berlebihan — yang kamu putar, itu yang kamu dapat.</p>
+<div style="margin-top:22px">
+<div style="font-weight:700;font-size:14.5px">Pilih Warna: <span id="namaVarian" style="color:var(--c1)">Sunset Marun</span></div>
+<div class="swatch" id="swatch">
+<button data-warna="Sunset Marun" data-hex="#8E2434" data-harga="Rp429.000" style="background:#8E2434" aria-label="Sunset Marun"></button>
+<button data-warna="Navy Samudra" data-hex="#1E3A5F" data-harga="Rp429.000" style="background:#1E3A5F" aria-label="Navy Samudra"></button>
+<button data-warna="Hitam Onyx" data-hex="#26262C" data-harga="Rp449.000" style="background:#26262C" aria-label="Hitam Onyx"></button>
+<button data-warna="Putih Abu" data-hex="#C9CED6" data-harga="Rp459.000" style="background:#C9CED6" aria-label="Putih Abu"></button>
+</div>
+<div style="font-size:13.5px;color:var(--abu)">Warna model 3D berubah mengikuti pilihanmu.</div>
+</div>
+<div style="display:flex;align-items:baseline;gap:13px;margin-top:18px;flex-wrap:wrap">
+<span style="font-size:15px;color:var(--abu);text-decoration:line-through">Rp599.000</span>
+<span id="hargaVarian" style="font-size:33px;font-weight:800">Rp429.000</span>
+<span class="tag">Promo −28%</span>
+</div>
+<div class="cta-row" style="margin-top:20px">
+<a class="btn btn-wa" id="pesanVarian" href="#">Pesan Warna Ini via WA</a>
+<a class="btn btn-ghost" href="#keunggulan">Kenapa Velocity?</a>
+</div>
+<div class="stats">
+<div class="stat"><div class="n">215 g</div><div class="l">Ringan, serasa tidak pakai</div></div>
+<div class="stat"><div class="n">30 hari</div><div class="l">Garansi tukar ukuran</div></div>
+<div class="stat"><div class="n">4.9/5</div><div class="l">Dari 1.150+ ulasan pembeli</div></div>
+</div>
+</div>
+</div>
+</div>
+
+<section id="keunggulan" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Keunggulan</div>
+<h2 class="judul reveal">Dibuat untuk Lari, <span class="grad-text">Dipakai untuk Gaya</span></h2>
+<p class="sub reveal">Setiap detail Velocity Runner dirancang bersama podiatris dan diuji 500 km sebelum dijual.</p>
+<div class="grid">
+<div class="kartu reveal"><div class="ikon">🪶</div><h3>Knit Bernapas</h3><p>Upper rajutan satu lembar tanpa jahitan kasar — kaki tidak lecet meski lari 10K pertama tanpa kaus kaki tebal.</p></div>
+<div class="kartu reveal"><div class="ikon">☁️</div><h3>Busa CloudFoam</h3><p>Midsole busa EVA kepadatan ganda: empuk saat mendarat, responsif saat mendorong. Lutut berterima kasih.</p></div>
+<div class="kartu reveal"><div class="ikon">🧲</div><h3>Grip Segala Medan</h3><p>Outsole karet dengan pola traksi multi-arah — tetap menempel di aspal basah dan trotoar berdebu.</p></div>
+<div class="kartu reveal"><div class="ikon">📏</div><h3>Ukuran 39–45</h3><p>Termasuk half-size 40.5 dan 42.5 yang jarang ada di brand lokal. Panduan ukur kaki tersedia dari admin.</p></div>
+<div class="kartu reveal"><div class="ikon">🔄</div><h3>Tukar Ukuran Gratis</h3><p>Salah ukuran? Tukar dalam 30 hari, ongkir pulang-pergi kami tanggung untuk pembelian pertama.</p></div>
+<div class="kartu reveal"><div class="ikon">🇮🇩</div><h3>Brand Lokal Solo</h3><p>Diproduksi pengrajin Solo dengan QC 12 titik. Membeli Arunika = menghidupkan 40+ pekerja lokal.</p></div>
+</div>
+</div>
+</section>
+
+<section id="varian">
+<div class="wrap">
+<div class="kicker reveal">Varian Lain</div>
+<h2 class="judul reveal">Satu Model, <span class="grad-text">Empat Kepribadian</span></h2>
+<p class="sub reveal">Semua varian memakai sol dan busa yang sama — bedanya hanya warna upper dan sedikit harga bahan.</p>
+<div class="grid2">
+<div class="kartu reveal"><div class="ikon" style="background:#8E2434">👟</div><h3>Sunset Marun</h3><p>Berani dan hangat — favorit pelari pagi Solo &amp; Jakarta.</p><div class="harga">Rp429.000</div><a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau pesan Velocity Runner warna SUNSET MARUN (Rp429.000). Ukuran saya: ____">Pesan Varian Ini</a></div>
+<div class="kartu reveal"><div class="ikon" style="background:#1E3A5F">👟</div><h3>Navy Samudra</h3><p>Klasik dan aman dipadukan dengan apa pun, termasuk celana kantor.</p><div class="harga">Rp429.000</div><a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau pesan Velocity Runner warna NAVY SAMUDRA (Rp429.000). Ukuran saya: ____">Pesan Varian Ini</a></div>
+<div class="kartu reveal"><div class="ikon" style="background:#26262C">👟</div><h3>Hitam Onyx</h3><p>Full hitam elegan dengan sol aksen — untuk yang serius dan minimalis.</p><div class="harga">Rp449.000</div><a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau pesan Velocity Runner warna HITAM ONYX (Rp449.000). Ukuran saya: ____">Pesan Varian Ini</a></div>
+<div class="kartu reveal"><div class="ikon" style="background:#C9CED6">👟</div><h3>Putih Abu</h3><p>Bersih cerah dengan detail abu — paling cepat habis setiap restock.</p><div class="harga">Rp459.000</div><a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau pesan Velocity Runner warna PUTIH ABU (Rp459.000). Ukuran saya: ____">Pesan Varian Ini</a></div>
+</div>
+</div>
+</section>
+
+<section id="testimoni" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Testimoni</div>
+<h2 class="judul reveal">Kata <span class="grad-text">Para Pelari</span></h2>
+<p class="sub reveal">Ulasan asli pembeli terverifikasi di marketplace kami.</p>
+<div class="testi">
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Fitur putar 360°-nya ngebantu banget — warna marun aslinya persis seperti di layar. Dipakai half marathon pertama, nol lecet."</p><div class="siapa"><div class="ava">🏃</div><div><b>Dimas R.</b><span>Pelari komunitas, Solo</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Sempat salah ukuran, proses tukarnya cepat dan gratis beneran. Sepatu pengganti datang 3 hari kemudian. Adminnya fast-respons di WA."</p><div class="siapa"><div class="ava">👩‍💼</div><div><b>Sari W.</b><span>Pembeli Putih Abu, Semarang</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Sudah 400 km lebih, sol masih menggigit dan busa belum kempes. Untuk harga segini, brand luar pun kalah value."</p><div class="siapa"><div class="ava">🏅</div><div><b>Coach Bima</b><span>Pelatih lari, Yogyakarta</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap">
+<div class="kicker reveal">FAQ</div>
+<h2 class="judul reveal">Sering <span class="grad-text">Ditanyakan</span></h2>
+<p class="sub reveal">Sebelum kamu menekan tombol pesan.</p>
+<div class="faq">
+<div class="tanya reveal"><button>Bagaimana cara menentukan ukuran yang tepat?<span class="panah">▾</span></button><div class="jawab"><p>Ukur panjang kakimu (tumit ke ujung jari terpanjang) lalu tambah 0,5–1 cm. Kirim hasil ukurnya ke admin WA — kami cocokkan dengan size chart dan bertanggung jawab bila rekomendasi kami meleset (tetap bisa tukar).</p></div></div>
+<div class="tanya reveal"><button>Apakah model 3D-nya sesuai produk asli?<span class="panah">▾</span></button><div class="jawab"><p>Model 3D di halaman ini adalah representasi bentuk &amp; warna produk untuk membantu visualisasi. Detail tekstur asli (rajutan, jahitan) bisa dilihat dari foto produk yang admin kirimkan via WhatsApp sebelum kamu membayar.</p></div></div>
+<div class="tanya reveal"><button>Pengiriman ke mana saja &amp; berapa lama?<span class="panah">▾</span></button><div class="jawab"><p>Seluruh Indonesia via JNE/J&amp;T/AnterAja dari Solo. Jawa 1–3 hari, luar Jawa 3–7 hari kerja. Gratis ongkir Jawa untuk pembelian di atas Rp400.000 — Velocity Runner termasuk.</p></div></div>
+<div class="tanya reveal"><button>Bagaimana cara membayar?<span class="panah">▾</span></button><div class="jawab"><p>Setelah pesanan dikonfirmasi admin via WA, kamu bisa transfer bank, e-wallet, atau QRIS. Barang dikirim maksimal 1x24 jam setelah pembayaran terverifikasi.</p></div></div>
+</div>
+<div style="text-align:center;margin-top:44px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo Arunika Shoes, saya mau tanya-tanya dulu soal Velocity Runner sebelum pesan.">Tanya Dulu via WhatsApp</a>
+</div>
+</div>
+</section>
+
+<footer><div class="wrap">
+<div class="nama">Arunika Shoes</div>
+<p>Workshop: Jl. Adisucipto No. 88, Solo, Jawa Tengah · Pengiriman ke seluruh Indonesia<br>Model 3D interaktif di halaman ini adalah representasi produk untuk visualisasi warna &amp; bentuk.</p>
+<p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
+</div></footer>
+<a class="wa-float" href="#" data-wa="Halo Arunika Shoes, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
+
+<script src=" https://cdnjs.cloudflare.com/ajax/libs/three.js/0.158.0/three.min.js "></script>
+<script>
+const WA_NUMBER = "6283840002399";
+function waLink(pesan){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(pesan); }
+function pasangWA(){
+  document.querySelectorAll("[data-wa]").forEach(function(el){
+    el.setAttribute("href", waLink(el.getAttribute("data-wa"))); el.setAttribute("target", "_blank");
+  });
+}
+pasangWA();
+var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+document.querySelectorAll(".tanya button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
+    jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
+  });
+});
+/* Boot 3D hemat daya: render hanya saat panggung terlihat & tab aktif.
+   Gagal WebGL/CDN -> kelas no3d -> fallback gradasi + emoji, tanpa error. */
+function boot3D(id, setup){
+  var cv = document.getElementById(id);
+  function gagal(){ if(cv && cv.parentElement) cv.parentElement.classList.add("no3d"); }
+  if(!cv || typeof THREE === "undefined"){ gagal(); return; }
+  var renderer;
+  try{ renderer = new THREE.WebGLRenderer({canvas: cv, antialias: true, alpha: true}); }
+  catch(e){ gagal(); return; }
+  if(!renderer.getContext()){ gagal(); return; }
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 1.5));
+  var scene = new THREE.Scene();
+  var camera = new THREE.PerspectiveCamera(45, 1, 0.1, 200);
+  var st = {mx:0, my:0, drag:false, lx:0, ly:0, dx:0, dy:0, rx:0, ry:0};
+  window.addEventListener("pointermove", function(e){
+    st.mx = (e.clientX / window.innerWidth) * 2 - 1;
+    st.my = (e.clientY / window.innerHeight) * 2 - 1;
+  }, {passive:true});
+  cv.addEventListener("pointerdown", function(e){ st.drag = true; st.lx = e.clientX; st.ly = e.clientY; });
+  window.addEventListener("pointermove", function(e){
+    if(!st.drag) return;
+    st.dx = e.clientX - st.lx; st.dy = e.clientY - st.ly;
+    st.ry += st.dx * 0.008; st.rx += st.dy * 0.008;
+    st.lx = e.clientX; st.ly = e.clientY;
+  }, {passive:true});
+  window.addEventListener("pointerup", function(){ st.drag = false; });
+  function ukuran(){
+    var w = cv.clientWidth || 600, h = cv.clientHeight || 400;
+    renderer.setSize(w, h, false);
+    camera.aspect = w / h; camera.updateProjectionMatrix();
+  }
+  ukuran(); window.addEventListener("resize", ukuran);
+  var tick;
+  try{ tick = setup(scene, camera, renderer, st); }
+  catch(e){ gagal(); return; }
+  var terlihat = true, aktif = !document.hidden;
+  new IntersectionObserver(function(es){ terlihat = es[0].isIntersecting; }, {threshold:.05}).observe(cv);
+  document.addEventListener("visibilitychange", function(){ aktif = !document.hidden; });
+  (function loop(){
+    requestAnimationFrame(loop);
+    if(!terlihat || !aktif) return;
+    tick(performance.now() * 0.001, st);
+    renderer.render(scene, camera);
+  })();
+}
+
+var varianAktif = {nama: "Sunset Marun", harga: "Rp429.000"};
+var matUpper = null, matAksen = null;
+function segarkanTombol(){
+  var btn = document.getElementById("pesanVarian");
+  btn.setAttribute("data-wa", "Halo Arunika Shoes, saya mau pesan Velocity Runner warna " +
+    varianAktif.nama.toUpperCase() + " (" + varianAktif.harga + "). Ukuran saya: ____");
+  pasangWA();
+}
+document.querySelectorAll("#swatch button").forEach(function(b){
+  b.addEventListener("click", function(){
+    document.querySelectorAll("#swatch button").forEach(function(x){ x.classList.remove("aktif"); });
+    b.classList.add("aktif");
+    varianAktif = {nama: b.getAttribute("data-warna"), harga: b.getAttribute("data-harga")};
+    document.getElementById("namaVarian").textContent = varianAktif.nama;
+    document.getElementById("hargaVarian").textContent = varianAktif.harga;
+    if(matUpper) matUpper.color.set(b.getAttribute("data-hex"));
+    segarkanTombol();
+  });
+});
+document.querySelector('#swatch button[data-warna="Sunset Marun"]').classList.add("aktif");
+segarkanTombol();
+
+boot3D("cv19", function(scene, camera, st){
+  camera.position.set(0.6, 1.35, 5.3);
+  camera.lookAt(0, 0.7, 0);
+  scene.add(new THREE.AmbientLight(0xffffff, 0.85));
+  var dir = new THREE.DirectionalLight(0xffffff, 1.0); dir.position.set(5, 9, 6); scene.add(dir);
+  var titik = new THREE.PointLight(0xffffff, 8, 30); titik.position.set(-6, 3, 4); scene.add(titik);
+  var grup = new THREE.Group(); scene.add(grup);
+  var matSol = new THREE.MeshStandardMaterial({color: 0xF5F2EA, roughness: 0.55});
+  var matMid = new THREE.MeshStandardMaterial({color: 0x1F2937, roughness: 0.5});
+  matUpper = new THREE.MeshStandardMaterial({color: 0x8E2434, roughness: 0.75});
+  matAksen = new THREE.MeshStandardMaterial({color: 0xF59E0B, roughness: 0.5});
+  var matGelap = new THREE.MeshStandardMaterial({color: 0x232323, roughness: 0.85});
+  var matPutih = new THREE.MeshStandardMaterial({color: 0xFFFFFF, roughness: 0.6});
+  function kotak(w, h, d, mat, x, y, z, rz){
+    var m = new THREE.Mesh(new THREE.BoxGeometry(w, h, d), mat);
+    m.position.set(x, y, z); if(rz) m.rotation.z = rz; grup.add(m); return m;
+  }
+  function elips(r, sx, sy, sz, mat, x, y, z){
+    var m = new THREE.Mesh(new THREE.SphereGeometry(r, 28, 20), mat);
+    m.scale.set(sx, sy, sz); m.position.set(x, y, z); grup.add(m); return m;
+  }
+  kotak(3.18, 0.3, 1.18, matSol, -0.02, 0.15, 0);      /* sol bawah */
+  kotak(3.22, 0.16, 1.22, matMid, -0.02, 0.38, 0);     /* midsole */
+  elips(1, 1.02, 0.5, 0.53, matUpper, -0.58, 0.82, 0);  /* upper tumit-tengah */
+  elips(1, 0.95, 0.38, 0.5, matUpper, 1.02, 0.64, 0);   /* upper ujung jari */
+  elips(1, 0.34, 0.2, 0.36, matGelap, -0.92, 1.2, 0);   /* lubang pergelangan */
+  kotak(0.72, 0.14, 0.46, matUpper, 0.18, 1.12, 0, -0.5); /* lidah sepatu */
+  for(var i = 0; i < 4; i++){                            /* tali sepatu */
+    kotak(0.15, 0.05, 0.7, matPutih, 0.42 + i * 0.24, 1.08 - i * 0.075, 0, -0.32);
+  }
+  [-0.6, 0.6].forEach(function(z){                       /* strip samping */
+    var s = kotak(1.5, 0.13, 0.03, matAksen, -0.25, 0.72, z, -0.18);
+    s.rotation.x = z > 0 ? 0 : 0;
+  });
+  var lantai = new THREE.Mesh(new THREE.CircleGeometry(2.35, 40),
+    new THREE.MeshStandardMaterial({color: 0xE9E2D2, roughness: 1}));
+  lantai.rotation.x = -Math.PI / 2; lantai.position.y = -0.02; grup.add(lantai);
+  grup.scale.set(1.15, 1.15, 1.15);
+  grup.position.y = -0.5;
+  return function(t, st){
+    var target = st.ry + (st.drag ? 0 : t * 0.25);
+    grup.rotation.y += (target - grup.rotation.y) * 0.08;
+    grup.position.y = -0.5 + Math.sin(t * 1.1) * 0.045;
+  };
+});
+
+</script>
+</body>
+</html>

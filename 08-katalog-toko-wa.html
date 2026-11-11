@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Kirana Boutique — Katalog Fashion & Aksesoris Wanita | Pesan via WA</title>
+<meta name="description" content="Katalog Kirana Boutique: dress, tas, sepatu, hijab & aksesoris wanita pilihan. Klik produk, langsung pesan lewat WhatsApp. Kirim se-Indonesia, COD Sukoharjo–Solo.">
+<meta property="og:title" content="Kirana Boutique — Katalog Fashion & Aksesoris Wanita | Pesan via WA">
+<meta property="og:description" content="Belanja fashion tanpa ribet — pilih di katalog, pesan via WhatsApp, paket meluncur hari yang sama.">
+<meta property="og:type" content="website">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>:root{
+--c1:#C4707F; --c2:#E0A387; --grad:linear-gradient(92deg,#C4707F,#E0A387);
+--bg:#FDF9F7; --altbg:#F8EFEA; --panel:#FFFFFF; --teks:#3A2B28; --abu:#8D7A74;
+--garis:#F0E1DA; --garis2:#E2C6B9; --headerbg:rgba(253,249,247,.92); --inputbg:#FBF3EF;
+--bayang:rgba(196,112,127,.18);
+}
+
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--teks);font-family:'Poppins',system-ui,sans-serif;overflow-x:hidden;line-height:1.55}
+a{color:inherit;text-decoration:none}
+img{max-width:100%}
+.wrap{max-width:1140px;margin:0 auto;padding:0 22px}
+.grad-text{background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent}
+.btn{display:inline-flex;align-items:center;gap:9px;padding:14px 28px;border-radius:999px;font-weight:700;font-size:15.5px;transition:.25s;cursor:pointer;border:none;font-family:inherit}
+.btn:hover{transform:translateY(-2px)}
+.btn-c1{background:var(--grad);color:#fff;box-shadow:0 10px 28px var(--bayang)}
+.btn-wa{background:#1FAF54;color:#fff;box-shadow:0 10px 28px rgba(31,175,84,.35)}
+.btn-ghost{background:transparent;border:1.5px solid var(--garis2);color:var(--teks)}
+.btn-ghost:hover{border-color:var(--c1)}
+header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);backdrop-filter:blur(14px);border-bottom:1px solid var(--garis)}
+.nav{display:flex;align-items:center;justify-content:space-between;height:70px;gap:14px}
+.logo{display:flex;align-items:center;gap:11px;font-weight:800;font-size:19px;line-height:1.15}
+.logo .lk{width:42px;height:42px;border-radius:12px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:21px;flex:none}
+.logo small{display:block;font-size:11px;font-weight:600;color:var(--abu);letter-spacing:.6px}
+.menu{display:flex;gap:26px;font-size:14.5px;color:var(--abu);font-weight:500}
+.menu a:hover{color:var(--c1)}
+.nav .btn{padding:10px 22px;font-size:14px}
+@media(max-width:860px){.menu{display:none}.nav .btn{padding:9px 16px;font-size:13px;white-space:nowrap}.logo{font-size:16.5px}}
+.hero{padding:150px 0 84px;position:relative;overflow:hidden}
+.hero .dekor{position:absolute;border-radius:50%;filter:blur(80px);opacity:.45;pointer-events:none}
+.badge{display:inline-flex;align-items:center;gap:8px;padding:7px 16px;border:1px solid var(--garis2);border-radius:999px;background:var(--panel);font-size:13px;font-weight:600;color:var(--abu)}
+.badge b{color:var(--c1)}
+.hero h1{font-size:clamp(33px,5.4vw,58px);font-weight:800;line-height:1.14;margin:22px 0 18px}
+.hero p.lead{font-size:clamp(15.5px,2vw,18.5px);color:var(--abu);line-height:1.7;max-width:640px}
+.hero.ctr{text-align:center}
+.hero.ctr p.lead{margin:0 auto}
+.cta-row{display:flex;gap:13px;flex-wrap:wrap;margin-top:32px}
+.hero.ctr .cta-row{justify-content:center}
+.split{display:grid;grid-template-columns:1.05fr .95fr;gap:44px;align-items:center}
+@media(max-width:860px){.split{grid-template-columns:1fr}}
+.visual{border-radius:26px;background:var(--grad);min-height:340px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:#fff;text-align:center;padding:34px;position:relative;overflow:hidden;box-shadow:0 24px 60px var(--bayang)}
+.visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
+.visual .vt{font-size:21px;font-weight:800}
+.visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
+.stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
+.stat .n{font-size:25px;font-weight:800;color:var(--c1)}
+.stat .l{font-size:12.5px;color:var(--abu)}
+section{padding:84px 0}
+.alt{background:var(--altbg)}
+.kicker{text-align:center;font-weight:700;letter-spacing:3px;font-size:12.5px;color:var(--c1);text-transform:uppercase}
+.judul{text-align:center;font-size:clamp(26px,4vw,40px);font-weight:800;margin:11px auto 13px;max-width:720px;line-height:1.25}
+.sub{text-align:center;color:var(--abu);max-width:620px;margin:0 auto 46px;font-size:16px;line-height:1.65}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px}
+.kartu{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:28px 25px;transition:.3s}
+.kartu:hover{transform:translateY(-5px);border-color:var(--c1);box-shadow:0 18px 40px var(--bayang)}
+.kartu .ikon{width:54px;height:54px;border-radius:15px;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:26px;margin-bottom:15px}
+.kartu h3{font-size:18.5px;margin-bottom:7px}
+.kartu p{font-size:14.5px;color:var(--abu);line-height:1.65}
+.kartu .harga{font-size:21px;font-weight:800;color:var(--c1);margin-top:12px}
+.kartu .harga small{font-size:13px;color:var(--abu);font-weight:500}
+.tag{display:inline-block;font-size:11.5px;font-weight:700;letter-spacing:1px;padding:5px 12px;border-radius:999px;background:var(--grad);color:#fff;text-transform:uppercase}
+.galeri{display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:16px}
+.tile{border-radius:20px;min-height:190px;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px;color:#fff;text-align:center;padding:22px;transition:.3s}
+.tile:hover{transform:scale(1.025)}
+.tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
+.tile .tt{font-weight:700;font-size:16px}
+.tile .ts{font-size:13px;opacity:.88}
+.testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
+.tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
+.tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
+.tst p{font-size:14.5px;line-height:1.7;color:var(--teks)}
+.tst .siapa{display:flex;align-items:center;gap:12px;margin-top:17px}
+.tst .ava{width:44px;height:44px;border-radius:50%;background:var(--grad);display:flex;align-items:center;justify-content:center;font-size:20px;color:#fff;flex:none}
+.tst .siapa b{display:block;font-size:14.5px}
+.tst .siapa span{font-size:12.5px;color:var(--abu)}
+.faq{max-width:780px;margin:0 auto;display:grid;gap:11px}
+.tanya{border:1px solid var(--garis);border-radius:15px;background:var(--panel);overflow:hidden}
+.tanya button{width:100%;background:none;border:none;color:var(--teks);font-family:inherit;font-size:15.5px;font-weight:600;text-align:left;padding:17px 21px;cursor:pointer;display:flex;justify-content:space-between;gap:13px;align-items:center}
+.tanya .jawab{max-height:0;overflow:hidden;transition:max-height .35s ease}
+.tanya .jawab p{padding:0 21px 18px;color:var(--abu);font-size:14.5px;line-height:1.65}
+.tanya .panah{transition:.3s;color:var(--c1);flex:none}
+.tanya.buka .panah{transform:rotate(180deg)}
+.formbox{max-width:680px;margin:0 auto;border:1px solid var(--garis2);border-radius:24px;background:var(--panel);padding:36px 32px;box-shadow:0 20px 50px var(--bayang)}
+.formbox label{display:block;font-size:13.5px;font-weight:600;margin:16px 0 7px;color:var(--abu)}
+.formbox input,.formbox select,.formbox textarea{width:100%;background:var(--inputbg);border:1px solid var(--garis2);border-radius:12px;padding:12.5px 14px;color:var(--teks);font-family:inherit;font-size:15px}
+.formbox input:focus,.formbox select:focus,.formbox textarea:focus{outline:none;border-color:var(--c1)}
+.formbox .btn{width:100%;justify-content:center;margin-top:24px}
+.langkah{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:18px}
+.step{border:1px solid var(--garis);border-radius:18px;padding:26px 23px;background:var(--panel)}
+.step .no{font-size:38px;font-weight:800;background:var(--grad);-webkit-background-clip:text;background-clip:text;color:transparent;line-height:1}
+.step h4{margin:10px 0 6px;font-size:16.5px}
+.step p{font-size:14px;color:var(--abu);line-height:1.6}
+table.jadwal{width:100%;border-collapse:collapse;max-width:760px;margin:0 auto;background:var(--panel);border-radius:16px;overflow:hidden}
+table.jadwal th,table.jadwal td{padding:13px 18px;text-align:left;font-size:14.5px;border-bottom:1px solid var(--garis)}
+table.jadwal th{background:var(--grad);color:#fff;font-size:14px}
+table.jadwal tr:last-child td{border-bottom:none}
+.check{list-style:none;display:grid;gap:11px;font-size:15px}
+.check li{display:flex;gap:11px;align-items:flex-start}
+.check li::before{content:"✓";flex:none;width:24px;height:24px;border-radius:50%;background:var(--grad);color:#fff;display:flex;align-items:center;justify-content:center;font-size:13px;font-weight:800;margin-top:1px}
+footer{border-top:1px solid var(--garis);padding:52px 0 38px;background:var(--altbg);text-align:center}
+footer .nama{font-weight:800;font-size:19px;margin-bottom:7px}
+footer p{color:var(--abu);font-size:13.5px;line-height:1.75;max-width:560px;margin:0 auto}
+footer .kredit{margin-top:20px;font-size:12.5px;color:var(--abu)}
+footer .kredit b{color:var(--c1)}
+.wa-float{position:fixed;right:19px;bottom:19px;z-index:60;width:58px;height:58px;border-radius:50%;background:#1FAF54;display:flex;align-items:center;justify-content:center;font-size:27px;box-shadow:0 10px 28px rgba(31,175,84,.45);animation:denyut 2.4s infinite}
+@keyframes denyut{0%,100%{transform:scale(1)}50%{transform:scale(1.08)}}
+.stickybar{position:fixed;left:0;right:0;bottom:0;z-index:55;padding:11px 14px;background:var(--headerbg);backdrop-filter:blur(12px);border-top:1px solid var(--garis);display:none;align-items:center;justify-content:space-between;gap:12px}
+.stickybar .sh b{font-size:15px;display:block}
+.stickybar .sh span{font-size:12.5px;color:var(--abu)}
+.stickybar .btn{padding:11px 20px;font-size:14px;white-space:nowrap}
+@media(max-width:700px){.stickybar.aktif{display:flex}body.pakai-sticky{padding-bottom:72px}.wa-float{bottom:86px}}
+.reveal{opacity:0;transform:translateY(26px);transition:opacity .65s ease,transform .65s ease}
+.reveal.tampil{opacity:1;transform:none}
+</style>
+
+</head>
+<body>
+<header><div class="wrap nav">
+<a class="logo" href="#"><span class="lk">🛍️</span><span>Kirana Boutique<small>FASHION & AKSESORIS WANITA</small></span></a>
+<nav class="menu"><a href="#katalog">Katalog</a><a href="#cara-order">Cara Order</a><a href="#keunggulan">Keunggulan</a><a href="#faq">FAQ</a></nav>
+<a class="btn btn-wa" href="#" data-wa="Halo Kirana Boutique, saya ingin bertanya tentang produk di katalog.">Chat Toko</a>
+</div></header>
+<div class="hero ctr">
+<div class="dekor" style="width:400px;height:400px;background:#C4707F;top:-140px;left:-100px"></div>
+<div class="dekor" style="width:300px;height:300px;background:#E0A387;bottom:-110px;right:-80px"></div>
+<div class="wrap">
+<span class="badge">✨ <b>Koleksi Baru Setiap Jumat</b> — stok terbatas per model</span>
+<h1>Tampil Cantik Setiap Hari, <span class="grad-text">Pesan Semudah Chat</span></h1>
+<p class="lead">Kirana Boutique menghadirkan fashion &amp; aksesoris wanita pilihan — dikurasi satu per satu, difoto apa adanya, dan bisa dipesan langsung lewat WhatsApp tanpa perlu daftar akun atau antre checkout.</p>
+<div class="cta-row">
+<a class="btn btn-c1" href="#katalog">Lihat Katalog</a>
+<a class="btn btn-ghost" href="#" data-wa="Halo Kirana Boutique, saya mencari produk tertentu. Bisa dibantu carikan?">Tanya Stok ke Admin</a>
+</div>
+<div class="stats" style="max-width:760px;margin-left:auto;margin-right:auto">
+<div class="stat"><div class="n">350+</div><div class="l">Model terjual tiap bulan</div></div>
+<div class="stat"><div class="n">4.9★</div><div class="l">Rating pembeli di marketplace</div></div>
+<div class="stat"><div class="n">Se-Indonesia</div><div class="l">Pengiriman dari Sukoharjo</div></div>
+</div>
+</div>
+</div>
+
+<section id="katalog" style="padding-top:20px">
+<div class="wrap">
+<div class="kicker reveal">Katalog Produk</div>
+<h2 class="judul reveal">Pilih Favoritmu, <span class="grad-text">Klik Pesan</span></h2>
+<p class="sub reveal">Harga sudah termasuk packing rapi. Klik tombol pesan di produk yang kamu suka — admin akan konfirmasi stok, ukuran, dan ongkir lewat WhatsApp.</p>
+<div style="display:flex;gap:9px;flex-wrap:wrap;justify-content:center;margin-bottom:36px" class="reveal">
+<span class="badge" style="border-color:var(--c1);color:var(--c1)"><b>Semua</b></span><span class="badge">Dress &amp; Atasan</span><span class="badge">Tas</span><span class="badge">Sepatu</span><span class="badge">Hijab</span><span class="badge">Aksesoris</span>
+</div>
+<div class="grid">
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F6C6D3,#C4707F);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">👗</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Dress · Best Seller</span><h3 style="margin-top:10px;font-size:17.5px">Dress Floral Aira — Midi</h3>
+<div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp249.000</span> <span class="harga" style="margin-top:0">Rp189.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Dress Floral Aira — Midi (Rp189.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F3E3D3,#D9A679);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">👚</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Atasan · Baru</span><h3 style="margin-top:10px;font-size:17.5px">Blus Linen Nayla — Putih Tulang</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp139.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Blus Linen Nayla — Putih Tulang (Rp139.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#C89B7B,#8A5A3B);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">👜</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Tas · Kulit Sintetis Premium</span><h3 style="margin-top:10px;font-size:17.5px">Tas Selempang Kania — Cokelat Susu</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp215.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Tas Selempang Kania — Cokelat Susu (Rp215.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#E8E4DE,#B9B0A4);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">👟</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Sepatu · Promo</span><h3 style="margin-top:10px;font-size:17.5px">Sneakers Putih Lumi — 37–40</h3>
+<div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp320.000</span> <span class="harga" style="margin-top:0">Rp259.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Sneakers Putih Lumi — 37–40 (Rp259.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#DCC7E8,#9B7EBC);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">🧕</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Hijab · Mudah Dibentuk</span><h3 style="margin-top:10px;font-size:17.5px">Hijab Voal Premium — 12 Warna</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp59.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Hijab Voal Premium — 12 Warna (Rp59.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F2C9C0,#C4707F);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">⌚</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Anti Air</span><h3 style="margin-top:10px;font-size:17.5px">Jam Tangan Minimalis Rose Gold</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp175.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Jam Tangan Minimalis Rose Gold (Rp175.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F5D9A8,#D9903F);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">🕶️</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · UV400</span><h3 style="margin-top:10px;font-size:17.5px">Kacamata Retro Sinta + Case</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp89.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Kacamata Retro Sinta + Case (Rp89.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F6C6D3,#DE8CA3);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">👛</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Promo</span><h3 style="margin-top:10px;font-size:17.5px">Dompet Lipat Miu — Dusty Pink</h3>
+<div style="margin:9px 0 16px"><span style="text-decoration:line-through;color:var(--abu);font-size:14px;font-weight:500">Rp150.000</span> <span class="harga" style="margin-top:0">Rp119.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Dompet Lipat Miu — Dusty Pink (Rp119.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+<div class="kartu reveal" style="padding:0;overflow:hidden">
+<div style="background:linear-gradient(135deg,#F7E3B0,#C9A227);min-height:158px;display:flex;align-items:center;justify-content:center;font-size:66px">💍</div>
+<div style="padding:20px 22px 24px"><span class="tag" style="font-size:10.5px">Aksesoris · Lapis Emas 18K</span><h3 style="margin-top:10px;font-size:17.5px">Set Kalung &amp; Anting Arunika</h3>
+<div style="margin:9px 0 16px"><span class="harga" style="margin-top:0">Rp98.000</span></div>
+<a class="btn btn-wa" style="width:100%;justify-content:center;padding:11px 18px;font-size:14px" href="#" data-wa="Halo Kirana Boutique, saya mau pesan Set Kalung &amp; Anting Arunika (Rp98.000). Apakah stoknya masih ada?">🛍️ Pesan via WA</a></div></div>
+</div>
+<p class="sub reveal" style="margin-top:36px;margin-bottom:0">Tidak menemukan yang dicari? Katalog lengkap &amp; stok harian dibagikan di grup WhatsApp pelanggan — <a href="#" data-wa="Halo Kirana Boutique, saya ingin bergabung ke grup WhatsApp pelanggan untuk katalog lengkap." style="color:var(--c1);font-weight:700">gabung di sini</a>.</p>
+</div>
+</section>
+
+<section id="cara-order" class="alt">
+<div class="wrap">
+<div class="kicker reveal">Cara Order</div>
+<h2 class="judul reveal">Belanja Tanpa Ribet, <span class="grad-text">4 Langkah Saja</span></h2>
+<p class="sub reveal">Tidak perlu install aplikasi atau membuat akun. Semua lewat WhatsApp yang sudah kamu pakai setiap hari.</p>
+<div class="langkah">
+<div class="step reveal"><div class="no">01</div><h4>Pilih Produk</h4><p>Telusuri katalog di halaman ini dan temukan yang kamu suka.</p></div>
+<div class="step reveal"><div class="no">02</div><h4>Klik Tombol Pesan</h4><p>Kamu diarahkan ke WhatsApp admin dengan pesan yang sudah terisi nama produk.</p></div>
+<div class="step reveal"><div class="no">03</div><h4>Konfirmasi &amp; Bayar</h4><p>Admin cek stok, hitung ongkir, dan kirim instruksi transfer/QRIS. Stok kami kunci untukmu setelah pembayaran.</p></div>
+<div class="step reveal"><div class="no">04</div><h4>Paket Meluncur</h4><p>Pesanan dikirim di hari yang sama (order sebelum 15.00) dengan nomor resi yang bisa dilacak.</p></div>
+</div>
+</div>
+</section>
+
+<section id="keunggulan">
+<div class="wrap">
+<div class="kicker reveal">Keunggulan Toko</div>
+<h2 class="judul reveal">Kenapa Belanja <span class="grad-text">di Kirana Boutique</span></h2>
+<p class="sub reveal">Kami toko kecil yang menjaga kepercayaan seperti aset terbesar.</p>
+<div class="grid2">
+<div class="kartu reveal"><div class="ikon">📸</div><h3>Foto Asli, Bukan Comotan</h3><p>Semua foto produk adalah foto barang asli di toko kami. Yang kamu lihat = yang kamu terima.</p></div>
+<div class="kartu reveal"><div class="ikon">🔁</div><h3>Bisa Tukar Ukuran</h3><p>Salah ukuran? Tukar dalam 3 hari sejak barang diterima, selama label masih terpasang dan belum dipakai keluar.</p></div>
+<div class="kartu reveal"><div class="ikon">🚚</div><h3>Kirim Se-Indonesia</h3><p>JNE, J&amp;T, SiCepat, dan AnterAja. Gratis ongkir area Sukoharjo–Solo untuk pembelian di atas Rp250 rb, bisa COD.</p></div>
+<div class="kartu reveal"><div class="ikon">💬</div><h3>Admin Fast-Response</h3><p>Dibalas manusia asli pukul 08.00–21.00 setiap hari. Konsultasi padu-padan juga boleh, gratis.</p></div>
+</div>
+</div>
+</section>
+
+<section class="alt">
+<div class="wrap">
+<div class="kicker reveal">Kata Pembeli</div>
+<h2 class="judul reveal">Sudah Cantik, <span class="grad-text">Makin Pede</span></h2>
+<p class="sub reveal">Cerita pembeli Kirana Boutique dari berbagai kota.</p>
+<div class="testi">
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Dress-nya persis foto, bahannya adem dan jatuhnya bagus. Admin fast response, malam pesan besoknya dikirim."</p><div class="siapa"><div class="ava">👩</div><div><b>Intan P.</b><span>Pembeli dari Semarang</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Udah 4x repeat order tas di sini. Kualitas kulit sintetisnya awet, nggak ngelupas kayak toko sebelah."</p><div class="siapa"><div class="ava">👜</div><div><b>Mega W.</b><span>Pelanggan setia, Solo</span></div></div></div>
+<div class="tst reveal"><div class="bintang">★★★★★</div><p>"Hijab voalnya gampang banget dibentuk dan nggak licin. Warnanya juga sesuai katalog, nggak zonk."</p><div class="siapa"><div class="ava">🧕</div><div><b>Aisyah R.</b><span>Pembeli dari Yogyakarta</span></div></div></div>
+</div>
+</div>
+</section>
+
+<section id="faq">
+<div class="wrap">
+<div class="kicker reveal">FAQ</div>
+<h2 class="judul reveal">Sering <span class="grad-text">Ditanyakan</span></h2>
+<p class="sub reveal">Sebelum chat admin, mungkin jawabanmu ada di sini.</p>
+<div class="faq">
+<div class="tanya reveal"><button>Apakah bisa COD?<span class="panah">▾</span></button><div class="jawab"><p>Bisa untuk area Sukoharjo & Solo (bayar di tempat saat kurir datang). Untuk luar kota, pembayaran via transfer/QRIS dan paket dikirim setelah pembayaran terkonfirmasi.</p></div></div>
+<div class="tanya reveal"><button>Bagaimana cara tahu ukuran yang pas?<span class="panah">▾</span></button><div class="jawab"><p>Setiap produk punya tabel ukuran (size chart). Kirim tinggi & berat badanmu ke admin via WhatsApp, kami bantu rekomendasikan ukuran yang paling pas.</p></div></div>
+<div class="tanya reveal"><button>Berapa lama pengiriman?<span class="panah">▾</span></button><div class="jawab"><p>Order sebelum pukul 15.00 dikirim hari yang sama. Estimasi: Jawa 2–3 hari, luar Jawa 3–6 hari kerja, tergantung ekspedisi pilihanmu.</p></div></div>
+<div class="tanya reveal"><button>Kalau barang datang rusak/cacat bagaimana?<span class="panah">▾</span></button><div class="jawab"><p>Foto/video unboxing adalah bukti klaim. Barang cacat produksi kami ganti baru atau refund penuh — ongkir retur kami tanggung.</p></div></div>
+<div class="tanya reveal"><button>Apakah ada harga grosir/reseller?<span class="panah">▾</span></button><div class="jawab"><p>Ada. Pembelian minimal 6 pcs campur model mendapat harga reseller. Chat admin untuk katalog grosir terbaru.</p></div></div>
+</div>
+<div style="text-align:center;margin-top:44px" class="reveal">
+<a class="btn btn-wa" href="#" data-wa="Halo Kirana Boutique, saya ingin bertanya tentang produk/katalog terbaru.">Chat Admin via WhatsApp</a>
+</div>
+</div>
+</section>
+<footer><div class="wrap">
+<div class="nama">Kirana Boutique</div>
+<p>Jl. Adisucipto No. 56, Sukoharjo, Jawa Tengah · Buka setiap hari 08.00–21.00 WIB<br>Pengiriman se-Indonesia dari Sukoharjo · COD area Sukoharjo–Solo.</p>
+<p class="kredit">Template Portofolio oleh <b>Blackwins Studio</b> — Jasa Pembuatan Website &amp; Landing Page Profesional · blackwinsstudio.my.id</p>
+</div></footer>
+<a class="wa-float" href="#" data-wa="Halo Kirana Boutique, saya ingin bertanya lebih lanjut." title="Chat WhatsApp">💬</a>
+<script>
+const WA_NUMBER = "6283840002399";
+function waLink(pesan){ return "https://wa.me/" + WA_NUMBER + "?text=" + encodeURIComponent(pesan); }
+document.querySelectorAll("[data-wa]").forEach(function(el){
+  el.setAttribute("href", waLink(el.getAttribute("data-wa"))); el.setAttribute("target", "_blank");
+});
+document.querySelectorAll("form[data-wa-form]").forEach(function(f){
+  f.addEventListener("submit", function(e){
+    e.preventDefault();
+    var baris = [f.getAttribute("data-wa-form")];
+    f.querySelectorAll("[data-label]").forEach(function(inp){
+      var v = (inp.value || "").trim(); if (v) baris.push(inp.getAttribute("data-label") + ": " + v);
+    });
+    window.open(waLink(baris.join("\n")), "_blank");
+  });
+});
+var io = new IntersectionObserver(function(es){ es.forEach(function(en){ if(en.isIntersecting){ en.target.classList.add("tampil"); io.unobserve(en.target); } }); }, {threshold:.1});
+document.querySelectorAll(".reveal").forEach(function(el){ io.observe(el); });
+document.querySelectorAll(".tanya button").forEach(function(b){
+  b.addEventListener("click", function(){
+    var box = b.parentElement, jawab = box.querySelector(".jawab"), buka = box.classList.toggle("buka");
+    jawab.style.maxHeight = buka ? jawab.scrollHeight + "px" : "0px";
+  });
+});
+</script>
+</body>
+</html>
