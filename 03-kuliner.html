@@ -55,6 +55,9 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);bac
 .visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
 .visual .vt{font-size:21px;font-weight:800}
 .visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.visual .vt,.visual .vs{position:relative;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
 .stat .n{font-size:25px;font-weight:800;color:var(--c1)}
@@ -80,6 +83,10 @@ section{padding:84px 0}
 .tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
 .tile .tt{font-weight:700;font-size:16px}
 .tile .ts{font-size:13px;opacity:.88}
+.tile{position:relative;overflow:hidden}
+.tile .timg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
 .tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
@@ -153,7 +160,7 @@ footer .kredit b{color:var(--c1)}
 <div class="stat"><div class="n">10 Level</div><div class="l">Pilihan level kepedasan</div></div>
 </div>
 </div>
-<div class="visual"><div class="emo">🌶️</div><div class="vt">Sambal Dibakar, Bukan Sekadar Diulek</div><div class="vs">Itu rahasia aromanya: cabai dan tomat dibakar dulu di atas arang sebelum diulek kasar dengan bawang bakar.</div></div>
+<div class="visual"><img class="vimg" src="foto/03-hero.jpg" alt="Ayam goreng pedas berlumur saus sambal"><div class="vt">Sambal Dibakar, Bukan Sekadar Diulek</div><div class="vs">Itu rahasia aromanya: cabai dan tomat dibakar dulu di atas arang sebelum diulek kasar dengan bawang bakar.</div></div>
 </div>
 </div>
 
@@ -195,10 +202,10 @@ footer .kredit b{color:var(--c1)}
 <h2 class="judul reveal">Yang Keluar dari <span class="grad-text">Dapur Kami</span></h2>
 <p class="sub reveal">Dimasak dadakan setiap ada pesanan — tidak ada stok lama yang dihangatkan ulang.</p>
 <div class="galeri">
-<div class="tile reveal" style="background:linear-gradient(135deg,#E63329,#FF7A18)"><div class="emo">🔥</div><div class="tt">Sambal Dibakar Arang</div><div class="ts">Proses signature kami</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#B45309,#F59E0B)"><div class="emo">🍗</div><div class="tt">Ayam Crispy Renyah</div><div class="ts">Digoreng saat dipesan</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#7C2D12,#DC2626)"><div class="emo">🌶️</div><div class="tt">Level 10: Neraka</div><div class="ts">Berani coba? Gratis es teh kalau habis</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#065F46,#10B981)"><div class="emo">🥬</div><div class="tt">Lalapan Segar Harian</div><div class="ts">Dari pasar setiap pagi</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#E63329,#FF7A18)"><img class="timg" src="foto/03-galeri-1.jpg" alt="Bahan sambal cabai dan bawang di dalam cobek"><div class="tt">Sambal Dibakar Arang</div><div class="ts">Proses signature kami</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#B45309,#F59E0B)"><img class="timg" src="foto/03-galeri-2.jpg" alt="Ayam goreng crispy pedas di atas piring"><div class="tt">Ayam Crispy Renyah</div><div class="ts">Digoreng saat dipesan</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#7C2D12,#DC2626)"><img class="timg" src="foto/03-galeri-3.jpg" alt="Cabai merah di atas bubuk rempah"><div class="tt">Level 10: Neraka</div><div class="ts">Berani coba? Gratis es teh kalau habis</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#065F46,#10B981)"><img class="timg" src="foto/03-galeri-4.jpg" alt="Aneka sayuran dan rempah segar"><div class="tt">Lalapan Segar Harian</div><div class="ts">Dari pasar setiap pagi</div></div>
 </div>
 </div>
 </section>

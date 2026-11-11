@@ -55,6 +55,9 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);bac
 .visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
 .visual .vt{font-size:21px;font-weight:800}
 .visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.visual .vt,.visual .vs{position:relative;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
 .stat .n{font-size:25px;font-weight:800;color:var(--c1)}
@@ -80,6 +83,10 @@ section{padding:84px 0}
 .tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
 .tile .tt{font-weight:700;font-size:16px}
 .tile .ts{font-size:13px;opacity:.88}
+.tile{position:relative;overflow:hidden}
+.tile .timg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
 .tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
@@ -153,7 +160,7 @@ footer .kredit b{color:var(--c1)}
 <div class="stat"><div class="n">1 th</div><div class="l">Garansi kebocoran &amp; keretakan</div></div>
 </div>
 </div>
-<div class="visual"><div class="emo">🏠</div><div class="vt">Dari Gambar Kerja sampai Serah Terima</div><div class="vs">Satu tim untuk desain, struktur, dan finishing — kamu cukup pantau progres lewat foto harian di WhatsApp.</div></div>
+<div class="visual"><img class="vimg" src="foto/04-hero.jpg" alt="Tukang menggunakan bor listrik di lokasi pembangunan"><div class="vt">Dari Gambar Kerja sampai Serah Terima</div><div class="vs">Satu tim untuk desain, struktur, dan finishing — kamu cukup pantau progres lewat foto harian di WhatsApp.</div></div>
 </div>
 </div>
 
@@ -193,12 +200,12 @@ footer .kredit b{color:var(--c1)}
 <h2 class="judul reveal">Hasil Nyata, <span class="grad-text">Bukan Sekadar Render</span></h2>
 <p class="sub reveal">Sebagian proyek terakhir kami di Solo Raya. Alamat lengkap &amp; kontak pemilik tersedia saat konsultasi untuk survei referensi.</p>
 <div class="galeri">
-<div class="tile reveal" style="background:linear-gradient(135deg,#1D5FBF,#0EA5E9)"><div class="emo">🏡</div><div class="tt">Renovasi Total Rumah — Colomadu</div><div class="ts">2 lantai · 4 bulan · 2025</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#0F766E,#22C55E)"><div class="emo">🍽️</div><div class="tt">Dapur Modern — Solo Baru</div><div class="ts">Kitchen set + granit · 3 minggu</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#7C3AED,#DB2777)"><div class="emo">☕</div><div class="tt">Interior Kafe — Laweyan</div><div class="ts">Fasad + interior · 6 minggu</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#B45309,#F59E0B)"><div class="emo">🚿</div><div class="tt">Kamar Mandi Hotel — Sukoharjo</div><div class="ts">12 unit · waterproofing total</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#334155,#64748B)"><div class="emo">🏢</div><div class="tt">Kantor 2 Lantai — Kartasura</div><div class="ts">Bangun lepas · 7 bulan · 2024</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#BE185D,#F97316)"><div class="emo">🛍️</div><div class="tt">Toko Fashion — Pasar Kliwon</div><div class="ts">Renovasi tanpa tutup toko</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#1D5FBF,#0EA5E9)"><img class="timg" src="foto/04-proyek-1.jpg" alt="Rumah modern dua lantai berwarna putih"><div class="tt">Renovasi Total Rumah — Colomadu</div><div class="ts">2 lantai · 4 bulan · 2025</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#0F766E,#22C55E)"><img class="timg" src="foto/04-proyek-2.jpg" alt="Interior dapur modern dengan kitchen set"><div class="tt">Dapur Modern — Solo Baru</div><div class="ts">Kitchen set + granit · 3 minggu</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#7C3AED,#DB2777)"><img class="timg" src="foto/04-proyek-3.jpg" alt="Interior kafe yang hangat dengan tanaman"><div class="tt">Interior Kafe — Laweyan</div><div class="ts">Fasad + interior · 6 minggu</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#B45309,#F59E0B)"><img class="timg" src="foto/04-proyek-4.jpg" alt="Kamar mandi modern dengan shower kaca"><div class="tt">Kamar Mandi Hotel — Sukoharjo</div><div class="ts">12 unit · waterproofing total</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#334155,#64748B)"><img class="timg" src="foto/04-proyek-5.jpg" alt="Ruang kantor modern dengan jendela besar"><div class="tt">Kantor 2 Lantai — Kartasura</div><div class="ts">Bangun lepas · 7 bulan · 2024</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#BE185D,#F97316)"><img class="timg" src="foto/04-proyek-6.jpg" alt="Interior butik pakaian dengan rak warna-warni"><div class="tt">Toko Fashion — Pasar Kliwon</div><div class="ts">Renovasi tanpa tutup toko</div></div>
 </div>
 </div>
 </section>

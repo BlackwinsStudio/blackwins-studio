@@ -153,6 +153,15 @@ html.terkunci,body.terkunci{overflow:hidden;height:100%}
 .mempelai-card .mpanggilan{color:var(--c1);font-weight:700;margin-bottom:12px}
 .norek{font-size:23px;font-weight:800;letter-spacing:1.5px;margin:14px 0 18px;color:var(--teks)}
 </style>
+<style>
+/* FOTO ASLI — sumber Pexels (lihat foto/kredit-C.md) */
+.sampul{background:linear-gradient(160deg,rgba(247,227,220,.90),rgba(251,238,227,.86) 45%,rgba(243,220,200,.90)),url('foto/15-sampul.jpg') center 26%/cover no-repeat}
+.mempelai-card .mfoto{width:150px;height:150px;object-fit:cover;border-radius:50%;border:4px solid #fff;box-shadow:0 14px 34px var(--bayang)}
+.tile{position:relative;overflow:hidden;justify-content:flex-end}
+.tile .tfoto{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .tshade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,14,22,.08) 28%,rgba(10,14,22,.82))}
+.tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
+</style>
 </head>
 <body>
 <header><div class="wrap nav">
@@ -198,8 +207,8 @@ html.terkunci,body.terkunci{overflow:hidden;height:100%}
 <h2 class="judul serif reveal">Dua Hati, <span class="grad-text">Satu Tujuan</span></h2>
 <p class="sub reveal">Putra-putri kebanggaan dua keluarga yang akan menyempurnakan separuh agama.</p>
 <div class="grid" style="max-width:900px;margin:0 auto">
-<div class="kartu mempelai-card reveal"><div class="memo">🤵</div><h3 class="serif">Rizky Ananda Putra, S.T.</h3><p class="mpanggilan">— Rizky —</p><p>Putra kedua dari<br><b>Bapak H. Ananda Wijaya</b><br>&amp;<br><b>Ibu Hj. Ratna Wijaya</b><br><span style="font-size:13px">Jl. Kenanga No. 8, Sukoharjo</span></p></div>
-<div class="kartu mempelai-card reveal"><div class="memo">👰</div><h3 class="serif">Putri Maharani, S.E.</h3><p class="mpanggilan">— Putri —</p><p>Putri pertama dari<br><b>Bapak Ir. Mahendra Saputra</b><br>&amp;<br><b>Ibu Dra. Laksmi Saputra</b><br><span style="font-size:13px">Jl. Melati No. 21, Solo</span></p></div>
+<div class="kartu mempelai-card reveal"><img class="mfoto" src="foto/15-mempelai-1.jpg" alt="Rizky Ananda Putra, mempelai pria, berjas tuxedo"><h3 class="serif">Rizky Ananda Putra, S.T.</h3><p class="mpanggilan">— Rizky —</p><p>Putra kedua dari<br><b>Bapak H. Ananda Wijaya</b><br>&amp;<br><b>Ibu Hj. Ratna Wijaya</b><br><span style="font-size:13px">Jl. Kenanga No. 8, Sukoharjo</span></p></div>
+<div class="kartu mempelai-card reveal"><img class="mfoto" src="foto/15-mempelai-2.jpg" alt="Putri Maharani, mempelai wanita berhijab putih di taman"><h3 class="serif">Putri Maharani, S.E.</h3><p class="mpanggilan">— Putri —</p><p>Putri pertama dari<br><b>Bapak Ir. Mahendra Saputra</b><br>&amp;<br><b>Ibu Dra. Laksmi Saputra</b><br><span style="font-size:13px">Jl. Melati No. 21, Solo</span></p></div>
 </div>
 <p class="sub reveal" style="margin-top:40px;margin-bottom:0;font-style:italic">"Dan di antara tanda-tanda kebesaran-Nya ialah Dia menciptakan pasangan-pasangan untukmu… agar kamu cenderung dan merasa tenteram kepadanya, dan Dia menjadikan di antaramu rasa kasih dan sayang."<br><b>— QS. Ar-Rum: 21 —</b></p>
 </div>
@@ -232,12 +241,12 @@ html.terkunci,body.terkunci{overflow:hidden;height:100%}
 <h2 class="judul serif reveal">Sepotong <span class="grad-text">Cerita Kami</span></h2>
 <p class="sub reveal">Dari perkenalan pertama di sebuah acara kampus, sampai lamaran sederhana yang membuat kedua keluarga menangis bahagia.</p>
 <div class="galeri">
-<div class="tile reveal" style="background:linear-gradient(135deg,#B76E79,#E3A6B0)"><div class="emo">☕</div><div class="tt">Pertemuan Pertama</div><div class="ts">Kedai kopi dekat kampus, 2022</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#D9A05B,#EDBE8A)"><div class="emo">🌅</div><div class="tt">Senja di Pantai</div><div class="ts">Liburan pertama bersama</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#9A7B9F,#C4A6C9)"><div class="emo">🎓</div><div class="tt">Wisuda Berdua</div><div class="ts">Janji untuk saling menunggu</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#C98A94,#E8B4BC)"><div class="emo">💐</div><div class="tt">Hari Lamaran</div><div class="ts">25 Desember 2025</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#A9714B,#D9A05B)"><div class="emo">🏡</div><div class="tt">Bertemu Keluarga</div><div class="ts">Silaturahmi dua keluarga</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#7D8C74,#A9BC9F)"><div class="emo">🌿</div><div class="tt">Prewedding</div><div class="ts">Di kebun teh Kemuning</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-1.jpg" alt="Rizky dan Putri berbincang sambil minum kopi di kedai" loading="lazy"><div class="tshade"></div><div class="tt">Pertemuan Pertama</div><div class="ts">Kedai kopi dekat kampus, 2022</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-2.jpg" alt="Siluet Rizky dan Putri di pantai saat matahari terbenam" loading="lazy"><div class="tshade"></div><div class="tt">Senja di Pantai</div><div class="ts">Liburan pertama bersama</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-3.jpg" alt="Rizky dan Putri memakai toga wisuda sambil memegang ijazah" loading="lazy"><div class="tshade"></div><div class="tt">Wisuda Berdua</div><div class="ts">Janji untuk saling menunggu</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-4.jpg" alt="Momen lamaran: cincin dan buket bunga" loading="lazy"><div class="tshade"></div><div class="tt">Hari Lamaran</div><div class="ts">25 Desember 2025</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-5.jpg" alt="Makan bersama keluarga besar di rumah" loading="lazy"><div class="tshade"></div><div class="tt">Bertemu Keluarga</div><div class="ts">Silaturahmi dua keluarga</div></div>
+<div class="tile reveal"><img class="tfoto" src="foto/15-galeri-6.jpg" alt="Hamparan kebun teh Kemuning yang hijau" loading="lazy"><div class="tshade"></div><div class="tt">Prewedding</div><div class="ts">Di kebun teh Kemuning</div></div>
 </div>
 </div>
 </section>

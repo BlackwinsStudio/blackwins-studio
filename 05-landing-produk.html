@@ -55,6 +55,9 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);bac
 .visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
 .visual .vt{font-size:21px;font-weight:800}
 .visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.visual .vt,.visual .vs{position:relative;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
 .stat .n{font-size:25px;font-weight:800;color:var(--c1)}
@@ -151,7 +154,7 @@ footer .kredit b{color:var(--c1)}
 <div class="stat"><div class="n">12.400+</div><div class="l">Botol terjual sejak 2020</div></div>
 <div class="stat"><div class="n">Garansi</div><div class="l">Uang kembali jika terbukti campuran</div></div>
 </div>
-<div class="visual" style="max-width:760px;margin:46px auto 0;min-height:280px"><div class="emo">🍯</div><div class="vt">Satu Sendok Pagi &amp; Malam</div><div class="vs">Cara konsumsi yang dianjurkan: 1 sendok makan saat perut kosong di pagi hari, 1 sendok sebelum tidur — diminum langsung atau dicampur air hangat (bukan panas).</div></div>
+<div class="visual" style="max-width:760px;margin:46px auto 0;min-height:280px"><img class="vimg" src="foto/05-hero.jpg" alt="Madu emas menetes dari sendok kayu ke toples kaca"><div class="vt">Satu Sendok Pagi &amp; Malam</div><div class="vs">Cara konsumsi yang dianjurkan: 1 sendok makan saat perut kosong di pagi hari, 1 sendok sebelum tidur — diminum langsung atau dicampur air hangat (bukan panas).</div></div>
 </div>
 </div>
 

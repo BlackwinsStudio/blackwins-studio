@@ -55,6 +55,9 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);bac
 .visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
 .visual .vt{font-size:21px;font-weight:800}
 .visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.visual .vt,.visual .vs{position:relative;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
 .stat .n{font-size:25px;font-weight:800;color:var(--c1)}
@@ -80,6 +83,10 @@ section{padding:84px 0}
 .tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
 .tile .tt{font-weight:700;font-size:16px}
 .tile .ts{font-size:13px;opacity:.88}
+.tile{position:relative;overflow:hidden}
+.tile .timg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.tile::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.06),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.tile .tt,.tile .ts{position:relative;z-index:2;text-shadow:0 2px 10px rgba(0,0,0,.55)}
 .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
 .tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
@@ -189,7 +196,7 @@ body{background:#fff}
 <div class="stat"><div class="n">15 th</div><div class="l">Berpengalaman mendidik</div></div>
 </div>
 </div>
-<div class="visual"><div class="emo">🏫</div><div class="vt">Lingkungan Aman &amp; Menyenangkan</div><div class="vs">Gedung milik sendiri, perpustakaan anak, laboratorium komputer, dan lapangan bermain yang luas.</div></div>
+<div class="visual"><img class="vimg" src="foto/01-hero.jpg" alt="Anak berhijab membaca Al-Qur'an di dalam ruangan"><div class="vt">Lingkungan Aman &amp; Menyenangkan</div><div class="vs">Gedung milik sendiri, perpustakaan anak, laboratorium komputer, dan lapangan bermain yang luas.</div></div>
 </div>
 </div>
 
@@ -323,12 +330,12 @@ body{background:#fff}
 <h2 class="judul reveal">Hari-Hari Penuh <span class="grad-text">Cerita di Sekolah</span></h2>
 <p class="sub reveal">Sekilas aktivitas ananda di SD Cendekia Nusantara.</p>
 <div class="galeri">
-<div class="tile reveal" style="background:linear-gradient(135deg,#0B6BCB,#38BDF8)"><div class="emo">🎒</div><div class="tt">Hari Pertama Sekolah</div><div class="ts">Disambut guru dengan senyum</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#12B981,#0B6BCB)"><div class="emo">🕌</div><div class="tt">Salat Dhuha Berjamaah</div><div class="ts">Pembiasaan pagi setiap hari</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#F59E0B,#EF4444)"><div class="emo">🏆</div><div class="tt">Lomba Tahfidz</div><div class="ts">Mengasah keberanian tampil</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#8B5CF6,#EC4899)"><div class="emo">🎨</div><div class="tt">Kelas Kreativitas</div><div class="ts">Melukis &amp; prakarya anak</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#0EA5E9,#12B981)"><div class="emo">🏊</div><div class="tt">Ekskul Renang</div><div class="ts">Sehat dan berani air</div></div>
-<div class="tile reveal" style="background:linear-gradient(135deg,#F97316,#F59E0B)"><div class="emo">🌱</div><div class="tt">Kebun Sekolah</div><div class="ts">Belajar mencintai alam</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#0B6BCB,#38BDF8)"><img class="timg" src="foto/01-galeri-1.jpg" alt="Anak dengan tas sekolah tersenyum, siap berangkat sekolah"><div class="tt">Hari Pertama Sekolah</div><div class="ts">Disambut guru dengan senyum</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#12B981,#0B6BCB)"><img class="timg" src="foto/01-galeri-2.jpg" alt="Anak perempuan berdoa di dalam masjid"><div class="tt">Salat Dhuha Berjamaah</div><div class="ts">Pembiasaan pagi setiap hari</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#F59E0B,#EF4444)"><img class="timg" src="foto/01-galeri-3.jpg" alt="Anak laki-laki membaca Al-Qur'an"><div class="tt">Lomba Tahfidz</div><div class="ts">Mengasah keberanian tampil</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#8B5CF6,#EC4899)"><img class="timg" src="foto/01-galeri-4.jpg" alt="Anak-anak melukis di kelas seni sekolah"><div class="tt">Kelas Kreativitas</div><div class="ts">Melukis &amp; prakarya anak</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#0EA5E9,#12B981)"><img class="timg" src="foto/01-galeri-5.jpg" alt="Anak-anak belajar berenang di kolam renang"><div class="tt">Ekskul Renang</div><div class="ts">Sehat dan berani air</div></div>
+<div class="tile reveal" style="background:linear-gradient(135deg,#F97316,#F59E0B)"><img class="timg" src="foto/01-galeri-6.jpg" alt="Anak menanam benih di tanah"><div class="tt">Kebun Sekolah</div><div class="ts">Belajar mencintai alam</div></div>
 </div>
 </div>
 </section>

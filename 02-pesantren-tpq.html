@@ -55,6 +55,9 @@ header{position:fixed;inset:0 0 auto 0;z-index:50;background:var(--headerbg);bac
 .visual .emo{font-size:104px;line-height:1;filter:drop-shadow(0 14px 22px rgba(0,0,0,.28))}
 .visual .vt{font-size:21px;font-weight:800}
 .visual .vs{font-size:14px;opacity:.88;max-width:340px}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:0}
+.visual::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.16),rgba(0,0,0,.55));z-index:1;pointer-events:none}
+.visual .vt,.visual .vs{position:relative;z-index:2;text-shadow:0 2px 14px rgba(0,0,0,.5)}
 .stats{display:flex;gap:14px;flex-wrap:wrap;margin-top:38px}
 .stat{flex:1;min-width:128px;border:1px solid var(--garis);background:var(--panel);border-radius:16px;padding:15px 17px}
 .stat .n{font-size:25px;font-weight:800;color:var(--c1)}
@@ -153,7 +156,7 @@ footer .kredit b{color:var(--c1)}
 <div class="stat"><div class="n">24 Jam</div><div class="l">Pendampingan musyrif asrama</div></div>
 </div>
 </div>
-<div class="visual"><div class="emo">📿</div><div class="vt">"Sebaik-baik kalian adalah yang belajar Al-Qur'an dan mengajarkannya"</div><div class="vs">Lingkungan pondok yang teduh, jauh dari keramaian, fokus untuk menghafal dan menuntut ilmu.</div></div>
+<div class="visual"><img class="vimg" src="foto/02-hero.jpg" alt="Anak perempuan berhijab membaca Al-Qur'an"><div class="vt">"Sebaik-baik kalian adalah yang belajar Al-Qur'an dan mengajarkannya"</div><div class="vs">Lingkungan pondok yang teduh, jauh dari keramaian, fokus untuk menghafal dan menuntut ilmu.</div></div>
 </div>
 </div>
 

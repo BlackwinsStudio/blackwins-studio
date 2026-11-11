@@ -80,6 +80,13 @@ section{padding:84px 0}
 .tile .emo{font-size:56px;filter:drop-shadow(0 8px 14px rgba(0,0,0,.3))}
 .tile .tt{font-weight:700;font-size:16px}
 .tile .ts{font-size:13px;opacity:.88}
+.visual .vimg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.visual .vlapis{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,14,.15),rgba(8,8,14,.85))}
+.visual .vkonten{position:relative;z-index:2;display:flex;flex-direction:column;align-items:center;gap:8px;text-shadow:0 2px 12px rgba(0,0,0,.55)}
+.tile{position:relative;overflow:hidden}
+.tile .timg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.tile .tlapis{position:absolute;inset:0;background:linear-gradient(180deg,rgba(8,8,14,0) 35%,rgba(8,8,14,.82))}
+.tile .tkonten{position:relative;z-index:2;margin-top:auto;display:flex;flex-direction:column;align-items:center;gap:6px;text-shadow:0 2px 10px rgba(0,0,0,.5)}
 .testi{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:20px}
 .tst{border:1px solid var(--garis);border-radius:20px;background:var(--panel);padding:27px 25px}
 .tst .bintang{color:#F5A623;letter-spacing:2px;font-size:15px;margin-bottom:11px}
@@ -153,7 +160,7 @@ footer .kredit b{color:var(--c1)}
 <div class="stat"><div class="n">7 hari</div><div class="l">Foto pilihan selesai diedit</div></div>
 </div>
 </div>
-<div class="visual"><div class="emo">📷</div><div class="vt">"Foto yang bagus membuat orang berhenti scroll. Foto yang bercerita membuat orang berhenti — titik."</div><div class="vs">Full-frame mirrorless, lensa prime, dan drone berlisensi untuk sudut pandang yang tidak biasa.</div></div>
+<div class="visual"><img class="vimg" src="foto/06-hero.jpg" alt="Fotografer memegang kamera profesional"><div class="vlapis"></div><div class="vkonten"><div class="vt">"Foto yang bagus membuat orang berhenti scroll. Foto yang bercerita membuat orang berhenti — titik."</div><div class="vs">Full-frame mirrorless, lensa prime, dan drone berlisensi untuk sudut pandang yang tidak biasa.</div></div></div>
 </div>
 </div>
 
@@ -163,12 +170,12 @@ footer .kredit b{color:var(--c1)}
 <h2 class="judul reveal">Setiap Frame <span class="grad-text">Punya Cerita</span></h2>
 <p class="sub reveal">Cuplikan dari ratusan sesi yang pernah saya kerjakan. Galeri lengkap dikirim via WhatsApp saat kamu bertanya — biar file aslinya yang bicara.</p>
 <div class="galeri">
-<div class="tile reveal" style="background:linear-gradient(150deg,#831843,#DB2777);min-height:230px"><div class="emo">💍</div><div class="tt">Pernikahan Ayu &amp; Bima</div><div class="ts">Gedung Sasono Utomo · 2025</div></div>
-<div class="tile reveal" style="background:linear-gradient(150deg,#1E3A8A,#0EA5E9);min-height:230px"><div class="emo">🌅</div><div class="tt">Prewedding di Tawangmangu</div><div class="ts">Golden hour di kaki Lawu</div></div>
-<div class="tile reveal" style="background:linear-gradient(150deg,#7C2D12,#F97316);min-height:230px"><div class="emo">🍔</div><div class="tt">Foto Produk — Burger Lokal</div><div class="ts">Untuk katalog &amp; iklan UMKM</div></div>
-<div class="tile reveal" style="background:linear-gradient(150deg,#14532D,#22C55E);min-height:230px"><div class="emo">🎓</div><div class="tt">Wisuda &amp; Keluarga</div><div class="ts">UNS · sesi outdoor ceria</div></div>
-<div class="tile reveal" style="background:linear-gradient(150deg,#4C1D95,#8B5CF6);min-height:230px"><div class="emo">🎤</div><div class="tt">Konser &amp; Event Panggung</div><div class="ts">Dokumentasi live multi-kamera</div></div>
-<div class="tile reveal" style="background:linear-gradient(150deg,#0F766E,#14B8A6);min-height:230px"><div class="emo">🏢</div><div class="tt">Company Profile Video</div><div class="ts">Profil pabrik &amp; testimoni direksi</div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-1.jpg" alt="Hasil foto pernikahan pasangan pengantin"><div class="tlapis"></div><div class="tkonten"><div class="tt">Pernikahan Ayu &amp; Bima</div><div class="ts">Gedung Sasono Utomo · 2025</div></div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-2.jpg" alt="Foto prewedding pasangan saat matahari terbenam"><div class="tlapis"></div><div class="tkonten"><div class="tt">Prewedding di Tawangmangu</div><div class="ts">Golden hour di kaki Lawu</div></div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-3.jpg" alt="Foto produk burger untuk katalog UMKM"><div class="tlapis"></div><div class="tkonten"><div class="tt">Foto Produk — Burger Lokal</div><div class="ts">Untuk katalog &amp; iklan UMKM</div></div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-4.jpg" alt="Foto wisuda merayakan kelulusan"><div class="tlapis"></div><div class="tkonten"><div class="tt">Wisuda &amp; Keluarga</div><div class="ts">UNS · sesi outdoor ceria</div></div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-5.jpg" alt="Dokumentasi konser dan panggung musik live"><div class="tlapis"></div><div class="tkonten"><div class="tt">Konser &amp; Event Panggung</div><div class="ts">Dokumentasi live multi-kamera</div></div></div>
+<div class="tile reveal" style="min-height:230px"><img class="timg" src="foto/06-galeri-6.jpg" alt="Produksi video company profile di kantor"><div class="tlapis"></div><div class="tkonten"><div class="tt">Company Profile Video</div><div class="ts">Profil pabrik &amp; testimoni direksi</div></div></div>
 </div>
 </div>
 </section>
@@ -194,7 +201,7 @@ footer .kredit b{color:var(--c1)}
 
 <section id="tentang">
 <div class="wrap split">
-<div class="visual reveal" style="min-height:300px"><div class="emo">🧑‍🎨</div><div class="vt">Di Balik Kamera</div><div class="vs">Memulai dari motret acara kampus tahun 2019, kini dipercaya ratusan pasangan, UMKM, dan perusahaan di Solo Raya &amp; Yogyakarta.</div></div>
+<div class="visual reveal" style="min-height:300px"><img class="vimg" src="foto/06-tentang.jpg" alt="Raka Pradana, fotografer di balik kamera"><div class="vlapis"></div><div class="vkonten"><div class="vt">Di Balik Kamera</div><div class="vs">Memulai dari motret acara kampus tahun 2019, kini dipercaya ratusan pasangan, UMKM, dan perusahaan di Solo Raya &amp; Yogyakarta.</div></div></div>
 <div class="reveal">
 <div class="kicker" style="text-align:left">Tentang Saya</div>
 <h2 class="judul" style="text-align:left;margin-left:0">Halo, Saya Raka 👋</h2>
