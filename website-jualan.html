@@ -1031,6 +1031,45 @@ function sebutPaket(txt){
   return null;
 }
 
+/* ---------- OTAK ASISTEN v2 — CHAT BEBAS KE SERVER (Gemini) ---------- */
+/* Penanda integrasi: BW_API_CHAT / kirimChatAI.
+   Teks bebas pengunjung (di luar alur tombol & mode order) dikirim ke
+   endpoint Otak Asisten v2 di Meja Agen. Bila API gagal/timeout
+   (>25 detik), otomatis jatuh kembali ke prosesBebas() lokal lama. */
+var BW_API_CHAT="https://blackwins-meja-agen.sayyidhusna17.workers.dev/api/chat";
+var riwayatAI=[];
+function renderTeksAI(t){
+  var h=esc(t);
+  h=h.replace(/\*\*([^*]+)\*\*/g,"<b>$1</b>");
+  h=h.replace(/\n/g,"<br>");
+  return h;
+}
+function kirimChatAI(teks){
+  showTyping();
+  var ctrl=("AbortController" in window)? new AbortController():null;
+  var timer=ctrl? setTimeout(function(){ ctrl.abort(); },25000):null;
+  function gagal(){ if(timer) clearTimeout(timer); hideTyping(); prosesBebas(teks); }
+  try{
+    fetch(BW_API_CHAT,{ method:"POST",
+      headers:{"Content-Type":"application/json"},
+      signal:ctrl? ctrl.signal:undefined,
+      body:JSON.stringify({pesan:teks, riwayat:riwayatAI.slice(-10)})
+    }).then(function(r){
+      if(timer) clearTimeout(timer);
+      if(!r.ok) throw new Error("http "+r.status);
+      return r.json();
+    }).then(function(d){
+      if(!d || typeof d.balasan!=="string" || !d.balasan.trim()) throw new Error("balasan kosong");
+      hideTyping();
+      riwayatAI.push({role:"user", text:teks});
+      riwayatAI.push({role:"model", text:d.balasan});
+      if(riwayatAI.length>20) riwayatAI=riwayatAI.slice(-20);
+      addBot(renderTeksAI(d.balasan));
+      setChips(menuChips());
+    }).catch(gagal);
+  }catch(e){ gagal(); }
+}
+
 /* ---------- ROUTER PERCAKAPAN ---------- */
 function prosesTeks(teks){
   if(S.mode==="ord_nama"){
@@ -1101,7 +1140,7 @@ formChat.addEventListener("submit", function(e){
   if(!t) return;
   input.value="";
   addUser(t);
-  if(!prosesTeks(t)) prosesBebas(t);
+  if(!prosesTeks(t)) kirimChatAI(t);
 });
 })();
 </script>
